@@ -1,0 +1,47 @@
+
+> @db/migration@0.0.1 build
+> npx webpack
+
+[1G[0K[1G[0K(node:7471) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+assets by status 108 KiB [1m[32m[cached][39m[22m 3 assets
+runtime modules 3.16 KiB 7 modules
+orphan modules 579 bytes [1m[33m[orphan][39m[22m 1 module
+modules by path [1m../../node_modules/[39m[22m 167 KiB
+  modules by path [1m../../node_modules/pg/[39m[22m 78.4 KiB 18 modules
+  modules by path [1m../../node_modules/pg-protocol/dist/*.js[39m[22m 30.1 KiB 6 modules
+  modules by path [1m../../node_modules/pg-types/[39m[22m 14.1 KiB 5 modules
+  modules by path [1m../../node_modules/pgpass/[39m[22m 9.49 KiB
+    [1m../../node_modules/pgpass/lib/index.js[39m[22m 467 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+    + 2 modules
+  + 9 modules
++ 12 modules
+
+[1m[33mWARNING[39m[22m in [1mconfiguration
+The [1m[31m'mode' option has not been set[39m[22m[1m, webpack will fallback to 'production' for this value.
+[1m[32mSet 'mode' option to 'development' or 'production'[39m[22m[1m to enable defaults for each environment.
+You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/[39m[22m
+
+[1m[31mERROR[39m[22m in [1mcloudflare:sockets[39m[22m
+[1mModule build [1m[31mfailed[39m[22m[1m: UnhandledSchemeError: Reading from "cloudflare:sockets" is not handled by plugins (Unhandled scheme).
+Webpack supports "data:" and "file:" URIs by default.
+You may need an additional plugin to handle "cloudflare:" URIs.
+    at /Users/rdobson/Development/naesb-dlt-local/node_modules/webpack/lib/NormalModule.js:832:25
+    at Hook.eval [as callAsync] (eval at create (/Users/rdobson/Development/naesb-dlt-local/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:6:1)
+    at Hook.CALL_ASYNC_DELEGATE [as _callAsync] (/Users/rdobson/Development/naesb-dlt-local/node_modules/tapable/lib/Hook.js:20:14)
+    at Object.processResource (/Users/rdobson/Development/naesb-dlt-local/node_modules/webpack/lib/NormalModule.js:829:8)
+    at processResource (/Users/rdobson/Development/naesb-dlt-local/node_modules/loader-runner/lib/LoaderRunner.js:220:11)
+    at iteratePitchingLoaders (/Users/rdobson/Development/naesb-dlt-local/node_modules/loader-runner/lib/LoaderRunner.js:171:10)
+    at runLoaders (/Users/rdobson/Development/naesb-dlt-local/node_modules/loader-runner/lib/LoaderRunner.js:398:2)
+    at NormalModule._doBuild (/Users/rdobson/Development/naesb-dlt-local/node_modules/webpack/lib/NormalModule.js:819:3)
+    at NormalModule.build (/Users/rdobson/Development/naesb-dlt-local/node_modules/webpack/lib/NormalModule.js:963:15)
+    at /Users/rdobson/Development/naesb-dlt-local/node_modules/webpack/lib/Compilation.js:1371:12[39m[22m
+ @ ../../node_modules/pg-cloudflare/dist/index.js 38:30-58
+ @ ../../node_modules/pg/lib/stream.js 41:33-57
+ @ ../../node_modules/pg/lib/connection.js 6:39-58
+ @ ../../node_modules/pg/lib/index.js 5:19-42
+ @ ../../node_modules/pg/esm/index.mjs 2:0-32 5:22-31 6:20-27 7:26-39 8:21-29 9:21-29 10:29-45 11:32-51 12:29-45 13:22-31 14:29-45 17:24-35 20:15-17
+ @ ./src/index.ts 12:0-28 15:23-29 43:23-29 49:25-31
+
+webpack 5.73.0 compiled with [1m[31m1 error[39m[22m and [1m[33m1 warning[39m[22m in 1045 ms
+[1G[0K⠙[1G[0K[1G[0K⠙[1G[0K

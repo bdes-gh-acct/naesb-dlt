@@ -1,0 +1,38 @@
+version: 0.2
+env:
+  variables:
+    CI: 0
+    REACT_APP_AUTH0_NAMESPACE_ROLES: https://naesbdlt.org/role
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - echo building 0.0.$CODEBUILD_BUILD_NUMBER
+      - docker pull registry.access.redhat.com/ubi8/nodejs-16:latest
+      - npm install -g lerna@^6.0.0 webpack-cli typescript @nestjs/cli @craco/craco rimraf
+      - npm ci
+      - lerna bootstrap
+      - CI=0 lerna run build
+      - lerna version 0.0.$CODEBUILD_BUILD_NUMBER --no-git-tag-version --no-push --yes
+      - aws codeartifact login --tool npm --repository naesb --domain naesb --namespace=@naesb
+      - lerna publish from-package --git-head ${CODEBUILD_RESOLVED_SOURCE_VERSION} --no-git-reset  --yes
+  # pre_build:
+  #   commands:
+  #     - echo Logging in to Amazon ECR...
+  #     - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 094458522773.dkr.ecr.us-east-1.amazonaws.com
+  # build:
+  #   commands:
+  #     - lerna run docker:publish --scope @api/core
+  #     - lerna run docker:publish --scope @api/ledger
+  #     - lerna run docker:publish --scope @api/ledger-admin
+  #     - lerna run docker:publish --scope @api/ledger-id
+  #     # - docker push 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/client:latest
+  #     - docker pull 094458522773.dkr.ecr.us-east-1.amazonaws.com/external/vault:latest
+  #     - npm run build-agent
+  #     - npm run build-peer
+  #     - npm run build-orderer
+  #     - npm run build-proxy
+  # post_build:
+  #   commands:
+  #     - echo Build completed on `date`

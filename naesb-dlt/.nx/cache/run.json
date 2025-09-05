@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "lerna run build --scope @db/migration",
+    "startTime": "2025-08-15T12:27:23.083Z",
+    "endTime": "2025-08-15T12:27:25.207Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "@db/migration:build",
+      "target": "build",
+      "projectName": "@db/migration",
+      "hash": "14277637124913211433",
+      "startTime": "2025-08-15T12:27:23.113Z",
+      "endTime": "2025-08-15T12:27:25.195Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 1
+    }
+  ]
+}

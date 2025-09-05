@@ -1,0 +1,76 @@
+module.exports = {
+  extends: [
+    'airbnb',
+    'airbnb-typescript',
+    'airbnb/hooks',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:jest/recommended',
+    'prettier',
+    'plugin:prettier/recommended',
+  ],
+  root: true,
+  plugins: ['react', '@typescript-eslint', 'jest', 'import'],
+  env: {
+    browser: true,
+    es6: true,
+    jest: true,
+  },
+  ignorePatterns: ['**/node_modules/**', '**/build/**', '**/webpack.config.js'],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
+  overrides: [
+    {
+      files: ['**/*.tsx'],
+      rules: {
+        '@typescript-eslint/ban-ts-comment': 'off',
+        'import/prefer-default-export': 'off',
+        'react/prop-types': 'off',
+        'react/require-default-props': 'off',
+      },
+    },
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2018,
+    sourceType: 'module',
+    project: './tsconfig.json',
+  },
+  rules: {
+    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/default-param-last': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-loop-func': 'off',
+    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    '@typescript-eslint/no-unsafe-return': 'warn',
+    '@typescript-eslint/no-use-before-define': ['error'],
+    '@typescript-eslint/restrict-template-expressions': 'off',
+    'import/prefer-default-export': 'off',
+    'import/no-named-as-default': 'off',
+    'linebreak-style': 'off',
+    'no-nested-ternary': 'warn',
+    'no-use-before-define': 'off',
+    'react/jsx-no-useless-fragment': 'warn',
+    'react/jsx-props-no-spreading': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/function-component-definition': [
+      2,
+      { namedComponents: 'arrow-function' },
+    ],
+    'prettier/prettier': [
+      'error',
+      {
+        printWidth: 80,
+        tabWidth: 2,
+        singleQuote: true,
+        trailingComma: 'all',
+        arrowParens: 'always',
+        endOfLine: 'auto',
+      },
+    ],
+  },
+};

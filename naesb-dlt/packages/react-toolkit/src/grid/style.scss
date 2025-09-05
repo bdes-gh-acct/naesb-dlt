@@ -1,0 +1,93 @@
+@import '~ag-grid-community/src/styles/ag-grid.scss';
+@import '~ag-grid-community/src/styles/ag-theme-material/sass/ag-theme-material-mixin.scss';
+$primary: #009abd;
+$secondary: #1bc5bd;
+$rowHeight: 60px;
+$error: #d32f2f;
+body {
+  @include ag-theme-material(
+    (
+      material-primary-color: $primary,
+      material-accent-color: #1bc5bd,
+      cell-horizontal-padding: 8px,
+      foreground-color: null,
+      background-color: #303940,
+      header-background-color: null,
+      row-hover-color: rgba(255, 255, 255, 0.08),
+      row-height: $rowHeight,
+      border-color: rgba(255, 255, 255, 0.08),
+      row-border-color: rgba(255, 255, 255, 0.08),
+      control-panel-background-color: #303940,
+    )
+  );
+
+  .ag-header-cell-text {
+    text-transform: uppercase;
+    font-family: Inter, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  .ag-layout-auto-height {
+    .ag-center-cols-container {
+      min-height: 50px;
+    }
+  }
+  .ag-layout-auto-height .ag-center-cols-clipper,
+  body .ag-layout-auto-height .ag-center-cols-container,
+  body .ag-layout-print .ag-center-cols-clipper,
+  body .ag-layout-print .ag-center-cols-container {
+    min-height: 50px;
+  }
+  .ag-cell-inline-editing.ag-cell {
+    input {
+      height: 60px;
+      padding-bottom: 0;
+    }
+    box-shadow: none;
+    height: $rowHeight;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .ag-cell-inline-editing.ag-cell.custom-ag-error {
+    border-color: $error;
+  }
+
+  .ag-overlay-loading-center {
+    margin-top: 40px;
+    box-shadow: none;
+  }
+
+  .ag-overlay-no-rows-wrapper.ag-layout-auto-height {
+    padding-top: 36px;
+  }
+
+  .custom-ag-flex-end {
+    display: flex;
+    justify-content: flex-end;
+    text-align: flex-end;
+  }
+
+  .ag-cell.custom-ag-editable {
+    border-top-width: 1;
+    border-bottom-width: 1;
+    border-left-width: 1;
+    border-right-width: 1;
+    border-color: #fff;
+    border-right-style: solid;
+  }
+  .ag-cell.custom-ag-editable.custom-ag-error,
+  .ag-cell.custom-ag-editable.custom-ag-error.ag-cell-focus {
+    border-color: $error;
+  }
+  .custom-ag-flex-vert-center {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    .ag-react-container {
+      display: flex;
+      // justify-content: center;
+      align-items: center;
+    }
+  }
+}

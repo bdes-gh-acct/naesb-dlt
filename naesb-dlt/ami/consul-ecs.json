@@ -1,0 +1,80 @@
+{
+  "min_packer_version": "1.5.4",
+  "variables": {
+    "aws_region": "us-east-1",
+    "consul_conf": "{{template_dir}}/ecs/consul.conf",
+    "netdev": "{{template_dir}}/ecs/dummy0.netdev",
+    "network": "{{template_dir}}/ecs/dummy0.network"
+  },
+  "builders": [
+    {
+      "vpc_id": "vpc-016db0b3da943c5a1",
+      "subnet_id": "subnet-0d2e9f1cb9c479b60",
+      "ami_name": "NAESB-DLT-Consul-ECS-{{isotime | clean_resource_name}}-{{uuid}}",
+      "ami_description": "An Amazon Linux 2 AMI that has is set up for Consul DNS Lookup",
+      "instance_type": "t3.micro",
+      "name": "amzn2-ami-ecs-hvm-2.0",
+      "region": "{{user `aws_region`}}",
+      "type": "amazon-ebs",
+      "source_ami_filter": {
+        "filters": {
+          "virtualization-type": "hvm",
+          "architecture": "x86_64",
+          "name": "amzn2-ami-ecs-hvm-2.0*"
+        },
+        "owners": ["amazon"],
+        "most_recent": true
+      },
+      "ssh_username": "ec2-user"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo yum install -q -y yum-utils consul dnsmasq systemd-networkd"
+      ]
+    },
+    {
+      "type": "shell",
+      "inline": ["sudo mkdir /etc/systemd/network"]
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sudo chown -R ec2-user: /etc/systemd/network",
+        "sudo chown -R ec2-user: /etc/dnsmasq.d"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "{{user `netdev`}}",
+      "destination": "/etc/systemd/network/dummy0.netdev"
+    },
+    {
+      "type": "file",
+      "source": "{{user `network`}}",
+      "destination": "/etc/systemd/network/dummy0.network"
+    },
+    {
+      "type": "file",
+      "source": "{{user `consul_conf`}}",
+      "destination": "/etc/dnsmasq.d/consul.conf"
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sudo chown -R root: /etc/systemd/network",
+        "sudo chown -R root: /etc/dnsmasq.d"
+      ]
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sudo systemctl restart systemd-networkd",
+        "sudo systemctl restart dnsmasq.service",
+        "sudo systemctl enable dnsmasq.service"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "rootDir": "./src",
+    "baseUrl": "./",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "module": "es2015",
+    "target": "es2015",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src"],
+  "exclude": ["build"]
+}

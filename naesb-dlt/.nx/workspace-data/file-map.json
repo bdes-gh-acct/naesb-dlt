@@ -1,0 +1,3106 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.8.2",
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": ".gitignore",
+        "hash": "2466548852619267037"
+      },
+      {
+        "file": "ami/modules/setup-systemd-resolved/README.md",
+        "hash": "8679572648679941887"
+      },
+      {
+        "file": "docker-compose.yaml",
+        "hash": "2555852655483056350"
+      },
+      {
+        "file": "ami/keys/dc1-server-consul-0-key.pem",
+        "hash": "13549791924491795307"
+      },
+      {
+        "file": "deploy/ecs/main.tf",
+        "hash": "11391452180888927932"
+      },
+      {
+        "file": "ami/modules/update-certificate-store/README.md",
+        "hash": "5371129985796321038"
+      },
+      {
+        "file": "docker/vault/docker-compose-vault.yaml",
+        "hash": "9640669274401402589"
+      },
+      {
+        "file": "package.json",
+        "hash": "1905720448811650372"
+      },
+      {
+        "file": "docker/peer/init.sh",
+        "hash": "65391873959092516"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "15874777163889882098"
+      },
+      {
+        "file": "deploy/db/errored.tfstate",
+        "hash": "13870834501488229309"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "13651968477724535712"
+      },
+      {
+        "file": "deploy/shared/acm_domain/main.tf",
+        "hash": "7336997409760596628"
+      },
+      {
+        "file": "deploy/ledger/docker-compose.yaml",
+        "hash": "12545319258599123406"
+      },
+      {
+        "file": "ami/keys/dc1-client-consul-vault-key.pem",
+        "hash": "13726003605422491373"
+      },
+      {
+        "file": "ami/keys/dc1-client-consul-vault.pem",
+        "hash": "10451818046150370464"
+      },
+      {
+        "file": "deploy/db/modules/lambda/variables.tf",
+        "hash": "3751742565856296376"
+      },
+      {
+        "file": "ami/hyperledger.json",
+        "hash": "15171250856503179632"
+      },
+      {
+        "file": "deploy/ecs/modules/task/output.tf",
+        "hash": "5511464759642531851"
+      },
+      {
+        "file": "ami/modules/setup-systemd-resolved/setup-systemd-resolved",
+        "hash": "4648501950977546461"
+      },
+      {
+        "file": "deploy/consul/terraform.tfvars",
+        "hash": "8960710670398088904"
+      },
+      {
+        "file": "ami/keys/dc1-server-consul-1-key.pem",
+        "hash": "10430442049187380337"
+      },
+      {
+        "file": "docker/api-ledger/scripts/approveChaincode.sh",
+        "hash": "3911365308950547757"
+      },
+      {
+        "file": "docker/api-ledger/core.yaml",
+        "hash": "9220352718055610137"
+      },
+      {
+        "file": "deploy/broker/variables.tf",
+        "hash": "16458636002011716574"
+      },
+      {
+        "file": "docker/api-ledger-admin/Dockerfile",
+        "hash": "5932786908444162146"
+      },
+      {
+        "file": "ami/keys/consul-agent-ca-key.pem",
+        "hash": "1434813168211687817"
+      },
+      {
+        "file": "docker/api-ledger-id/docker-entrypoint.sh",
+        "hash": "7823215622397521243"
+      },
+      {
+        "file": "deploy/ledger/modules/ledger-ca/variables.tf",
+        "hash": "11141495225771106139"
+      },
+      {
+        "file": "deploy/db/provider.tf",
+        "hash": "3172912870023992444"
+      },
+      {
+        "file": "deploy/consul/outputs.tf",
+        "hash": "11154107311316096083"
+      },
+      {
+        "file": "deploy/broker/modules/broker/data.tf",
+        "hash": "5518974047477021770"
+      },
+      {
+        "file": "ami/keys/dc1-client-consul-1.pem",
+        "hash": "10893102604662500333"
+      },
+      {
+        "file": "deploy/consul/modules/acm_domain/output.tf",
+        "hash": "2809539516691992413"
+      },
+      {
+        "file": "docker/api-ledger/scripts/listdb.sh",
+        "hash": "16158157752339413519"
+      },
+      {
+        "file": "docker/orderer/start.sh",
+        "hash": "7439707755351738387"
+      },
+      {
+        "file": "buildspec.yml",
+        "hash": "5173146526666633470"
+      },
+      {
+        "file": "deploy/network/provider.tf",
+        "hash": "345910960292251825"
+      },
+      {
+        "file": "docker/api-ledger-admin/core.yaml",
+        "hash": "15918859190041450480"
+      },
+      {
+        "file": "ami/modules/update-certificate-store/update-certificate-store",
+        "hash": "8704234470764885522"
+      },
+      {
+        "file": ".eslintrc.react.js",
+        "hash": "3411777890634883285"
+      },
+      {
+        "file": "docker/api-ledger-admin/scripts/createChannel.sh",
+        "hash": "13882269053453057000"
+      },
+      {
+        "file": "deploy/broker/modules/broker/main.tf",
+        "hash": "15454942852259619682"
+      },
+      {
+        "file": "ami/modules/run-consul/run-consul",
+        "hash": "1686537554969602851"
+      },
+      {
+        "file": "ami/modules/install-consul/install-consul",
+        "hash": "3439792167098145557"
+      },
+      {
+        "file": "deploy/db/modules/db/variables.tf",
+        "hash": "18219372750907005748"
+      },
+      {
+        "file": "docker/vault/naesb-vault/config/start.sh",
+        "hash": "12382572920836594253"
+      },
+      {
+        "file": "deploy/ecs/modules/task/main.tf",
+        "hash": "7197960214556946411"
+      },
+      {
+        "file": "ami/modules/run-vault/README.md",
+        "hash": "4284143093023850128"
+      },
+      {
+        "file": "deploy/broker/main.tf",
+        "hash": "8588685128541812917"
+      },
+      {
+        "file": "docker/vault-agent/start.sh",
+        "hash": "504242345680617333"
+      },
+      {
+        "file": "deploy/consul/provider.tf",
+        "hash": "12131749754593788953"
+      },
+      {
+        "file": "deploy/db/modules/lambda/main.tf",
+        "hash": "7327466244429207845"
+      },
+      {
+        "file": "deploy/db/modules/db/main.tf",
+        "hash": "7760017265126762276"
+      },
+      {
+        "file": "docker/consul/basic_config.json",
+        "hash": "7897280868598284590"
+      },
+      {
+        "file": "ami/ecs/dummy0.network",
+        "hash": "11601124632489682995"
+      },
+      {
+        "file": "docker/api-ledger/scripts/installChaincode.sh",
+        "hash": "8644206453398450196"
+      },
+      {
+        "file": "docker/orderer/init.sh",
+        "hash": "817168633639176674"
+      },
+      {
+        "file": "deploy/ecs/provider.tf",
+        "hash": "9236585646321892827"
+      },
+      {
+        "file": "docker/vault/naesb-vault/config/config.hcl",
+        "hash": "11456312830125659735"
+      },
+      {
+        "file": "deploy/consul/variables.tf",
+        "hash": "15700005437883927450"
+      },
+      {
+        "file": "deploy/consul/modules/vault/main.tf",
+        "hash": "1051222629643588179"
+      },
+      {
+        "file": "deploy/consul/modules/consul/output.tf",
+        "hash": "1484019573963187490"
+      },
+      {
+        "file": "deploy/ledger/modules/ledger-ca/main.tf",
+        "hash": "18013237991738482103"
+      },
+      {
+        "file": "docker/vault/naesb-vault/config/manager.hcl",
+        "hash": "4790937558261680021"
+      },
+      {
+        "file": "ami/keys/dc1-client-consul-1-key.pem",
+        "hash": "2546051552061916611"
+      },
+      {
+        "file": "docker/vault-agent/Dockerfile",
+        "hash": "11245060177412664810"
+      },
+      {
+        "file": "deploy/consul/modules/acm_domain/main.tf",
+        "hash": "7336997409760596628"
+      },
+      {
+        "file": "deploy/ledger/nginx.conf",
+        "hash": "12338576276671799561"
+      },
+      {
+        "file": "ami/auth/sign-request.py",
+        "hash": "1088931456320581477"
+      },
+      {
+        "file": "ami/modules/install-vault/README.md",
+        "hash": "12108465945134282383"
+      },
+      {
+        "file": ".ipynb_checkpoints/docker-compose-id-checkpoint.yaml",
+        "hash": "18352432969955463761"
+      },
+      {
+        "file": "deploy/consul/modules/consul/main.tf",
+        "hash": "6587922136335274541"
+      },
+      {
+        "file": "docker/api-ledger/scripts/joinChannel.sh",
+        "hash": "2038160299498423880"
+      },
+      {
+        "file": "deploy/network/modules/network/main.tf",
+        "hash": "11641689588815521503"
+      },
+      {
+        "file": "nx.json",
+        "hash": "1510565185353703837"
+      },
+      {
+        "file": "docker/peer/Dockerfile",
+        "hash": "7142576939752541969"
+      },
+      {
+        "file": "deploy/network/modules/network/output.tf",
+        "hash": "4939397197782671226"
+      },
+      {
+        "file": "deploy/consul/modules/consul/user-data.sh",
+        "hash": "6485384537758560170"
+      },
+      {
+        "file": "docker/peer/start.sh",
+        "hash": "9419039339241434035"
+      },
+      {
+        "file": "lerna.json",
+        "hash": "3043600321167353006"
+      },
+      {
+        "file": "publish.sh",
+        "hash": "16919798798779667446"
+      },
+      {
+        "file": "docker/ledger-cli/start.sh",
+        "hash": "3754416367901919352"
+      },
+      {
+        "file": ".ipynb_checkpoints/tsconfig-checkpoint.json",
+        "hash": "15874777163889882098"
+      },
+      {
+        "file": "ami/modules/install-dnsmasq/install-dnsmasq",
+        "hash": "6353669072205075709"
+      },
+      {
+        "file": "deploy/consul/modules/acm_domain/variables.tf",
+        "hash": "8775693372025030050"
+      },
+      {
+        "file": "deploy/consul/modules/vault/variables.tf",
+        "hash": "6126516040871125638"
+      },
+      {
+        "file": "docker/ledger-cli/configtx.yaml",
+        "hash": "185294428405781002"
+      },
+      {
+        "file": "deploy/ecs/variables.tf",
+        "hash": "4629249370330664224"
+      },
+      {
+        "file": "deploy/consul/modules/vault/user-data-vault-admin.sh",
+        "hash": "3079129599023138520"
+      },
+      {
+        "file": "deploy/shared/acm_domain/variables.tf",
+        "hash": "8775693372025030050"
+      },
+      {
+        "file": "deploy/consul/modules/vault/user-data-vault.sh",
+        "hash": "6647093762036076007"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "4955490936784150737"
+      },
+      {
+        "file": "docker/nginx/nginx.conf",
+        "hash": "5544051192349065954"
+      },
+      {
+        "file": "deploy/ledger/variables.tf",
+        "hash": "16909995915354187763"
+      },
+      {
+        "file": "terraform.tfstate",
+        "hash": "607327175496995646"
+      },
+      {
+        "file": "ami/vault.json",
+        "hash": "3450969600030002932"
+      },
+      {
+        "file": "deploy/network/output.tf",
+        "hash": "15235127751817436631"
+      },
+      {
+        "file": "ami/consul.json",
+        "hash": "9755960795391283535"
+      },
+      {
+        "file": "docker/api-ledger/scripts/listChannels.sh",
+        "hash": "15387643994434727265"
+      },
+      {
+        "file": "docker/api-ledger/Dockerfile",
+        "hash": "2485551907237216461"
+      },
+      {
+        "file": "ami/ecs/dummy0.netdev",
+        "hash": "116131909937442619"
+      },
+      {
+        "file": "docker/api-ledger-id/Dockerfile",
+        "hash": "2310046076394171465"
+      },
+      {
+        "file": "deploy/broker/provider.tf",
+        "hash": "8522558470252337847"
+      },
+      {
+        "file": "deploy/shared/acm_domain/output.tf",
+        "hash": "2809539516691992413"
+      },
+      {
+        "file": ".dockerignore",
+        "hash": "9133081895978296391"
+      },
+      {
+        "file": "docker/nginx/Dockerfile",
+        "hash": "17577253821393598724"
+      },
+      {
+        "file": "deploy/ecs/modules/task/variables.tf",
+        "hash": "4030680492241612657"
+      },
+      {
+        "file": ".ipynb_checkpoints/buildspec-checkpoint.yml",
+        "hash": "5173146526666633470"
+      },
+      {
+        "file": "deploy/ledger/modules/ledger-ca/user-data.sh",
+        "hash": "6012333746814574641"
+      },
+      {
+        "file": "deploy/broker/modules/lambda/variables.tf",
+        "hash": "3751742565856296376"
+      },
+      {
+        "file": "docker/orderer/Dockerfile",
+        "hash": "4587697375560603161"
+      },
+      {
+        "file": "deploy/ledger/main.tf",
+        "hash": "15207409857935575308"
+      },
+      {
+        "file": ".npmrc",
+        "hash": "1743485301228659824"
+      },
+      {
+        "file": "docker/consul2/Dockerfile",
+        "hash": "12663860868212390882"
+      },
+      {
+        "file": "deploy/network/variables.tf",
+        "hash": "16909995915354187763"
+      },
+      {
+        "file": "deploy/broker/output.tf",
+        "hash": "3012627800494772590"
+      },
+      {
+        "file": "docker/postgresql/start.sh",
+        "hash": "11562023044254429479"
+      },
+      {
+        "file": "docker/api-ledger-admin/scripts/installChaincode.sh",
+        "hash": "3116889143723282733"
+      },
+      {
+        "file": "deploy/broker/terraform.tfvars",
+        "hash": "2599624446445761446"
+      },
+      {
+        "file": "ami/modules/install-consul/README.md",
+        "hash": "14922530078433995336"
+      },
+      {
+        "file": "deploy/network/main.tf",
+        "hash": "11168297455222475498"
+      },
+      {
+        "file": "deploy/ecs/modules/task/iam.tf",
+        "hash": "18067043411135163280"
+      },
+      {
+        "file": "ami/keys/consul-agent-ca.pem",
+        "hash": "15394309928041758951"
+      },
+      {
+        "file": "README.md",
+        "hash": "8324350116223144775"
+      },
+      {
+        "file": "deploy/consul/modules/consul/variables.tf",
+        "hash": "5407151872372000647"
+      },
+      {
+        "file": "ami/modules/install-vault/install-vault",
+        "hash": "9557874258524521242"
+      },
+      {
+        "file": "ami/keys/dc1-client-consul-0.pem",
+        "hash": "5501626333911516223"
+      },
+      {
+        "file": "deploy/consul/main.tf",
+        "hash": "16521004217062001163"
+      },
+      {
+        "file": "deploy/db/output.tf",
+        "hash": "11294121738054620970"
+      },
+      {
+        "file": "ami/modules/run-consul/README.md",
+        "hash": "7940773901238094886"
+      },
+      {
+        "file": "ami/keys/dc1-client-consul-0-key.pem",
+        "hash": "18333869188849527401"
+      },
+      {
+        "file": "docker/consul2/start.sh",
+        "hash": "28788496758988227"
+      },
+      {
+        "file": "ami/keys/dc1-server-consul-0.pem",
+        "hash": "13557241115103084306"
+      },
+      {
+        "file": "deploy/broker/modules/broker/output.tf",
+        "hash": "6527437205557487033"
+      },
+      {
+        "file": "ami/ecs/consul.conf",
+        "hash": "402248167120592408"
+      },
+      {
+        "file": "ami/modules/install-dnsmasq/README.md",
+        "hash": "8067731910253838714"
+      },
+      {
+        "file": "docker/nginx/nginx.prod.conf",
+        "hash": "8058670055205040244"
+      },
+      {
+        "file": "deploy/broker/modules/broker/variables.tf",
+        "hash": "17820599047215227509"
+      },
+      {
+        "file": "deploy/consul/modules/vault/output.tf",
+        "hash": "1994708472786732266"
+      },
+      {
+        "file": "deploy/ledger/provider.tf",
+        "hash": "17564212582762091353"
+      },
+      {
+        "file": "docker-compose-id.yaml",
+        "hash": "18352432969955463761"
+      },
+      {
+        "file": "docker/client/Dockerfile",
+        "hash": "16209970562514572629"
+      },
+      {
+        "file": "deploy/db/terraform.tfvars",
+        "hash": "13396333350049606334"
+      },
+      {
+        "file": "deploy/db/modules/db/output.tf",
+        "hash": "5281618649707326490"
+      },
+      {
+        "file": ".eslintrc.js",
+        "hash": "6377565728901114552"
+      },
+      {
+        "file": "ami/keys/dc1-server-consul-1.pem",
+        "hash": "10283246539394378145"
+      },
+      {
+        "file": "docker/api-core/Dockerfile",
+        "hash": "8620432922345847255"
+      },
+      {
+        "file": "deploy/db/variables.tf",
+        "hash": "16458636002011716574"
+      },
+      {
+        "file": "ami/modules/run-vault/run-vault",
+        "hash": "3328404296342596180"
+      },
+      {
+        "file": "deploy/broker/modules/lambda/main.tf",
+        "hash": "7327466244429207845"
+      },
+      {
+        "file": "docker/api-ledger-admin/scripts/chaincode.sh",
+        "hash": "12879339743654437562"
+      },
+      {
+        "file": "ami/consul-ecs.json",
+        "hash": "3176843292176531121"
+      },
+      {
+        "file": "deploy/db/main.tf",
+        "hash": "13233249242212257003"
+      },
+      {
+        "file": "deploy/network/modules/network/variables.tf",
+        "hash": "8510728952808780661"
+      }
+    ],
+    "projectFileMap": {
+      "@shared/server-utils": [
+        {
+          "file": "packages/server-utils/.eslintrc.js",
+          "hash": "3309330852700000667"
+        },
+        {
+          "file": "packages/server-utils/.gitignore",
+          "hash": "1435937209358199767"
+        },
+        {
+          "file": "packages/server-utils/.prettierrc",
+          "hash": "8778476930236081022"
+        },
+        {
+          "file": "packages/server-utils/README.md",
+          "hash": "3319649223283946893"
+        },
+        {
+          "file": "packages/server-utils/model/.eslintrc.js",
+          "hash": "3309330852700000667"
+        },
+        {
+          "file": "packages/server-utils/model/.gitignore",
+          "hash": "1435937209358199767"
+        },
+        {
+          "file": "packages/server-utils/model/.prettierrc",
+          "hash": "8778476930236081022"
+        },
+        {
+          "file": "packages/server-utils/model/README.md",
+          "hash": "4214794626437111310"
+        },
+        {
+          "file": "packages/server-utils/model/package-lock.json",
+          "hash": "12452345261611692035"
+        },
+        {
+          "file": "packages/server-utils/model/package.json",
+          "hash": "4461924645037267499"
+        },
+        {
+          "file": "packages/server-utils/model/src/aries/index.ts",
+          "hash": "6984929262525732044"
+        },
+        {
+          "file": "packages/server-utils/model/src/header/index.tsx",
+          "hash": "2000171351800209237"
+        },
+        {
+          "file": "packages/server-utils/model/src/identity/index.ts",
+          "hash": "5361430488418817002"
+        },
+        {
+          "file": "packages/server-utils/model/src/index.ts",
+          "hash": "5925893844478355296"
+        },
+        {
+          "file": "packages/server-utils/model/src/infrastructure/index.ts",
+          "hash": "14908625665646942401"
+        },
+        {
+          "file": "packages/server-utils/model/src/ledger/base.ts",
+          "hash": "15709567812334422020"
+        },
+        {
+          "file": "packages/server-utils/model/src/ledger/commodity.ts",
+          "hash": "11539840003641080896"
+        },
+        {
+          "file": "packages/server-utils/model/src/ledger/delivery.ts",
+          "hash": "14430239740637902116"
+        },
+        {
+          "file": "packages/server-utils/model/src/ledger/facility.ts",
+          "hash": "8098332442956184678"
+        },
+        {
+          "file": "packages/server-utils/model/src/ledger/index.ts",
+          "hash": "12253645667442966136"
+        },
+        {
+          "file": "packages/server-utils/model/src/ledger/invoice.ts",
+          "hash": "16924739623399115371"
+        },
+        {
+          "file": "packages/server-utils/model/src/ledger/trade.ts",
+          "hash": "4046704902142165675"
+        },
+        {
+          "file": "packages/server-utils/model/src/price/index.ts",
+          "hash": "8044545406114179068"
+        },
+        {
+          "file": "packages/server-utils/model/src/registry/index.ts",
+          "hash": "2862116934951869552"
+        },
+        {
+          "file": "packages/server-utils/model/src/tsp/index.ts",
+          "hash": "6224698502292148938"
+        },
+        {
+          "file": "packages/server-utils/model/src/users/index.ts",
+          "hash": "5746246216162683843"
+        },
+        {
+          "file": "packages/server-utils/model/src/util/index.ts",
+          "hash": "7359136450095125231"
+        },
+        {
+          "file": "packages/server-utils/model/tsconfig.build.json",
+          "hash": "3826382668696433746"
+        },
+        {
+          "file": "packages/server-utils/model/tsconfig.json",
+          "hash": "13425027912622702014"
+        },
+        {
+          "file": "packages/server-utils/nest-cli.json",
+          "hash": "14258719151853873644"
+        },
+        {
+          "file": "packages/server-utils/package-lock.json",
+          "hash": "1981193688022845176"
+        },
+        {
+          "file": "packages/server-utils/package.json",
+          "hash": "9397896919991919170",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:@nestjs/passport",
+            "npm:@nestjs/platform-express",
+            "npm:@nestjs/swagger",
+            "npm:rxjs",
+            "npm:typeorm",
+            "npm:zod",
+            "npm:@hyperledger/fabric-gateway",
+            "@naesb/dlt-model",
+            "npm:@nestjs/axios@0.1.1",
+            "npm:axios@1.2.1",
+            "npm:axios-retry@3.9.1",
+            "npm:jwks-rsa@2.1.5",
+            "npm:morgan",
+            "npm:passport-headerapikey",
+            "npm:passport-jwt",
+            "npm:winston"
+          ]
+        },
+        {
+          "file": "packages/server-utils/src/auth-key.guard.ts",
+          "hash": "9706041422834048654"
+        },
+        {
+          "file": "packages/server-utils/src/auth.guard.ts",
+          "hash": "16183851716626850794"
+        },
+        {
+          "file": "packages/server-utils/src/consul/consul.module.ts",
+          "hash": "6862903219508974342"
+        },
+        {
+          "file": "packages/server-utils/src/consul/consul.service.ts",
+          "hash": "12073237038835820810"
+        },
+        {
+          "file": "packages/server-utils/src/consul/index.ts",
+          "hash": "12729925834320667195"
+        },
+        {
+          "file": "packages/server-utils/src/http/http.constants.ts",
+          "hash": "11950567263679977538"
+        },
+        {
+          "file": "packages/server-utils/src/http/http.module.ts",
+          "hash": "16851493000679285874"
+        },
+        {
+          "file": "packages/server-utils/src/http/http.service.ts",
+          "hash": "12700443675494021132"
+        },
+        {
+          "file": "packages/server-utils/src/http/index.ts",
+          "hash": "10917799109575046193"
+        },
+        {
+          "file": "packages/server-utils/src/http/interfaces/index.ts",
+          "hash": "6954789831070637976"
+        },
+        {
+          "file": "packages/server-utils/src/index.ts",
+          "hash": "7501063271452940719"
+        },
+        {
+          "file": "packages/server-utils/src/logger.ts",
+          "hash": "16245424437607258342"
+        },
+        {
+          "file": "packages/server-utils/src/query.ts",
+          "hash": "8617029995257444404"
+        },
+        {
+          "file": "packages/server-utils/src/queryresult.dto.ts",
+          "hash": "5675082999918906570"
+        },
+        {
+          "file": "packages/server-utils/src/service/index.ts",
+          "hash": "4398753238681359957"
+        },
+        {
+          "file": "packages/server-utils/src/service/web.module.ts",
+          "hash": "4245359721784808970"
+        },
+        {
+          "file": "packages/server-utils/src/service/web.service.ts",
+          "hash": "8314984011864539038"
+        },
+        {
+          "file": "packages/server-utils/src/utils/dns.ts",
+          "hash": "2875290947578434919"
+        },
+        {
+          "file": "packages/server-utils/src/utils/validate.ts",
+          "hash": "14008695920952688086"
+        },
+        {
+          "file": "packages/server-utils/src/vault/index.ts",
+          "hash": "13091776452103108323"
+        },
+        {
+          "file": "packages/server-utils/src/vault/vault.module.ts",
+          "hash": "90789354328604216"
+        },
+        {
+          "file": "packages/server-utils/src/vault/vault.service.ts",
+          "hash": "4183397336354750522"
+        },
+        {
+          "file": "packages/server-utils/tsconfig.build.json",
+          "hash": "3826382668696433746"
+        },
+        {
+          "file": "packages/server-utils/tsconfig.json",
+          "hash": "13425027912622702014"
+        }
+      ],
+      "@api/ledger-id": [
+        {
+          "file": "packages/api-ledger-id/.eslintrc.js",
+          "hash": "6770874280698798033"
+        },
+        {
+          "file": "packages/api-ledger-id/.prettierrc",
+          "hash": "8778476930236081022"
+        },
+        {
+          "file": "packages/api-ledger-id/README.md",
+          "hash": "3319649223283946893"
+        },
+        {
+          "file": "packages/api-ledger-id/ledger.sh",
+          "hash": "11669873696266518843"
+        },
+        {
+          "file": "packages/api-ledger-id/nest-cli.json",
+          "hash": "5831834014071666082"
+        },
+        {
+          "file": "packages/api-ledger-id/package.json",
+          "hash": "5293900078499660763",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:@nestjs/mapped-types",
+            "npm:@nestjs/platform-express",
+            "@naesb/dlt-model",
+            "@shared/server-utils",
+            "npm:axios",
+            "npm:dotenv",
+            "npm:reflect-metadata",
+            "npm:rimraf",
+            "npm:rxjs",
+            "npm:typeorm",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/api-ledger-id/src/app.controller.spec.ts",
+          "hash": "2727664763654384995"
+        },
+        {
+          "file": "packages/api-ledger-id/src/app.controller.ts",
+          "hash": "4552329938751326480"
+        },
+        {
+          "file": "packages/api-ledger-id/src/app.module.ts",
+          "hash": "15167635833368446341"
+        },
+        {
+          "file": "packages/api-ledger-id/src/app.service.ts",
+          "hash": "16892833931858030153"
+        },
+        {
+          "file": "packages/api-ledger-id/src/auth.guard.ts",
+          "hash": "1001722054105627779"
+        },
+        {
+          "file": "packages/api-ledger-id/src/health/health.controller.ts",
+          "hash": "8079602956254798171"
+        },
+        {
+          "file": "packages/api-ledger-id/src/health/health.module.ts",
+          "hash": "12670015385762925662"
+        },
+        {
+          "file": "packages/api-ledger-id/src/health/msp.health.ts",
+          "hash": "15563414655088163883"
+        },
+        {
+          "file": "packages/api-ledger-id/src/health/tls.health.ts",
+          "hash": "15402372097161735374"
+        },
+        {
+          "file": "packages/api-ledger-id/src/main.ts",
+          "hash": "7426463349689566016"
+        },
+        {
+          "file": "packages/api-ledger-id/src/msp/createCert.dto.ts",
+          "hash": "5412737512076181282"
+        },
+        {
+          "file": "packages/api-ledger-id/src/msp/msp.controller.ts",
+          "hash": "8879152522192875836"
+        },
+        {
+          "file": "packages/api-ledger-id/src/msp/msp.module.ts",
+          "hash": "5704992910612361388"
+        },
+        {
+          "file": "packages/api-ledger-id/src/msp/msp.service.ts",
+          "hash": "5145020946290753282"
+        },
+        {
+          "file": "packages/api-ledger-id/src/organization/organization.controller.spec.ts",
+          "hash": "6216780606466468246"
+        },
+        {
+          "file": "packages/api-ledger-id/src/organization/organization.controller.ts",
+          "hash": "12393232284565843321"
+        },
+        {
+          "file": "packages/api-ledger-id/src/organization/organization.module.ts",
+          "hash": "7434402719867942377"
+        },
+        {
+          "file": "packages/api-ledger-id/src/organization/organization.service.spec.ts",
+          "hash": "6766266545441196540"
+        },
+        {
+          "file": "packages/api-ledger-id/src/organization/organization.service.ts",
+          "hash": "8327253987599472197"
+        },
+        {
+          "file": "packages/api-ledger-id/src/server/dtos/server.dto.ts",
+          "hash": "2948332023523834196"
+        },
+        {
+          "file": "packages/api-ledger-id/src/server/server.controller.spec.ts",
+          "hash": "14828085557751384984"
+        },
+        {
+          "file": "packages/api-ledger-id/src/server/server.controller.ts",
+          "hash": "17730797844584651042"
+        },
+        {
+          "file": "packages/api-ledger-id/src/server/server.module.ts",
+          "hash": "5158993011449675476"
+        },
+        {
+          "file": "packages/api-ledger-id/src/server/server.service.spec.ts",
+          "hash": "5726354605517797795"
+        },
+        {
+          "file": "packages/api-ledger-id/src/server/server.service.ts",
+          "hash": "12879204145217727041"
+        },
+        {
+          "file": "packages/api-ledger-id/src/tls/createCert.dto.ts",
+          "hash": "17164443168979169997"
+        },
+        {
+          "file": "packages/api-ledger-id/src/tls/tls.controller.ts",
+          "hash": "5639156367431642310"
+        },
+        {
+          "file": "packages/api-ledger-id/src/tls/tls.module.ts",
+          "hash": "8769006621767464741"
+        },
+        {
+          "file": "packages/api-ledger-id/src/tls/tls.service.ts",
+          "hash": "3534226244624766568"
+        },
+        {
+          "file": "packages/api-ledger-id/src/user/dtos/auth0.dto.ts",
+          "hash": "15150577005159788046"
+        },
+        {
+          "file": "packages/api-ledger-id/src/user/dtos/vault.dto.ts",
+          "hash": "12686973227884291593"
+        },
+        {
+          "file": "packages/api-ledger-id/src/user/user.controller.spec.ts",
+          "hash": "8544731166474321108"
+        },
+        {
+          "file": "packages/api-ledger-id/src/user/user.controller.ts",
+          "hash": "13072900553720993727"
+        },
+        {
+          "file": "packages/api-ledger-id/src/user/user.module.ts",
+          "hash": "15544629516667779226"
+        },
+        {
+          "file": "packages/api-ledger-id/src/user/user.service.spec.ts",
+          "hash": "4841831373564007228"
+        },
+        {
+          "file": "packages/api-ledger-id/src/user/user.service.ts",
+          "hash": "10269626750206790501"
+        },
+        {
+          "file": "packages/api-ledger-id/src/utils/dns.ts",
+          "hash": "7673770002027366631"
+        },
+        {
+          "file": "packages/api-ledger-id/src/utils/error-utils.ts",
+          "hash": "3182168101904281236"
+        },
+        {
+          "file": "packages/api-ledger-id/src/utils/file-utils.ts",
+          "hash": "6122298091193479378"
+        },
+        {
+          "file": "packages/api-ledger-id/src/vault/vault.module.ts",
+          "hash": "11073607749004406335"
+        },
+        {
+          "file": "packages/api-ledger-id/src/vault/vault.service.ts",
+          "hash": "16700972684957730800"
+        },
+        {
+          "file": "packages/api-ledger-id/test/app.e2e-spec.ts",
+          "hash": "15142680097789702029"
+        },
+        {
+          "file": "packages/api-ledger-id/test/jest-e2e.json",
+          "hash": "7570273541430074424"
+        },
+        {
+          "file": "packages/api-ledger-id/tsconfig.build.json",
+          "hash": "276845246908739715"
+        },
+        {
+          "file": "packages/api-ledger-id/tsconfig.json",
+          "hash": "5073866550243764688"
+        }
+      ],
+      "@api/ledger-admin": [
+        {
+          "file": "packages/api-ledger-admin/.eslintrc.js",
+          "hash": "6770874280698798033"
+        },
+        {
+          "file": "packages/api-ledger-admin/.prettierrc",
+          "hash": "8778476930236081022"
+        },
+        {
+          "file": "packages/api-ledger-admin/config/configtx.yaml",
+          "hash": "15697934722291064927"
+        },
+        {
+          "file": "packages/api-ledger-admin/nest-cli.json",
+          "hash": "5831834014071666082"
+        },
+        {
+          "file": "packages/api-ledger-admin/package-lock.json",
+          "hash": "3709511486283729203"
+        },
+        {
+          "file": "packages/api-ledger-admin/package.json",
+          "hash": "18160899004515581998",
+          "deps": [
+            "npm:@aws-sdk/client-s3",
+            "npm:@hyperledger/fabric-gateway",
+            "@naesb/dlt-model",
+            "npm:@nestjs/axios@0.1.1",
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/core",
+            "npm:@nestjs/mapped-types",
+            "npm:@nestjs/passport",
+            "npm:@nestjs/platform-express",
+            "npm:@nestjs/terminus",
+            "@shared/server-utils",
+            "npm:axios",
+            "npm:cache-manager",
+            "npm:dotenv@10.0.0",
+            "npm:jwks-rsa@2.1.5",
+            "npm:passport",
+            "npm:passport-jwt",
+            "npm:reflect-metadata",
+            "npm:rimraf",
+            "npm:rxjs",
+            "npm:tslib",
+            "npm:yaml"
+          ]
+        },
+        {
+          "file": "packages/api-ledger-admin/src/app.module.ts",
+          "hash": "13036018799733066104"
+        },
+        {
+          "file": "packages/api-ledger-admin/src/channel/channel.controller.ts",
+          "hash": "12623780765794816014"
+        },
+        {
+          "file": "packages/api-ledger-admin/src/channel/channel.module.ts",
+          "hash": "11673274095324819800"
+        },
+        {
+          "file": "packages/api-ledger-admin/src/channel/channel.service.ts",
+          "hash": "2521678637236695562"
+        },
+        {
+          "file": "packages/api-ledger-admin/src/consul/consul.module.ts",
+          "hash": "15043211124912268195"
+        },
+        {
+          "file": "packages/api-ledger-admin/src/consul/consul.service.ts",
+          "hash": "10905633577918445515"
+        },
+        {
+          "file": "packages/api-ledger-admin/src/health/channel.health.ts",
+          "hash": "10207082540823545121"
+        },
+        {
+          "file": "packages/api-ledger-admin/src/health/health.controller.ts",
+          "hash": "9437971671998103551"
+        },
+        {
+          "file": "packages/api-ledger-admin/src/health/health.module.ts",
+          "hash": "6662160820656295839"
+        },
+        {
+          "file": "packages/api-ledger-admin/src/health/orderer.health.ts",
+          "hash": "17096552608779584385"
+        },
+        {
+          "file": "packages/api-ledger-admin/src/main.ts",
+          "hash": "8512072260220637514"
+        },
+        {
+          "file": "packages/api-ledger-admin/src/orderer/configTx.ts",
+          "hash": "8598277054141747032"
+        },
+        {
+          "file": "packages/api-ledger-admin/src/orderer/orderer.module.ts",
+          "hash": "4661015041707036552"
+        },
+        {
+          "file": "packages/api-ledger-admin/src/orderer/orderer.service.ts",
+          "hash": "18410419062569772814"
+        },
+        {
+          "file": "packages/api-ledger-admin/src/utils/command.ts",
+          "hash": "10168471773686181536"
+        },
+        {
+          "file": "packages/api-ledger-admin/src/utils/dns.ts",
+          "hash": "7277951547679147735"
+        },
+        {
+          "file": "packages/api-ledger-admin/src/vault/vault.module.ts",
+          "hash": "6303558226434092164"
+        },
+        {
+          "file": "packages/api-ledger-admin/src/vault/vault.service.ts",
+          "hash": "7494066537879379767"
+        },
+        {
+          "file": "packages/api-ledger-admin/tsconfig.build.json",
+          "hash": "276845246908739715"
+        },
+        {
+          "file": "packages/api-ledger-admin/tsconfig.json",
+          "hash": "5073866550243764688"
+        }
+      ],
+      "@naesb/dlt-model": [
+        {
+          "file": "packages/model/.eslintrc.js",
+          "hash": "3309330852700000667"
+        },
+        {
+          "file": "packages/model/.gitignore",
+          "hash": "1435937209358199767"
+        },
+        {
+          "file": "packages/model/.prettierrc",
+          "hash": "8778476930236081022"
+        },
+        {
+          "file": "packages/model/README.md",
+          "hash": "4214794626437111310"
+        },
+        {
+          "file": "packages/model/package-lock.json",
+          "hash": "12452345261611692035"
+        },
+        {
+          "file": "packages/model/package.json",
+          "hash": "4461924645037267499",
+          "deps": [
+            "@react/toolkit",
+            "@shared/server-utils",
+            "npm:typescript"
+          ]
+        },
+        {
+          "file": "packages/model/src/aries/index.ts",
+          "hash": "6984929262525732044"
+        },
+        {
+          "file": "packages/model/src/header/index.tsx",
+          "hash": "2000171351800209237"
+        },
+        {
+          "file": "packages/model/src/identity/index.ts",
+          "hash": "5361430488418817002"
+        },
+        {
+          "file": "packages/model/src/index.ts",
+          "hash": "5925893844478355296"
+        },
+        {
+          "file": "packages/model/src/infrastructure/index.ts",
+          "hash": "14908625665646942401"
+        },
+        {
+          "file": "packages/model/src/ledger/base.ts",
+          "hash": "15709567812334422020"
+        },
+        {
+          "file": "packages/model/src/ledger/commodity.ts",
+          "hash": "11539840003641080896"
+        },
+        {
+          "file": "packages/model/src/ledger/delivery.ts",
+          "hash": "14430239740637902116"
+        },
+        {
+          "file": "packages/model/src/ledger/facility.ts",
+          "hash": "8098332442956184678"
+        },
+        {
+          "file": "packages/model/src/ledger/index.ts",
+          "hash": "12253645667442966136"
+        },
+        {
+          "file": "packages/model/src/ledger/invoice.ts",
+          "hash": "16924739623399115371"
+        },
+        {
+          "file": "packages/model/src/ledger/trade.ts",
+          "hash": "4046704902142165675"
+        },
+        {
+          "file": "packages/model/src/price/index.ts",
+          "hash": "8044545406114179068"
+        },
+        {
+          "file": "packages/model/src/registry/index.ts",
+          "hash": "2862116934951869552"
+        },
+        {
+          "file": "packages/model/src/tsp/index.ts",
+          "hash": "6224698502292148938"
+        },
+        {
+          "file": "packages/model/src/users/index.ts",
+          "hash": "5746246216162683843"
+        },
+        {
+          "file": "packages/model/src/util/index.ts",
+          "hash": "7359136450095125231"
+        },
+        {
+          "file": "packages/model/tsconfig.build.json",
+          "hash": "3826382668696433746"
+        },
+        {
+          "file": "packages/model/tsconfig.json",
+          "hash": "13425027912622702014"
+        }
+      ],
+      "@react/toolkit": [
+        {
+          "file": "packages/react-toolkit/.eslintrc.js",
+          "hash": "4501670031176616862"
+        },
+        {
+          "file": "packages/react-toolkit/model/.eslintrc.js",
+          "hash": "3309330852700000667"
+        },
+        {
+          "file": "packages/react-toolkit/model/.gitignore",
+          "hash": "1435937209358199767"
+        },
+        {
+          "file": "packages/react-toolkit/model/.prettierrc",
+          "hash": "8778476930236081022"
+        },
+        {
+          "file": "packages/react-toolkit/model/README.md",
+          "hash": "4214794626437111310"
+        },
+        {
+          "file": "packages/react-toolkit/model/package-lock.json",
+          "hash": "12452345261611692035"
+        },
+        {
+          "file": "packages/react-toolkit/model/package.json",
+          "hash": "4461924645037267499"
+        },
+        {
+          "file": "packages/react-toolkit/model/src/aries/index.ts",
+          "hash": "6984929262525732044"
+        },
+        {
+          "file": "packages/react-toolkit/model/src/header/index.tsx",
+          "hash": "2000171351800209237"
+        },
+        {
+          "file": "packages/react-toolkit/model/src/identity/index.ts",
+          "hash": "5361430488418817002"
+        },
+        {
+          "file": "packages/react-toolkit/model/src/index.ts",
+          "hash": "5925893844478355296"
+        },
+        {
+          "file": "packages/react-toolkit/model/src/infrastructure/index.ts",
+          "hash": "14908625665646942401"
+        },
+        {
+          "file": "packages/react-toolkit/model/src/ledger/base.ts",
+          "hash": "15709567812334422020"
+        },
+        {
+          "file": "packages/react-toolkit/model/src/ledger/commodity.ts",
+          "hash": "11539840003641080896"
+        },
+        {
+          "file": "packages/react-toolkit/model/src/ledger/delivery.ts",
+          "hash": "14430239740637902116"
+        },
+        {
+          "file": "packages/react-toolkit/model/src/ledger/facility.ts",
+          "hash": "8098332442956184678"
+        },
+        {
+          "file": "packages/react-toolkit/model/src/ledger/index.ts",
+          "hash": "12253645667442966136"
+        },
+        {
+          "file": "packages/react-toolkit/model/src/ledger/invoice.ts",
+          "hash": "16924739623399115371"
+        },
+        {
+          "file": "packages/react-toolkit/model/src/ledger/trade.ts",
+          "hash": "4046704902142165675"
+        },
+        {
+          "file": "packages/react-toolkit/model/src/price/index.ts",
+          "hash": "8044545406114179068"
+        },
+        {
+          "file": "packages/react-toolkit/model/src/registry/index.ts",
+          "hash": "2862116934951869552"
+        },
+        {
+          "file": "packages/react-toolkit/model/src/tsp/index.ts",
+          "hash": "6224698502292148938"
+        },
+        {
+          "file": "packages/react-toolkit/model/src/users/index.ts",
+          "hash": "5746246216162683843"
+        },
+        {
+          "file": "packages/react-toolkit/model/src/util/index.ts",
+          "hash": "7359136450095125231"
+        },
+        {
+          "file": "packages/react-toolkit/model/tsconfig.build.json",
+          "hash": "3826382668696433746"
+        },
+        {
+          "file": "packages/react-toolkit/model/tsconfig.json",
+          "hash": "13425027912622702014"
+        },
+        {
+          "file": "packages/react-toolkit/package-lock.json",
+          "hash": "1009478329488753748"
+        },
+        {
+          "file": "packages/react-toolkit/package.json",
+          "hash": "6236820053625534257",
+          "deps": [
+            "npm:@auth0/auth0-react",
+            "npm:@date-io/date-fns",
+            "npm:@emotion/react",
+            "npm:@emotion/styled",
+            "npm:@mui/icons-material",
+            "npm:@mui/lab",
+            "npm:@mui/material",
+            "npm:@mui/x-date-pickers",
+            "npm:ag-grid-community",
+            "npm:ag-grid-react",
+            "npm:axios",
+            "npm:lodash",
+            "npm:react",
+            "npm:react-dom",
+            "npm:react-final-form",
+            "npm:react-router-dom",
+            "npm:yup",
+            "npm:@hyperledger/fabric-gateway",
+            "@naesb/dlt-model",
+            "npm:@types/react-router-dom@5.3.3",
+            "npm:date-fns",
+            "npm:final-form",
+            "npm:final-form-arrays",
+            "npm:react-beautiful-dnd",
+            "npm:react-imask",
+            "npm:react-material-file-upload",
+            "npm:react-number-format",
+            "npm:react-use",
+            "npm:tslib",
+            "npm:rollup-plugin-typescript2",
+            "npm:rollup-plugin-postcss",
+            "npm:@svgr/rollup",
+            "npm:@rollup/plugin-image"
+          ]
+        },
+        {
+          "file": "packages/react-toolkit/rollup.config.js",
+          "hash": "18303308012129377824"
+        },
+        {
+          "file": "packages/react-toolkit/src/fileUpload/index.tsx",
+          "hash": "763927765246667576"
+        },
+        {
+          "file": "packages/react-toolkit/src/grid/Grid.tsx",
+          "hash": "9468300252911396963"
+        },
+        {
+          "file": "packages/react-toolkit/src/grid/components/cellRenderers/DialogCellRenderer.tsx",
+          "hash": "9486499450937130135"
+        },
+        {
+          "file": "packages/react-toolkit/src/grid/components/cellRenderers/DrilldownCellRenderer.tsx",
+          "hash": "1475253963429130"
+        },
+        {
+          "file": "packages/react-toolkit/src/grid/components/cellRenderers/EditableCellRenderer.tsx",
+          "hash": "3090992316043626775"
+        },
+        {
+          "file": "packages/react-toolkit/src/grid/components/cellRenderers/LinkCellRenderer.tsx",
+          "hash": "8352468598611086367"
+        },
+        {
+          "file": "packages/react-toolkit/src/grid/components/cellRenderers/index.tsx",
+          "hash": "7967055927504390766"
+        },
+        {
+          "file": "packages/react-toolkit/src/grid/components/index.tsx",
+          "hash": "2295691707669026135"
+        },
+        {
+          "file": "packages/react-toolkit/src/grid/formatters/date.ts",
+          "hash": "5172092506103423850"
+        },
+        {
+          "file": "packages/react-toolkit/src/grid/formatters/index.ts",
+          "hash": "14830727187890541968"
+        },
+        {
+          "file": "packages/react-toolkit/src/grid/index.tsx",
+          "hash": "12421202869084003077"
+        },
+        {
+          "file": "packages/react-toolkit/src/grid/style.scss",
+          "hash": "794028601032507797"
+        },
+        {
+          "file": "packages/react-toolkit/src/grid/types.ts",
+          "hash": "3830425795059806659"
+        },
+        {
+          "file": "packages/react-toolkit/src/grid/useCellRendererRef.ts",
+          "hash": "1032348028381134873"
+        },
+        {
+          "file": "packages/react-toolkit/src/grid/useColumnState.ts",
+          "hash": "15394864567689542500"
+        },
+        {
+          "file": "packages/react-toolkit/src/grid/useGetRows.ts",
+          "hash": "11117451930242252813"
+        },
+        {
+          "file": "packages/react-toolkit/src/grid/useRowData.ts",
+          "hash": "8689035012513702119"
+        },
+        {
+          "file": "packages/react-toolkit/src/grid/util/state.ts",
+          "hash": "17635905946576386981"
+        },
+        {
+          "file": "packages/react-toolkit/src/header/auth/Login.tsx",
+          "hash": "2959706283358581510"
+        },
+        {
+          "file": "packages/react-toolkit/src/header/drop_logo.png",
+          "hash": "17322265242317219741"
+        },
+        {
+          "file": "packages/react-toolkit/src/header/index.tsx",
+          "hash": "2799033089129377796"
+        },
+        {
+          "file": "packages/react-toolkit/src/header/nav/Logo.tsx",
+          "hash": "10434776088331276444"
+        },
+        {
+          "file": "packages/react-toolkit/src/header/nav/NavButton.tsx",
+          "hash": "15954817052003787568"
+        },
+        {
+          "file": "packages/react-toolkit/src/index.ts",
+          "hash": "6493685383541764330"
+        },
+        {
+          "file": "packages/react-toolkit/src/theme/ThemeProvider.tsx",
+          "hash": "15194842732315977048"
+        },
+        {
+          "file": "packages/react-toolkit/src/theme/index.tsx",
+          "hash": "1447914885455722935"
+        },
+        {
+          "file": "packages/react-toolkit/src/theme/themes.ts",
+          "hash": "9453635432553075799"
+        },
+        {
+          "file": "packages/react-toolkit/src/utils/date-utils.ts",
+          "hash": "9013331973924126908"
+        },
+        {
+          "file": "packages/react-toolkit/src/utils/general-utils.ts",
+          "hash": "11653787748442312957"
+        },
+        {
+          "file": "packages/react-toolkit/src/utils/index.ts",
+          "hash": "18211812559726485695"
+        },
+        {
+          "file": "packages/react-toolkit/src/utils/useWidth.ts",
+          "hash": "16606414565369440888"
+        },
+        {
+          "file": "packages/react-toolkit/tsconfig.json",
+          "hash": "12750739826934011246"
+        }
+      ],
+      "@api/core": [
+        {
+          "file": "packages/api-core/.eslintrc.js",
+          "hash": "3309330852700000667"
+        },
+        {
+          "file": "packages/api-core/.gitignore",
+          "hash": "1435937209358199767"
+        },
+        {
+          "file": "packages/api-core/.prettierrc",
+          "hash": "8778476930236081022"
+        },
+        {
+          "file": "packages/api-core/README.md",
+          "hash": "3319649223283946893"
+        },
+        {
+          "file": "packages/api-core/nest-cli.json",
+          "hash": "3995561187235034900"
+        },
+        {
+          "file": "packages/api-core/package.json",
+          "hash": "12767297213250123713",
+          "deps": [
+            "@naesb/dlt-model",
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:@nestjs/platform-express",
+            "npm:@nestjs/schematics",
+            "npm:@nestjs/swagger",
+            "@shared/server-utils",
+            "npm:axios",
+            "npm:cors",
+            "npm:dotenv",
+            "npm:pg",
+            "npm:reflect-metadata",
+            "npm:rimraf",
+            "npm:rxjs",
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "packages/api-core/src/app.module.ts",
+          "hash": "4682796555951421897"
+        },
+        {
+          "file": "packages/api-core/src/aries/aries.module.ts",
+          "hash": "11355883991564958751"
+        },
+        {
+          "file": "packages/api-core/src/aries/aries.service.ts",
+          "hash": "11572376213923805051"
+        },
+        {
+          "file": "packages/api-core/src/ca/ca.module.ts",
+          "hash": "12071454424210821072"
+        },
+        {
+          "file": "packages/api-core/src/ca/ca.service.ts",
+          "hash": "10703256443932480560"
+        },
+        {
+          "file": "packages/api-core/src/decorators/role.decorator.ts",
+          "hash": "12125396534967647050"
+        },
+        {
+          "file": "packages/api-core/src/decorators/user.decorator.ts",
+          "hash": "3505286154332856833"
+        },
+        {
+          "file": "packages/api-core/src/directory/directory.controller.ts",
+          "hash": "7508640865455943707"
+        },
+        {
+          "file": "packages/api-core/src/directory/directory.module.ts",
+          "hash": "17964651946016026305"
+        },
+        {
+          "file": "packages/api-core/src/directory/directory.service.ts",
+          "hash": "15004101077849851924"
+        },
+        {
+          "file": "packages/api-core/src/field/field.controller.ts",
+          "hash": "195544392626685370"
+        },
+        {
+          "file": "packages/api-core/src/field/field.module.ts",
+          "hash": "17685024786288098526"
+        },
+        {
+          "file": "packages/api-core/src/field/field.service.ts",
+          "hash": "4283730252893067284"
+        },
+        {
+          "file": "packages/api-core/src/field/index.ts",
+          "hash": "3020438874841585797"
+        },
+        {
+          "file": "packages/api-core/src/identity/dtos/auth0.dto.ts",
+          "hash": "11088215804551948855"
+        },
+        {
+          "file": "packages/api-core/src/identity/identity.controller.ts",
+          "hash": "12511067854105310880"
+        },
+        {
+          "file": "packages/api-core/src/identity/identity.module.ts",
+          "hash": "1716915491783455314"
+        },
+        {
+          "file": "packages/api-core/src/identity/identity.service.ts",
+          "hash": "18020811467925211760"
+        },
+        {
+          "file": "packages/api-core/src/ledger/ledger.module.ts",
+          "hash": "12796395889312857436"
+        },
+        {
+          "file": "packages/api-core/src/ledger/ledger.service.ts",
+          "hash": "16948000324278144743"
+        },
+        {
+          "file": "packages/api-core/src/locations.json",
+          "hash": "12742767707355674400"
+        },
+        {
+          "file": "packages/api-core/src/main.ts",
+          "hash": "1884310306311222570"
+        },
+        {
+          "file": "packages/api-core/src/registry/registry.module.ts",
+          "hash": "16171963605683491784"
+        },
+        {
+          "file": "packages/api-core/src/registry/registry.service.ts",
+          "hash": "11184139212923825031"
+        },
+        {
+          "file": "packages/api-core/src/role.guard.ts",
+          "hash": "1954655665409521217"
+        },
+        {
+          "file": "packages/api-core/src/util/errorUtils.ts",
+          "hash": "11346065512332944962"
+        },
+        {
+          "file": "packages/api-core/src/util/logger.ts",
+          "hash": "14052781529522039225"
+        },
+        {
+          "file": "packages/api-core/src/well-known/well-known.controller.ts",
+          "hash": "16344841098393590191"
+        },
+        {
+          "file": "packages/api-core/src/well-known/well-known.module.ts",
+          "hash": "6478845651273398857"
+        },
+        {
+          "file": "packages/api-core/src/well/index.ts",
+          "hash": "14036117427201232880"
+        },
+        {
+          "file": "packages/api-core/src/well/well.controller.ts",
+          "hash": "15542876008454488746"
+        },
+        {
+          "file": "packages/api-core/src/well/well.module.ts",
+          "hash": "11045824632887821297"
+        },
+        {
+          "file": "packages/api-core/src/well/well.service.ts",
+          "hash": "6693822601292944064"
+        },
+        {
+          "file": "packages/api-core/test/app.e2e-spec.ts",
+          "hash": "15826293296989376808"
+        },
+        {
+          "file": "packages/api-core/test/jest-e2e.json",
+          "hash": "7570273541430074424"
+        },
+        {
+          "file": "packages/api-core/tsconfig.build.json",
+          "hash": "3826382668696433746"
+        },
+        {
+          "file": "packages/api-core/tsconfig.json",
+          "hash": "12027911987616267085"
+        }
+      ],
+      "@db/migration": [
+        {
+          "file": "packages/db-migration/README.md",
+          "hash": "3319649223283946893"
+        },
+        {
+          "file": "packages/db-migration/package-lock.json",
+          "hash": "17662760156263678440"
+        },
+        {
+          "file": "packages/db-migration/package.json",
+          "hash": "9708584934826159722"
+        },
+        {
+          "file": "packages/db-migration/src/index.ts",
+          "hash": "9796173645856844506"
+        },
+        {
+          "file": "packages/db-migration/tsconfig.build.json",
+          "hash": "3826382668696433746"
+        },
+        {
+          "file": "packages/db-migration/tsconfig.json",
+          "hash": "759647811151798320"
+        },
+        {
+          "file": "packages/db-migration/webpack.config.ts",
+          "hash": "13506151512244809946"
+        }
+      ],
+      "@api/ledger": [
+        {
+          "file": "packages/api-ledger/.eslintrc.js",
+          "hash": "3309330852700000667"
+        },
+        {
+          "file": "packages/api-ledger/.gitignore",
+          "hash": "1435937209358199767"
+        },
+        {
+          "file": "packages/api-ledger/.prettierrc",
+          "hash": "8778476930236081022"
+        },
+        {
+          "file": "packages/api-ledger/README.md",
+          "hash": "3319649223283946893"
+        },
+        {
+          "file": "packages/api-ledger/nest-cli.json",
+          "hash": "5831834014071666082"
+        },
+        {
+          "file": "packages/api-ledger/package-lock.json",
+          "hash": "3151995933075729363"
+        },
+        {
+          "file": "packages/api-ledger/package.json",
+          "hash": "15129360494315321939",
+          "deps": [
+            "npm:@aws-sdk/client-s3",
+            "npm:@hyperledger/fabric-gateway",
+            "npm:@hyperledger/fabric-protos",
+            "@naesb/dlt-model",
+            "npm:@nestjs/axios@0.1.1",
+            "npm:@nestjs/cache-manager",
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/core",
+            "npm:@nestjs/event-emitter",
+            "npm:@nestjs/microservices",
+            "npm:@nestjs/passport",
+            "npm:@nestjs/platform-express",
+            "npm:@nestjs/swagger",
+            "npm:@nestjs/terminus",
+            "npm:@nestjs/typeorm",
+            "@shared/server-utils",
+            "npm:asn1.js",
+            "npm:async",
+            "npm:async-retry",
+            "npm:auth0",
+            "npm:cache-manager",
+            "npm:cors",
+            "npm:date-fns",
+            "npm:fabric-ca-client",
+            "npm:fabric-common",
+            "npm:fabric-network",
+            "npm:fabric-protos",
+            "npm:js-yaml",
+            "npm:jwks-rsa@2.1.5",
+            "npm:kafkajs",
+            "npm:lodash",
+            "npm:morgan",
+            "npm:nanoid",
+            "npm:passport",
+            "npm:passport-jwt",
+            "npm:pg",
+            "npm:reflect-metadata",
+            "npm:rimraf",
+            "npm:rxjs",
+            "npm:swagger-ui-express",
+            "npm:typeorm",
+            "npm:uuid",
+            "npm:winston",
+            "npm:yaml",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/api-ledger/src/allocation/allocation.controller.ts",
+          "hash": "2579752401239811033"
+        },
+        {
+          "file": "packages/api-ledger/src/allocation/allocation.module.ts",
+          "hash": "4002745799880446048"
+        },
+        {
+          "file": "packages/api-ledger/src/allocation/allocation.service.ts",
+          "hash": "6115846375740465467"
+        },
+        {
+          "file": "packages/api-ledger/src/app.module.ts",
+          "hash": "18041021971622593871"
+        },
+        {
+          "file": "packages/api-ledger/src/baseContract/allocation.module.ts",
+          "hash": "11919363435843300297"
+        },
+        {
+          "file": "packages/api-ledger/src/baseContract/baseContract.controller.ts",
+          "hash": "17063892777378383708"
+        },
+        {
+          "file": "packages/api-ledger/src/baseContract/baseContract.service.ts",
+          "hash": "442449864850986758"
+        },
+        {
+          "file": "packages/api-ledger/src/blocks/blocks.controller.ts",
+          "hash": "9837383475244046366"
+        },
+        {
+          "file": "packages/api-ledger/src/blocks/blocks.module.ts",
+          "hash": "2107997987242695155"
+        },
+        {
+          "file": "packages/api-ledger/src/broker/broker.module.ts",
+          "hash": "12428750140218664670"
+        },
+        {
+          "file": "packages/api-ledger/src/ca/ca.module.ts",
+          "hash": "12071454424210821072"
+        },
+        {
+          "file": "packages/api-ledger/src/ca/ca.service.ts",
+          "hash": "3167553532670945262"
+        },
+        {
+          "file": "packages/api-ledger/src/channel/channel.controller.ts",
+          "hash": "2492224208161703790"
+        },
+        {
+          "file": "packages/api-ledger/src/channel/channel.module.ts",
+          "hash": "17678170642738246001"
+        },
+        {
+          "file": "packages/api-ledger/src/channel/channel.service.ts",
+          "hash": "3537611974515980387"
+        },
+        {
+          "file": "packages/api-ledger/src/db/baseContract.entity.ts",
+          "hash": "8644977288951979199"
+        },
+        {
+          "file": "packages/api-ledger/src/db/block.entity.ts",
+          "hash": "6252180504595123512"
+        },
+        {
+          "file": "packages/api-ledger/src/db/blockCheckpoint.entity.ts",
+          "hash": "14759152420365974895"
+        },
+        {
+          "file": "packages/api-ledger/src/db/chaincode.entity.ts",
+          "hash": "710587380980277674"
+        },
+        {
+          "file": "packages/api-ledger/src/db/chaincodeBlockCheckpoint.entity.ts",
+          "hash": "14260039426473655695"
+        },
+        {
+          "file": "packages/api-ledger/src/db/chaincodeTransactionCheckpoint.entity.ts",
+          "hash": "7069289158028466825"
+        },
+        {
+          "file": "packages/api-ledger/src/db/channel.entity.ts",
+          "hash": "9737495860606583050"
+        },
+        {
+          "file": "packages/api-ledger/src/db/channelMember.entity.ts",
+          "hash": "7900786992342292573"
+        },
+        {
+          "file": "packages/api-ledger/src/db/db.module.ts",
+          "hash": "10262746838391765038"
+        },
+        {
+          "file": "packages/api-ledger/src/db/delivery.entity.ts",
+          "hash": "14275840201728063953"
+        },
+        {
+          "file": "packages/api-ledger/src/db/deliveryAllocation.entity.ts",
+          "hash": "14767234135039568220"
+        },
+        {
+          "file": "packages/api-ledger/src/db/facility.entity.ts",
+          "hash": "14470940144828103360"
+        },
+        {
+          "file": "packages/api-ledger/src/db/invoice.entity.ts",
+          "hash": "7970652160597148138"
+        },
+        {
+          "file": "packages/api-ledger/src/db/invoiceDetail.entity.ts",
+          "hash": "13388667627931423345"
+        },
+        {
+          "file": "packages/api-ledger/src/db/trade.entity.ts",
+          "hash": "3616999341241487139"
+        },
+        {
+          "file": "packages/api-ledger/src/db/tradeFacility.entity.ts",
+          "hash": "9514387433160432713"
+        },
+        {
+          "file": "packages/api-ledger/src/db/transaction.entity.ts",
+          "hash": "13627661449179845286"
+        },
+        {
+          "file": "packages/api-ledger/src/db/transactionCheckpoint.entity.ts",
+          "hash": "13888871838698105862"
+        },
+        {
+          "file": "packages/api-ledger/src/db/transformer.ts",
+          "hash": "3625371457490208446"
+        },
+        {
+          "file": "packages/api-ledger/src/delivery/delivery.controller.ts",
+          "hash": "12507349935542934880"
+        },
+        {
+          "file": "packages/api-ledger/src/delivery/delivery.module.ts",
+          "hash": "15371599292101720342"
+        },
+        {
+          "file": "packages/api-ledger/src/delivery/delivery.service.ts",
+          "hash": "3676630865631191969"
+        },
+        {
+          "file": "packages/api-ledger/src/env.ts",
+          "hash": "14332329304244210990"
+        },
+        {
+          "file": "packages/api-ledger/src/events/__tests__/blockUtil.spec.ts",
+          "hash": "16886844283631303194"
+        },
+        {
+          "file": "packages/api-ledger/src/events/baseContractEvent.controller.ts",
+          "hash": "14950841724158120846"
+        },
+        {
+          "file": "packages/api-ledger/src/events/blockUtil.ts",
+          "hash": "16608311712430954264"
+        },
+        {
+          "file": "packages/api-ledger/src/events/chaincodeCheckpoint.service.ts",
+          "hash": "8509790410875931524"
+        },
+        {
+          "file": "packages/api-ledger/src/events/checkpoint.service.ts",
+          "hash": "15192045002171807910"
+        },
+        {
+          "file": "packages/api-ledger/src/events/deliveryEvent.controller.ts",
+          "hash": "18253986931450135719"
+        },
+        {
+          "file": "packages/api-ledger/src/events/events.handler.ts",
+          "hash": "262876814301183326"
+        },
+        {
+          "file": "packages/api-ledger/src/events/events.module.ts",
+          "hash": "5693682518182617771"
+        },
+        {
+          "file": "packages/api-ledger/src/events/facilityEvent.handler.ts",
+          "hash": "5243486508600431404"
+        },
+        {
+          "file": "packages/api-ledger/src/events/gatewayListener.service.ts",
+          "hash": "13690175243790694082"
+        },
+        {
+          "file": "packages/api-ledger/src/events/invoiceEvent.handler.ts",
+          "hash": "14367725135212409414"
+        },
+        {
+          "file": "packages/api-ledger/src/events/tradeEvent.controller.ts",
+          "hash": "3112492637053394013"
+        },
+        {
+          "file": "packages/api-ledger/src/events/util.ts",
+          "hash": "6158283727567677682"
+        },
+        {
+          "file": "packages/api-ledger/src/explorer/baseContract.service.ts",
+          "hash": "7211219132106147100"
+        },
+        {
+          "file": "packages/api-ledger/src/explorer/block.service.ts",
+          "hash": "17415033314807414057"
+        },
+        {
+          "file": "packages/api-ledger/src/explorer/channel.service.ts",
+          "hash": "13430598778238641292"
+        },
+        {
+          "file": "packages/api-ledger/src/explorer/channelMember.service.ts",
+          "hash": "8596564606775740602"
+        },
+        {
+          "file": "packages/api-ledger/src/explorer/delivery.service.ts",
+          "hash": "2354869418554185691"
+        },
+        {
+          "file": "packages/api-ledger/src/explorer/deliveryAllocation.service.ts",
+          "hash": "16454152351356233118"
+        },
+        {
+          "file": "packages/api-ledger/src/explorer/explorer.controller.ts",
+          "hash": "8619554625142802451"
+        },
+        {
+          "file": "packages/api-ledger/src/explorer/explorer.module.ts",
+          "hash": "9769168163118528440"
+        },
+        {
+          "file": "packages/api-ledger/src/explorer/facility.service.ts",
+          "hash": "10947032117249904188"
+        },
+        {
+          "file": "packages/api-ledger/src/explorer/invoice.service.ts",
+          "hash": "4890535025375240956"
+        },
+        {
+          "file": "packages/api-ledger/src/explorer/invoiceDetail.service.ts",
+          "hash": "16299579838292277582"
+        },
+        {
+          "file": "packages/api-ledger/src/explorer/trade.service.ts",
+          "hash": "8065034047713930268"
+        },
+        {
+          "file": "packages/api-ledger/src/explorer/transaction.service.ts",
+          "hash": "15269146850998827198"
+        },
+        {
+          "file": "packages/api-ledger/src/facility/facility.controller.ts",
+          "hash": "7992756157723030123"
+        },
+        {
+          "file": "packages/api-ledger/src/facility/facility.module.ts",
+          "hash": "14852088877696506882"
+        },
+        {
+          "file": "packages/api-ledger/src/facility/facility.service.ts",
+          "hash": "1038773690783314580"
+        },
+        {
+          "file": "packages/api-ledger/src/health/chaincode.health.ts",
+          "hash": "16547353737647164922"
+        },
+        {
+          "file": "packages/api-ledger/src/health/health.controller.spec.ts",
+          "hash": "16270099794812866127"
+        },
+        {
+          "file": "packages/api-ledger/src/health/health.controller.ts",
+          "hash": "962815215820789216"
+        },
+        {
+          "file": "packages/api-ledger/src/identity/identity.controller.ts",
+          "hash": "11792049702821159564"
+        },
+        {
+          "file": "packages/api-ledger/src/identity/identity.module.ts",
+          "hash": "3146373507668899518"
+        },
+        {
+          "file": "packages/api-ledger/src/identity/identity.service.ts",
+          "hash": "3005312001922420613"
+        },
+        {
+          "file": "packages/api-ledger/src/invoice/invoice.controller.ts",
+          "hash": "11152393797316302882"
+        },
+        {
+          "file": "packages/api-ledger/src/invoice/invoice.module.ts",
+          "hash": "12517691797512641614"
+        },
+        {
+          "file": "packages/api-ledger/src/invoice/invoice.service.ts",
+          "hash": "17420708599824648641"
+        },
+        {
+          "file": "packages/api-ledger/src/ledger/ledger.module.ts",
+          "hash": "13116111239182518658"
+        },
+        {
+          "file": "packages/api-ledger/src/ledger/ledger.service.ts",
+          "hash": "15441330023051048625"
+        },
+        {
+          "file": "packages/api-ledger/src/main.ts",
+          "hash": "12634950394975954632"
+        },
+        {
+          "file": "packages/api-ledger/src/peer/chaincode.service.ts",
+          "hash": "16507881867803306901"
+        },
+        {
+          "file": "packages/api-ledger/src/peer/msp.service.ts",
+          "hash": "2330984669549289306"
+        },
+        {
+          "file": "packages/api-ledger/src/peer/peer.controller.ts",
+          "hash": "2230244955642484204"
+        },
+        {
+          "file": "packages/api-ledger/src/peer/peer.module.ts",
+          "hash": "2178484038969488156"
+        },
+        {
+          "file": "packages/api-ledger/src/peer/peer.service.ts",
+          "hash": "1305497422375461992"
+        },
+        {
+          "file": "packages/api-ledger/src/price/price.module.ts",
+          "hash": "7130215218282601497"
+        },
+        {
+          "file": "packages/api-ledger/src/price/price.service.ts",
+          "hash": "937699116753399370"
+        },
+        {
+          "file": "packages/api-ledger/src/registry/registry.module.ts",
+          "hash": "16171963605683491784"
+        },
+        {
+          "file": "packages/api-ledger/src/registry/registry.service.ts",
+          "hash": "1863899582973260054"
+        },
+        {
+          "file": "packages/api-ledger/src/trade/trade.controller.ts",
+          "hash": "15883714199347479089"
+        },
+        {
+          "file": "packages/api-ledger/src/trade/trade.module.ts",
+          "hash": "15935351868011556233"
+        },
+        {
+          "file": "packages/api-ledger/src/trade/trade.service.ts",
+          "hash": "4949803368507250238"
+        },
+        {
+          "file": "packages/api-ledger/src/trade/util.ts",
+          "hash": "3226003927074867983"
+        },
+        {
+          "file": "packages/api-ledger/src/transactions/transactions.controller.ts",
+          "hash": "13783764595621423085"
+        },
+        {
+          "file": "packages/api-ledger/src/transactions/transactions.module.ts",
+          "hash": "16819192462096646588"
+        },
+        {
+          "file": "packages/api-ledger/src/util/constant.ts",
+          "hash": "2612509319813130465"
+        },
+        {
+          "file": "packages/api-ledger/src/util/crypto.ts",
+          "hash": "7689539071595644253"
+        },
+        {
+          "file": "packages/api-ledger/src/util/logger.ts",
+          "hash": "2536660425404195758"
+        },
+        {
+          "file": "packages/api-ledger/src/util/types.ts",
+          "hash": "11371870870096908683"
+        },
+        {
+          "file": "packages/api-ledger/test/app.e2e-spec.ts",
+          "hash": "7978376116220768990"
+        },
+        {
+          "file": "packages/api-ledger/test/jest-e2e.json",
+          "hash": "7570273541430074424"
+        },
+        {
+          "file": "packages/api-ledger/testing",
+          "hash": "14924306937740429455"
+        },
+        {
+          "file": "packages/api-ledger/tsconfig.build.json",
+          "hash": "3826382668696433746"
+        },
+        {
+          "file": "packages/api-ledger/tsconfig.json",
+          "hash": "12329696052592190599"
+        }
+      ],
+      "client": [
+        {
+          "file": "packages/client/.env",
+          "hash": "4919312588568980123"
+        },
+        {
+          "file": "packages/client/.eslintrc.js",
+          "hash": "4501670031176616862"
+        },
+        {
+          "file": "packages/client/.gitignore",
+          "hash": "17906047170418268668"
+        },
+        {
+          "file": "packages/client/README.md",
+          "hash": "17911282315018038361"
+        },
+        {
+          "file": "packages/client/craco.config.js",
+          "hash": "17809348144163203363"
+        },
+        {
+          "file": "packages/client/package.json",
+          "hash": "4965956872499082164",
+          "deps": [
+            "npm:@auth0/auth0-react",
+            "npm:@mui/icons-material",
+            "npm:@mui/material",
+            "@react/toolkit",
+            "@naesb/dlt-model",
+            "npm:ag-grid-community",
+            "npm:ag-grid-react",
+            "npm:axios",
+            "npm:buffer",
+            "npm:clsx",
+            "npm:date-fns",
+            "npm:lodash",
+            "npm:sass"
+          ]
+        },
+        {
+          "file": "packages/client/public/bg-10.jpg",
+          "hash": "17037648260509331583"
+        },
+        {
+          "file": "packages/client/public/bg3.jpg",
+          "hash": "8882992476604732031"
+        },
+        {
+          "file": "packages/client/public/bg4.jpg",
+          "hash": "4292983778028409419"
+        },
+        {
+          "file": "packages/client/public/bg5.jpg",
+          "hash": "175811654062661541"
+        },
+        {
+          "file": "packages/client/public/favicon.ico",
+          "hash": "17807956970400168983"
+        },
+        {
+          "file": "packages/client/public/hexbackground.jpg",
+          "hash": "3404480849259812222"
+        },
+        {
+          "file": "packages/client/public/home-backdrop.jpg",
+          "hash": "7287422023660930864"
+        },
+        {
+          "file": "packages/client/public/index.html",
+          "hash": "17476615331927715308"
+        },
+        {
+          "file": "packages/client/public/logo192.png",
+          "hash": "7585273181698778288"
+        },
+        {
+          "file": "packages/client/public/logo512.png",
+          "hash": "9339365414554387981"
+        },
+        {
+          "file": "packages/client/public/manifest.json",
+          "hash": "1447645250373428393"
+        },
+        {
+          "file": "packages/client/public/robots.txt",
+          "hash": "2790380794362165217"
+        },
+        {
+          "file": "packages/client/src/App.tsx",
+          "hash": "11105098873696341409"
+        },
+        {
+          "file": "packages/client/src/AuthProvider.tsx",
+          "hash": "2076019474647296615"
+        },
+        {
+          "file": "packages/client/src/assets/HelveticaNeueLTStd-Cn.otf",
+          "hash": "4024846834101997009"
+        },
+        {
+          "file": "packages/client/src/assets/Tungsten-Book.otf",
+          "hash": "11443832373291139288"
+        },
+        {
+          "file": "packages/client/src/assets/Tungsten-Semibold.otf",
+          "hash": "15293612801255742855"
+        },
+        {
+          "file": "packages/client/src/assets/bg-10.jpg",
+          "hash": "17037648260509331583"
+        },
+        {
+          "file": "packages/client/src/assets/home-backdrop.jpg",
+          "hash": "98608193540638196"
+        },
+        {
+          "file": "packages/client/src/assets/logo.png",
+          "hash": "17807956970400168983"
+        },
+        {
+          "file": "packages/client/src/common/card/index.tsx",
+          "hash": "13595808268722835840"
+        },
+        {
+          "file": "packages/client/src/common/error/error.tsx",
+          "hash": "2111416796876045823"
+        },
+        {
+          "file": "packages/client/src/common/form/displayController/index.tsx",
+          "hash": "15977874660463243911"
+        },
+        {
+          "file": "packages/client/src/common/form/form/Submit.tsx",
+          "hash": "9147581261549419089"
+        },
+        {
+          "file": "packages/client/src/common/form/form/index.tsx",
+          "hash": "1542761643174738782"
+        },
+        {
+          "file": "packages/client/src/common/form/form/useDisableSubmit.ts",
+          "hash": "2564002862943209757"
+        },
+        {
+          "file": "packages/client/src/common/form/form/useValidationSchema.ts",
+          "hash": "4208073469882646159"
+        },
+        {
+          "file": "packages/client/src/common/form/index.tsx",
+          "hash": "16650743354994071614"
+        },
+        {
+          "file": "packages/client/src/common/form/input/TextField.tsx",
+          "hash": "11780732405204206441"
+        },
+        {
+          "file": "packages/client/src/common/form/input/autocomplete/index.tsx",
+          "hash": "10682870388760409502"
+        },
+        {
+          "file": "packages/client/src/common/form/input/channelOrganization/index.tsx",
+          "hash": "13582927479316155565"
+        },
+        {
+          "file": "packages/client/src/common/form/input/date/BaseDateInput.tsx",
+          "hash": "9595245955117803972"
+        },
+        {
+          "file": "packages/client/src/common/form/input/date/Date.tsx",
+          "hash": "557406276031965939"
+        },
+        {
+          "file": "packages/client/src/common/form/input/date/EndOfMonthDate.tsx",
+          "hash": "8181766851110500913"
+        },
+        {
+          "file": "packages/client/src/common/form/input/date/index.ts",
+          "hash": "6156954715671287819"
+        },
+        {
+          "file": "packages/client/src/common/form/input/index.tsx",
+          "hash": "9991552360914473269"
+        },
+        {
+          "file": "packages/client/src/common/form/input/organizationLookup/index.tsx",
+          "hash": "6854788475817117032"
+        },
+        {
+          "file": "packages/client/src/common/form/input/priceIndexLookup/index.tsx",
+          "hash": "13311659965163306012"
+        },
+        {
+          "file": "packages/client/src/common/form/input/select/BaseSelect.tsx",
+          "hash": "3082425696688155248"
+        },
+        {
+          "file": "packages/client/src/common/form/input/select/Select.tsx",
+          "hash": "15678365884928770132"
+        },
+        {
+          "file": "packages/client/src/common/form/input/select/index.tsx",
+          "hash": "5256883107305167702"
+        },
+        {
+          "file": "packages/client/src/common/form/input/toggleButton.tsx",
+          "hash": "17906806091512576826"
+        },
+        {
+          "file": "packages/client/src/common/form/input/tspLocationLookup/index.tsx",
+          "hash": "18402019047210987468"
+        },
+        {
+          "file": "packages/client/src/common/form/input/tspLookup/index.tsx",
+          "hash": "17409881625340656674"
+        },
+        {
+          "file": "packages/client/src/common/form/input/userLookup/index.tsx",
+          "hash": "14261449395673841702"
+        },
+        {
+          "file": "packages/client/src/common/form/schemas/delivery.ts",
+          "hash": "9609322892272080322"
+        },
+        {
+          "file": "packages/client/src/common/form/schemas/index.ts",
+          "hash": "3031509629690499664"
+        },
+        {
+          "file": "packages/client/src/common/form/schemas/organizations.ts",
+          "hash": "2961664809871203826"
+        },
+        {
+          "file": "packages/client/src/common/form/schemas/trade.ts",
+          "hash": "1455532072709564945"
+        },
+        {
+          "file": "packages/client/src/common/form/schemas/user.ts",
+          "hash": "4671541367644032373"
+        },
+        {
+          "file": "packages/client/src/common/form/section/index.tsx",
+          "hash": "1032581793264869571"
+        },
+        {
+          "file": "packages/client/src/common/form/useDebounce.ts",
+          "hash": "16184038679499342552"
+        },
+        {
+          "file": "packages/client/src/common/form/useFormField.ts",
+          "hash": "9891514515402346817"
+        },
+        {
+          "file": "packages/client/src/common/grid/components/cellRenderers/PriceCellRenderer.tsx",
+          "hash": "10391161495486015702"
+        },
+        {
+          "file": "packages/client/src/common/grid/components/cellRenderers/StatusCellRenderer.tsx",
+          "hash": "17059173180717212187"
+        },
+        {
+          "file": "packages/client/src/common/grid/components/cellRenderers/index.tsx",
+          "hash": "1876411816418817223"
+        },
+        {
+          "file": "packages/client/src/common/grid/components/index.tsx",
+          "hash": "2295691707669026135"
+        },
+        {
+          "file": "packages/client/src/common/grid/formatters/index.ts",
+          "hash": "3661823381155261291"
+        },
+        {
+          "file": "packages/client/src/common/grid/formatters/performanceType.ts",
+          "hash": "11324361652276447395"
+        },
+        {
+          "file": "packages/client/src/common/grid/formatters/priceType.ts",
+          "hash": "10183414000478721414"
+        },
+        {
+          "file": "packages/client/src/common/grid/formatters/status.ts",
+          "hash": "18415322272516424974"
+        },
+        {
+          "file": "packages/client/src/common/grid/index.tsx",
+          "hash": "14747042815393408389"
+        },
+        {
+          "file": "packages/client/src/common/header/Organization.tsx",
+          "hash": "13980952362162337808"
+        },
+        {
+          "file": "packages/client/src/common/header/auth/AuthToken.tsx",
+          "hash": "14712230412277808779"
+        },
+        {
+          "file": "packages/client/src/common/header/auth/Login.tsx",
+          "hash": "2959706283358581510"
+        },
+        {
+          "file": "packages/client/src/common/header/auth/LogoutButton.tsx",
+          "hash": "2224167077251546582"
+        },
+        {
+          "file": "packages/client/src/common/header/index.tsx",
+          "hash": "18110903628804971284"
+        },
+        {
+          "file": "packages/client/src/common/header/nav/drawerMenu/DrawerMenu.tsx",
+          "hash": "3765340911829354675"
+        },
+        {
+          "file": "packages/client/src/common/header/nav/index.tsx",
+          "hash": "469389100915812930"
+        },
+        {
+          "file": "packages/client/src/common/header/nav/navBar/NavBar.tsx",
+          "hash": "7730793841056358501"
+        },
+        {
+          "file": "packages/client/src/common/header/nav/shared/MenuItem.tsx",
+          "hash": "7504748568353801614"
+        },
+        {
+          "file": "packages/client/src/common/header/nav/shared/MultiLevel.tsx",
+          "hash": "10178397079487086296"
+        },
+        {
+          "file": "packages/client/src/common/header/nav/shared/NavLinkButton.tsx",
+          "hash": "12201619823337811625"
+        },
+        {
+          "file": "packages/client/src/common/header/nav/shared/SingleLevel.tsx",
+          "hash": "13576320816333551354"
+        },
+        {
+          "file": "packages/client/src/common/header/nav/sidenav/SideNav.tsx",
+          "hash": "5729262331009530510"
+        },
+        {
+          "file": "packages/client/src/common/header/profile/AccountMenu.tsx",
+          "hash": "13455565726155447646"
+        },
+        {
+          "file": "packages/client/src/common/header/profile/AccountMenuItems.tsx",
+          "hash": "602400267344547496"
+        },
+        {
+          "file": "packages/client/src/common/header/profile/Button.tsx",
+          "hash": "9197264770674076386"
+        },
+        {
+          "file": "packages/client/src/common/header/profile/index.tsx",
+          "hash": "9439202580835785784"
+        },
+        {
+          "file": "packages/client/src/common/hooks/index.ts",
+          "hash": "17268803565780809073"
+        },
+        {
+          "file": "packages/client/src/common/hooks/useOrgMsp.ts",
+          "hash": "18021750913666395016"
+        },
+        {
+          "file": "packages/client/src/common/loading/Loading.tsx",
+          "hash": "17101731119684528735"
+        },
+        {
+          "file": "packages/client/src/common/loading/Mutating.tsx",
+          "hash": "7879241966104631047"
+        },
+        {
+          "file": "packages/client/src/common/page/BreadCrumbs.tsx",
+          "hash": "2546139555342608276"
+        },
+        {
+          "file": "packages/client/src/common/page/index.tsx",
+          "hash": "15314005013608133390"
+        },
+        {
+          "file": "packages/client/src/common/route/Protected.tsx",
+          "hash": "3161982672553421251"
+        },
+        {
+          "file": "packages/client/src/common/tabs/RouterLink.tsx",
+          "hash": "2321653531304512447"
+        },
+        {
+          "file": "packages/client/src/common/tabs/RouterTabs.tsx",
+          "hash": "15993763956798207040"
+        },
+        {
+          "file": "packages/client/src/common/tabs/RouterTabsContent.tsx",
+          "hash": "3032442328534456493"
+        },
+        {
+          "file": "packages/client/src/common/tabs/Tablink.tsx",
+          "hash": "6647605798398391909"
+        },
+        {
+          "file": "packages/client/src/common/tabs/index.tsx",
+          "hash": "7483430230451266720"
+        },
+        {
+          "file": "packages/client/src/common/tabs/useRouterTabs.ts",
+          "hash": "8823023830298985526"
+        },
+        {
+          "file": "packages/client/src/common/theme/index.tsx",
+          "hash": "2495028601692035839"
+        },
+        {
+          "file": "packages/client/src/common/theme/themes.ts",
+          "hash": "14451077175969158150"
+        },
+        {
+          "file": "packages/client/src/common/utils/index.tsx",
+          "hash": "5444268290880603981"
+        },
+        {
+          "file": "packages/client/src/common/utils/mobile_utils.tsx",
+          "hash": "4075388961892595878"
+        },
+        {
+          "file": "packages/client/src/common/utils/nav_utils.tsx",
+          "hash": "6911590523647700501"
+        },
+        {
+          "file": "packages/client/src/index.css",
+          "hash": "16798103241840608860"
+        },
+        {
+          "file": "packages/client/src/index.tsx",
+          "hash": "8853236792671630054"
+        },
+        {
+          "file": "packages/client/src/pages/channels/details/Activity.tsx",
+          "hash": "18346345313516789995"
+        },
+        {
+          "file": "packages/client/src/pages/channels/details/Contracts.tsx",
+          "hash": "9241870519467672613"
+        },
+        {
+          "file": "packages/client/src/pages/channels/details/InvoiceList.tsx",
+          "hash": "17156029384252639658"
+        },
+        {
+          "file": "packages/client/src/pages/channels/details/Msps.tsx",
+          "hash": "16492979301496404423"
+        },
+        {
+          "file": "packages/client/src/pages/channels/details/Trades.tsx",
+          "hash": "3564091008123117257"
+        },
+        {
+          "file": "packages/client/src/pages/channels/details/index.tsx",
+          "hash": "11511327888489790076"
+        },
+        {
+          "file": "packages/client/src/pages/channels/index.tsx",
+          "hash": "14885599846113433012"
+        },
+        {
+          "file": "packages/client/src/pages/channels/list/Grid.tsx",
+          "hash": "4956018595274937174"
+        },
+        {
+          "file": "packages/client/src/pages/channels/list/index.tsx",
+          "hash": "17304429966194813093"
+        },
+        {
+          "file": "packages/client/src/pages/deliveries/create/ChannelInput.tsx",
+          "hash": "14155091793749451944"
+        },
+        {
+          "file": "packages/client/src/pages/deliveries/create/index.tsx",
+          "hash": "12577730153588854503"
+        },
+        {
+          "file": "packages/client/src/pages/deliveries/index.tsx",
+          "hash": "11630265862221646395"
+        },
+        {
+          "file": "packages/client/src/pages/deliveries/list/Grid.tsx",
+          "hash": "10350797109451266472"
+        },
+        {
+          "file": "packages/client/src/pages/deliveries/list/current/index.tsx",
+          "hash": "13406712941197905219"
+        },
+        {
+          "file": "packages/client/src/pages/deliveries/list/deliveryDetails/Allocation.tsx",
+          "hash": "11645854549447159331"
+        },
+        {
+          "file": "packages/client/src/pages/deliveries/list/deliveryDetails/AllocationGrid.tsx",
+          "hash": "9503902411059885915"
+        },
+        {
+          "file": "packages/client/src/pages/deliveries/list/deliveryDetails/Dialog.tsx",
+          "hash": "15655117699491620489"
+        },
+        {
+          "file": "packages/client/src/pages/deliveries/list/historic/index.tsx",
+          "hash": "4539777653224240300"
+        },
+        {
+          "file": "packages/client/src/pages/deliveries/list/index.tsx",
+          "hash": "2412104780292588132"
+        },
+        {
+          "file": "packages/client/src/pages/explorer/blocks/index.tsx",
+          "hash": "6003643139900879308"
+        },
+        {
+          "file": "packages/client/src/pages/explorer/blocks/list/BlockList.tsx",
+          "hash": "12260433209039540402"
+        },
+        {
+          "file": "packages/client/src/pages/explorer/index.tsx",
+          "hash": "8118193371720580202"
+        },
+        {
+          "file": "packages/client/src/pages/explorer/transactions/index.tsx",
+          "hash": "15958742401727669776"
+        },
+        {
+          "file": "packages/client/src/pages/explorer/transactions/list/TransactionList.tsx",
+          "hash": "10463475536657583776"
+        },
+        {
+          "file": "packages/client/src/pages/home/index.tsx",
+          "hash": "6549716127057040499"
+        },
+        {
+          "file": "packages/client/src/pages/invoices/create/ChannelInput.tsx",
+          "hash": "14155091793749451944"
+        },
+        {
+          "file": "packages/client/src/pages/invoices/create/index.tsx",
+          "hash": "12328784624909581980"
+        },
+        {
+          "file": "packages/client/src/pages/invoices/details/DetailsGrid.tsx",
+          "hash": "7701178651207114856"
+        },
+        {
+          "file": "packages/client/src/pages/invoices/details/InvoiceDetailsDialog.tsx",
+          "hash": "6881421911089033797"
+        },
+        {
+          "file": "packages/client/src/pages/invoices/details/index.tsx",
+          "hash": "18248292967083488944"
+        },
+        {
+          "file": "packages/client/src/pages/invoices/index.tsx",
+          "hash": "16318818030425050471"
+        },
+        {
+          "file": "packages/client/src/pages/organization/OrganizationPage.tsx",
+          "hash": "4584901157508097388"
+        },
+        {
+          "file": "packages/client/src/pages/organization/branding/branding.tsx",
+          "hash": "12476014722533991939"
+        },
+        {
+          "file": "packages/client/src/pages/organization/branding/index.tsx",
+          "hash": "7664105731894126314"
+        },
+        {
+          "file": "packages/client/src/pages/organization/details/details.tsx",
+          "hash": "6425005338036355351"
+        },
+        {
+          "file": "packages/client/src/pages/organization/details/index.tsx",
+          "hash": "18095620882152236324"
+        },
+        {
+          "file": "packages/client/src/pages/organization/index.tsx",
+          "hash": "1635422321438949468"
+        },
+        {
+          "file": "packages/client/src/pages/trade/create/Stepper.tsx",
+          "hash": "13849063162745242268"
+        },
+        {
+          "file": "packages/client/src/pages/trade/create/index.tsx",
+          "hash": "17206957314145328425"
+        },
+        {
+          "file": "packages/client/src/pages/trade/details/components/DeliveryPeriod.tsx",
+          "hash": "11825249499611726916"
+        },
+        {
+          "file": "packages/client/src/pages/trade/details/components/Logo.tsx",
+          "hash": "14225949471617118955"
+        },
+        {
+          "file": "packages/client/src/pages/trade/details/components/Status.tsx",
+          "hash": "14425349421554380876"
+        },
+        {
+          "file": "packages/client/src/pages/trade/details/components/Volume.tsx",
+          "hash": "7081676587545501553"
+        },
+        {
+          "file": "packages/client/src/pages/trade/details/deliveries/index.tsx",
+          "hash": "1680980425955936145"
+        },
+        {
+          "file": "packages/client/src/pages/trade/details/history/BlockDialog.tsx",
+          "hash": "3856525332586937855"
+        },
+        {
+          "file": "packages/client/src/pages/trade/details/history/index.tsx",
+          "hash": "11698387200263317267"
+        },
+        {
+          "file": "packages/client/src/pages/trade/details/index.tsx",
+          "hash": "11324563297702979852"
+        },
+        {
+          "file": "packages/client/src/pages/trade/details/overview/Outcomes.tsx",
+          "hash": "10709607414035014377"
+        },
+        {
+          "file": "packages/client/src/pages/trade/details/overview/index.tsx",
+          "hash": "4413646770500606117"
+        },
+        {
+          "file": "packages/client/src/pages/trade/details/terms/index.tsx",
+          "hash": "12167100965718428821"
+        },
+        {
+          "file": "packages/client/src/pages/trade/index.tsx",
+          "hash": "7483286900793911655"
+        },
+        {
+          "file": "packages/client/src/pages/trades/create/BuySellInput.tsx",
+          "hash": "6317950805064844315"
+        },
+        {
+          "file": "packages/client/src/pages/trades/create/PartyInput.tsx",
+          "hash": "9020631997148285300"
+        },
+        {
+          "file": "packages/client/src/pages/trades/create/index.tsx",
+          "hash": "2262033630474477469"
+        },
+        {
+          "file": "packages/client/src/pages/trades/index.tsx",
+          "hash": "723067641412385732"
+        },
+        {
+          "file": "packages/client/src/pages/trades/list/Grid.tsx",
+          "hash": "10437716423105422955"
+        },
+        {
+          "file": "packages/client/src/pages/trades/list/active/index.tsx",
+          "hash": "14210144135993698027"
+        },
+        {
+          "file": "packages/client/src/pages/trades/list/historic/index.tsx",
+          "hash": "5757287385454572331"
+        },
+        {
+          "file": "packages/client/src/pages/trades/list/index.tsx",
+          "hash": "11110590010085956289"
+        },
+        {
+          "file": "packages/client/src/pages/trades/list/pending/index.tsx",
+          "hash": "14055256287623912169"
+        },
+        {
+          "file": "packages/client/src/pages/users/details/admin.tsx",
+          "hash": "1364692318673351121"
+        },
+        {
+          "file": "packages/client/src/pages/users/details/edit.tsx",
+          "hash": "17601109737000089738"
+        },
+        {
+          "file": "packages/client/src/pages/users/details/index.tsx",
+          "hash": "9167881581097936331"
+        },
+        {
+          "file": "packages/client/src/pages/users/details/view.tsx",
+          "hash": "14596936995069186739"
+        },
+        {
+          "file": "packages/client/src/pages/users/index.tsx",
+          "hash": "2346718105789935534"
+        },
+        {
+          "file": "packages/client/src/pages/users/list/Grid.tsx",
+          "hash": "11195602783554222642"
+        },
+        {
+          "file": "packages/client/src/pages/users/list/index.tsx",
+          "hash": "16163854419815586015"
+        },
+        {
+          "file": "packages/client/src/query/allocations.ts",
+          "hash": "1603033008555281996"
+        },
+        {
+          "file": "packages/client/src/query/channels.ts",
+          "hash": "4966779395281972680"
+        },
+        {
+          "file": "packages/client/src/query/deliveries.ts",
+          "hash": "4300245292883696360"
+        },
+        {
+          "file": "packages/client/src/query/index.ts",
+          "hash": "18078489789328887677"
+        },
+        {
+          "file": "packages/client/src/query/invoices.ts",
+          "hash": "14433642190756269494"
+        },
+        {
+          "file": "packages/client/src/query/organization.ts",
+          "hash": "5504775486463376616"
+        },
+        {
+          "file": "packages/client/src/query/price.ts",
+          "hash": "17356961696472048813"
+        },
+        {
+          "file": "packages/client/src/query/trades.ts",
+          "hash": "1719286256639869076"
+        },
+        {
+          "file": "packages/client/src/query/transactions.ts",
+          "hash": "9487493549691345973"
+        },
+        {
+          "file": "packages/client/src/query/tsp.ts",
+          "hash": "5148033725000687215"
+        },
+        {
+          "file": "packages/client/src/query/useAuthorizedMutation.ts",
+          "hash": "9511575831055136931"
+        },
+        {
+          "file": "packages/client/src/query/useAuthorizedQuery.ts",
+          "hash": "7712365825788592704"
+        },
+        {
+          "file": "packages/client/src/query/users.ts",
+          "hash": "3308900122795408515"
+        },
+        {
+          "file": "packages/client/src/react-app-env.d.ts",
+          "hash": "3195158367843515590"
+        },
+        {
+          "file": "packages/client/src/reportWebVitals.ts",
+          "hash": "4905365886999342103"
+        },
+        {
+          "file": "packages/client/src/setupTests.ts",
+          "hash": "12069105287809375938"
+        },
+        {
+          "file": "packages/client/tsconfig.build.json",
+          "hash": "14346455797598379810"
+        },
+        {
+          "file": "packages/client/tsconfig.json",
+          "hash": "4528184157791591871"
+        }
+      ]
+    }
+  }
+}

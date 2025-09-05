@@ -1,0 +1,51 @@
+version: '3.4'
+services:
+  consul:
+    image: consul
+    ports:
+      - 8300:8300
+      - 8301:8301/udp
+      - 8500:8500
+      - 8502:8302
+      - '8600:8600/udp'
+    volumes:
+      - ../consul:/config
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail localhost:8500/v1/health/node/server-1 || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 6
+    command: 'consul agent -server -config-dir=/config -ui -data-dir=/tmp/consul -node=server-1 -bootstrap-expect=1 -grpc-port 8502 -recursor=8.8.8.8 -client=0.0.0.0'
+  vault:
+    build: .
+    image: vault:latest
+    env_file: ./naesb-vault/config/.env
+    ports:
+      - 8200:8200
+      - 8201:8201
+      - 8203:8203
+      - 8250:8250
+    command: /bin/sh "/config/start.sh" &
+    depends_on:
+      consul:
+        condition: service_healthy
+    volumes:
+      - ./naesb-vault/config:/config
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail localhost:8200/v1/sys/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 6
+  naesb:
+    image: naesb-api-ledger-id
+    ports:
+      - 8401:8401
+      - 9229:9229

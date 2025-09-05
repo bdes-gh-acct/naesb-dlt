@@ -1,0 +1,110 @@
+{
+  "name": "@react/toolkit",
+  "version": "0.0.1",
+  "description": "Core Toolkit Components",
+  "main": "build/index.js",
+  "module": "build/index.esm.js",
+  "private": true,
+  "scripts": {
+    "build": "rimraf build && npm run build:ts",
+    "active": "rimraf build && npm run build:ts --watch",
+    "build:clean": "rm -rf build/*",
+    "build:ts": "npx rollup -c",
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "format": "prettier --write src/**/*.ts{,x}",
+    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}",
+    "lint-fix": "eslint src/**/*.ts{,x} --fix --quiet"
+  },
+  "peerDependencies": {
+    "@auth0/auth0-react": "2.1.1",
+    "@date-io/date-fns": "^2.16.0",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/lab": "^5.0.0-alpha.61",
+    "@mui/material": "^5.11.0",
+    "@mui/x-date-pickers": "^6.0.0",
+    "ag-grid-community": "^27.1.0",
+    "ag-grid-react": "^27.1.0",
+    "axios": "^1.0.0",
+    "lodash": "^4.17.21",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-final-form": "6.5.7",
+    "react-grid-layout": "^1.2.4",
+    "react-router-dom": "^5.2.0",
+    "yup": "^0.32.9"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "transform": {
+      "^.+\\.svg$": "jest-svg-transformer",
+      ".(ts|tsx)": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!vis-data|@amcharts)"
+    ],
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "reporters": [
+      "default"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "clover",
+      "json-summary"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 78,
+        "functions": 90,
+        "lines": 95,
+        "statements": 95
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/build/"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "identity-obj-proxy"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/testUtils/test-setup.ts"
+    ],
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.{js,jsx,ts,tsx}",
+      "!<rootDir>/src/**/*.{styles.ts,styles.tsx,style.ts,style.tsx}",
+      "!**/node_modules/**",
+      "!**/*.stories.tsx",
+      "!**/__stories__/**",
+      "!**/build/**",
+      "!**/src/index.ts"
+    ]
+  },
+  "dependencies": {
+    "@hyperledger/fabric-gateway": "^1.3.0",
+    "@naesb/dlt-model": "file:./model",
+    "@types/react-router-dom": "^5.3.3",
+    "date-fns": "^2.29.1",
+    "final-form": "^4.20.4",
+    "final-form-arrays": "^3.0.2",
+    "react-beautiful-dnd": "^13.1.0",
+    "react-imask": "^6.2.2",
+    "react-material-file-upload": "^0.0.4",
+    "react-number-format": "^4.7.3",
+    "react-use": "^17.2.4",
+    "tslib": "^2.8.1",
+    "rollup-plugin-typescript2": "^0.31.0",
+    "rollup-plugin-postcss": "^4.0.0",
+    "@svgr/rollup": "^5.5.0",
+    "@rollup/plugin-image": "^2.1.1"
+  }
+}

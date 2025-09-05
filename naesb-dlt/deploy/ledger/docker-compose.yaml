@@ -1,0 +1,594 @@
+version: '3.7'
+networks:
+  peer:
+    name: peer_peer
+services:
+  vault-agent:
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: 512m
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/vault-agent:latest
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-vault
+    environment:
+      - VAULT_ADDR=$VAULT_ADDR
+      - VAULT_ROLE=$VAULT_ROLE
+      - VAULT_CACERT=$VAULT_CACERT
+    healthcheck:
+      test: ['CMD-SHELL', 'test -f /tmp/token/vault-token-via-agent']
+      interval: 10s
+      timeout: 5s
+      retries: 6
+    dns: 169.254.1.1
+    volumes:
+      - /tmp/user:/tmp/token
+      - /opt/vault/tls:/opt/vault/tls
+    networks:
+      - peer
+  client:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/business-portal-ui
+    networks:
+      - peer
+  ca:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/ca-service/api
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: 512m
+    dns: 169.254.1.1
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-ca
+    ports:
+      - 8080:8080
+    environment:
+      - DOMAIN=$DOMAIN
+      - ORG_NAME=$ORG_NAME
+      - VAULT_TLS=$VAULT_TLS
+      - HOST_PORT=8080
+      - VAULT_ADDR=$VAULT_ADDR
+      - VAULT_CACERT=$VAULT_CACERT
+      - ORG_ID=$ORG_ID
+    volumes:
+      - /tmp/user:/tmp/token
+      - /opt/vault/tls:/opt/vault/tls
+      - ${VAULT_CACERT}:/etc/pki/ca-trust/source/anchors/custom.crt.pem
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  localhost:8080/api/ca/v1/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    depends_on:
+      vault-agent:
+        condition: service_healthy
+    networks:
+      - peer
+  couchdb:
+    profiles: ['peer']
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/external/couchdb:3.5
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: 1.2g
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=$COUCHDB_USERNAME
+      - COUCHDB_PASSWORD=$COUCHDB_PASSWORD
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports:
+      - '5984:5984'
+    networks:
+      - peer
+  peer:
+    profiles: ['peer']
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/peer
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1.5g
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-peer
+    environment:
+      - CA_ADDRESS=$CA_ADDRESS
+      - CONSUL_ADDR=http://consul.service.consul
+      - CONSUL_CACERT=/opt/consul/tls/consul-ca-cert.pem
+      - CORE_CHAINCODE_EXECUTETIMEOUT=500s
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=$COUCHDB_PASSWORD
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=$COUCHDB_USERNAME
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9043
+      - CORE_PEER_CHAINCODEADDRESS=peer:7052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
+      - CORE_PEER_GOSSIP_ORGLEADER=true
+      - CORE_PEER_GOSSIP_USELEADERELECTION=false
+      - CORE_PEER_GOSSIP_STATE_ENABLED=false
+      - CORE_PEER_DELIVERYCLIENT_BLOCKGOSSIPENABLED=false
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.peer-$ORG_NAME.service.consul:9051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.peer-$ORG_NAME.service.consul:9051
+      - CORE_PEER_ID=peer0.peer-$ORG_NAME.naesb.com
+      - CORE_PEER_LOCALMSPID=$MSP_ID
+      - CORE_PEER_PROFILE_ENABLED=true
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=peer_peer
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - DOMAIN=$DOMAIN
+      - ORG_ID=$ORG_ID
+      - ORG_NAME=$ORG_NAME
+      - PEER_ID=peer0
+      - SERVICE_ADDRESS=$INSTANCE_ADDRESS
+      - SERVICE_PORT=9051
+      - VAULT_ADDR=$VAULT_ADDR
+      - VAULT_CACERT=$VAULT_CACERT
+      # Allow more time for chaincode container to build on install.
+      # bridge network as the peers
+      # https://docs.docker.com/compose/networking/
+      # match the username and password set for the associated CouchDB.
+      # provide the credentials for ledger to connect to CouchDB.  The username and password must
+      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+      # the following setting starts chaincode containers on the same
+      # - FABRIC_LOGGING_SPEC=DEBUG
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  http://localhost:9043/healthz || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    ports:
+      - 7052:7052
+      - 9051:9051
+      - 9043:9043
+    volumes:
+      - /var/run/docker.sock:/host/var/run/docker.sock
+      - /tmp/user:/tmp/token
+      - /opt/vault/tls:/opt/vault/tls
+      - /opt/consul/tls:/opt/consul/tls/
+    dns: 169.254.1.1
+    depends_on:
+      couchdb:
+        condition: service_started
+      ca:
+        condition: service_healthy
+    networks:
+      - peer
+  ledger-api:
+    profiles: ['peer']
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/ledger/api
+    dns: 169.254.1.1
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-ledger-api
+    environment:
+      - ADMIN_ADDRESS=http://admin.service.consul:8083
+      - AUTO_ENROLL_USERS=true
+      - BOOTSTRAP_BROKERS=$BOOTSTRAP_BROKERS
+      - CA_ADDRESS=$CA_ADDRESS
+      - CONSUL_CACERT=/opt/consul/tls/consul-ca-cert.pem
+      - CORE_PEER_ADDRESS=peer0.peer-$ORG_NAME.service.consul:9051
+      - CORE_PEER_LOCALMSPID=$MSP_ID
+      - CORE_PEER_MSPCONFIGPATH=/tmp/msp/$MSP_ID/msp
+      - CORE_PEER_TLS_CERT_FILE=/tmp/msp/$MSP_ID/tls/server.crt
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_KEY_FILE=/tmp/msp/$MSP_ID/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/tmp/msp/$MSP_ID/tls/tls.cert.pem
+      - DB_DATABASE=$ORG_NAME
+      - DB_HOST=$DB_HOST
+      - DB_PASSWORD=$DB_PASSWORD
+      - DB_SCHEMA=trade
+      - DB_USERNAME=root
+      - DOMAIN=$DOMAIN
+      - HOST_PORT=8081
+      - IDENTITY_CLIENT_ID=$IDENTITY_CLIENT_ID
+      - IDENTITY_DOMAIN=$IDENTITY_DOMAIN
+      - IDENTITY_SECRET_ID=$IDENTITY_SECRET_ID
+      - KAFKA_CLIENT_ID=ledger-$ORG_NAME
+      - KAFKA_CLIENT_NAME=ledger-$ORG_NAME
+      - KAFKA_GROUP_ID=ledger-$ORG_NAME
+      - NAESB_CONTRACT_LABEL=NAESB_SMART_TRADE_CONTRACT
+      - NAESB_CONTRACT_VERSION=v1.71
+      - ORDERER_ADDRESS=orderer.orderer-naesb.service.consul:7050
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORG_ID=$ORG_ID
+      - ORG_MSP_ID=$MSP_ID
+      - ORG_NAME=$ORG_NAME
+      - PEER_ADDRESS=peer0.peer-$ORG_NAME.service.consul:9051
+      - PRICE_API_URL=$PRICE_API_URL
+      - PROFILE_ENDPOINT=${ACAPY_PROFILE_ENDPOINT}
+      - REGISTRY_ADDRESS=$REGISTRY_ADDRESS
+      - TOKEN_AUDIENCE=$TOKEN_AUDIENCE
+      - TOKEN_ISSUER_URL=$TOKEN_ISSUER_URL
+      - VAULT_ADDRESS=$VAULT_ADDR
+      - VAULT_CA=true
+      - VAULT_CACERT=$VAULT_CACERT
+    volumes:
+      - /tmp/user:/tmp/token
+      - /opt/vault/tls:/opt/vault/tls
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  localhost:8081/api/ledger/v1/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 20
+    depends_on:
+      vault-agent:
+        condition: service_healthy
+      ca:
+        condition: service_healthy
+      peer:
+        condition: service_healthy
+    ports:
+      - 8081:8081
+    networks:
+      - peer
+  orderer:
+    profiles: ['admin']
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/orderer
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-orderer
+    environment:
+      - CA_ADDRESS=$CA_ADDRESS
+      - CONSUL_ADDR=http://consul.service.consul
+      - CONSUL_CACERT=/opt/consul/tls/consul-ca-cert.pem
+      - CORE_OPERATIONS_TLS_ENABLED=false
+      - DOCKER_ORDERER_PORT=7080
+      - DOMAIN=$DOMAIN
+      - OPERATIONS_PORT=8443
+      - ORDERER_ADMIN_LISTENADDRESS=0.0.0.0:7080
+      - ORDERER_ADMIN_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt
+      - ORDERER_ADMIN_TLS_CLIENTAUTHREQUIRED=true
+      - ORDERER_ADMIN_TLS_CLIENTROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+      - ORDERER_ADMIN_TLS_ENABLED=true
+      - ORDERER_ADMIN_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
+      - ORDERER_ADMIN_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+      - ORDERER_CHANNELPARTICIPATION_ENABLED=true
+      - ORDERER_GENERAL_BOOTSTRAPMETHOD=none
+      - ORDERER_GENERAL_CLUSTER_CLIENTCERTIFICATE=/var/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_CLUSTER_CLIENTPRIVATEKEY=/var/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_CLUSTER_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_LISTENPORT=7050
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
+      - ORDERER_GENERAL_LOCALMSPID=$MSP_ID
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+      - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:8443
+      - ORDERER_ID=$ORDERER_ID
+      - ORG_ID=$ORG_ID
+      - ORG_NAME=$ORG_NAME
+      - VAULT_ADDR=$VAULT_ADDR
+      - VAULT_CACERT=$VAULT_CACERT
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    dns: 169.254.1.1
+    depends_on:
+      vault-agent:
+        condition: service_healthy
+      ledger-api:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  http://localhost:8443/healthz || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    volumes:
+      - /tmp/user:/tmp/token
+      - /opt/vault/tls:/opt/vault/tls
+      - /opt/consul/tls:/opt/consul/tls/
+    ports:
+      - 7050:7050
+      - 7080:7080
+      - 8443:8443
+    networks:
+      - peer
+  admin:
+    profiles: ['admin']
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/ledger-admin/api:latest
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-admin
+    dns: 169.254.1.1
+    environment:
+      - CONSUL_CACERT=/opt/consul/tls/consul-ca-cert.pem
+      - CORE_PEER_TLS_ENABLED=true
+      - DB_HOST=core-db
+      - BOOTSTRAP_BROKERS=$BOOTSTRAP_BROKERS
+      - DOMAIN=$DOMAIN
+      - HOST_PORT=8083
+      - NAESB_CONTRACT_LABEL=NAESB_SMART_TRADE_CONTRACT
+      - NAESB_CONTRACT_VERSION=v1.71
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORG_ID=$ORG_ID
+      - ORG_NAME=$ORG_NAME
+      - PROFILE_ENDPOINT=${ACAPY_PROFILE_ENDPOINT}
+      - TOKEN_AUDIENCE=$TOKEN_AUDIENCE
+      - TOKEN_ISSUER_URL=$TOKEN_ISSUER_URL
+      - VAULT_ADDRESS=$VAULT_ADDR
+      - VAULT_CACERT=$VAULT_CACERT
+    volumes:
+      - ./contracts:/contracts
+      - /tmp/user:/tmp/token
+      - /opt/vault/tls:/opt/vault/tls
+      - /opt/consul/tls:/opt/consul/tls/
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  localhost:8083/api/admin/v1/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    ports:
+      - 8083:8083
+    depends_on:
+      orderer:
+        condition: service_healthy
+    networks:
+      - peer
+  core-api:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/core/api
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-core
+    dns: 169.254.1.1
+    environment:
+      - REGISTRY_ADDRESS=$REGISTRY_ADDRESS
+      - LEDGER_ADDRESS=http://ledger-api:8081
+      - ARIES_ADDRESS=http://agent-api:8085
+      - BOOTSTRAP_BROKERS=$BOOTSTRAP_BROKERS
+      - CA_ADDRESS=$CA_ADDRESS
+      - CONSUL_CACERT=/opt/consul/tls/consul-ca-cert.pem
+      - DB_DATABASE=$DB_DATABASE
+      - DB_HOST=$DB_HOST
+      - DB_PASSWORD=$DB_PASSWORD
+      - DB_SCHEMA=trade
+      - DB_USERNAME=root
+      - DOMAIN=$DOMAIN
+      - HOST_PORT=8082
+      - IDENTITY_CLIENT_ID=$IDENTITY_CLIENT_ID
+      - IDENTITY_DOMAIN=$IDENTITY_DOMAIN
+      - IDENTITY_SECRET_ID=$IDENTITY_SECRET_ID
+      - ORG_ID=$ORG_ID
+      - ORG_MSP_ID=$MSP_ID
+      - TOKEN_AUDIENCE=$TOKEN_AUDIENCE
+      - TOKEN_ISSUER_URL=$TOKEN_ISSUER_URL
+      - VAULT_ADDRESS=$VAULT_ADDR
+      - VAULT_CA=true
+      - VAULT_CACERT=$VAULT_CACERT
+    volumes:
+      - /tmp/user:/tmp/token
+      - /opt/vault/tls:/opt/vault/tls
+      - /opt/consul/tls:/opt/consul/tls/
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  localhost:8082/api/core/v1/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    depends_on:
+      vault-agent:
+        condition: service_healthy
+    networks:
+      - peer
+    ports:
+      - 8082:8082
+  proxy:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/external/nginx:1.28.0
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-proxy
+    volumes:
+      - /tmp/nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 6000:6000
+    networks:
+      - peer
+    depends_on:
+      client:
+        condition: service_started
+  vdr:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/indy-vdr
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-vdr
+    restart: always
+    environment:
+      GENESIS_URL: $GENESIS_URL
+      HOST_PORT: 8080
+    healthcheck:
+      test: ['CMD-SHELL', 'curl --silent --fail  localhost:8080 || exit 1']
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    networks:
+      - peer
+  agent-api:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/aries-agent-api:latest
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-agent-api
+    environment:
+      AGENT_URL: http://agent:${ACAPY_ADMIN_PORT:-6002}
+      LEDGER_SYNC_INTERVAL: 10000
+      BOOTSTRAP_BROKERS: $BOOTSTRAP_BROKERS
+      HOST_PORT: 8085
+      DB_DATABASE: $DB_DATABASE
+      DB_HOST: $DB_HOST
+      DB_PASSWORD: $DB_PASSWORD
+      DB_SCHEMA: aries_api
+      DB_USERNAME: root
+      DB_PORT: ${DB_PORT:-5432}
+      SYNCHRONIZE_SCHEMA: true
+      VDR_URL: http://vdr:8080
+      ORG_ID: $ORG_ID
+      KAFKA_CLIENT_NAME: aries-$ORG_NAME
+      KAFKA_CLIENT_ID: aries-$ORG_NAME
+      KAFKA_GROUP_ID: aries-$ORG_NAME
+    networks:
+      - peer
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  http://localhost:8085/api/agent/v1/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    depends_on:
+      agent:
+        condition: service_healthy
+      vdr:
+        condition: service_healthy
+    ports:
+      - 8085:8085
+  agent:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/aries-agent:latest
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-agent
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  http://localhost:${ACAPY_ADMIN_PORT}/status || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    ports:
+      - $ACAPY_ADMIN_PORT:$ACAPY_ADMIN_PORT
+      - $ACAPY_SERVICE_PORT:$ACAPY_SERVICE_PORT
+    networks:
+      - peer
+    environment:
+      # ACAPY_LEDGER_POOL_NAME: ${ACAPY_LEDGER_POOL_NAME:-NAESB}
+      ACAPY_ADMIN_INSECURE_MODE: ${ACAPY_ADMIN_INSECURE_MODE:-true}
+      ACAPY_ADMIN_PORT: $ACAPY_ADMIN_PORT
+      ACAPY_AUTO_ACCEPT_INVITES: ${ACAPY_AUTO_ACCEPT_INVITES:-true}
+      ACAPY_AUTO_ACCEPT_REQUESTS: ${ACAPY_AUTO_ACCEPT_REQUESTS:-true}
+      ACAPY_AUTO_PING_CONNECTION: ${ACAPY_AUTO_PING_CONNECTION:-true}
+      ACAPY_AUTO_PROVISION: ${ACAPY_AUTO_PROVISION:-true}
+      ACAPY_AUTO_RESPOND_CREDENTIAL_OFFER: ${ACAPY_AUTO_RESPOND_CREDENTIAL_OFFER:-true}
+      ACAPY_AUTO_RESPOND_CREDENTIAL_REQUEST: ${ACAPY_AUTO_RESPOND_CREDENTIAL_REQUEST:-true}
+      ACAPY_AUTO_RESPOND_PRESENTATION_PROPOSAL: ${ACAPY_AUTO_RESPOND_PRESENTATION_PROPOSAL:-true}
+      ACAPY_AUTO_STORE_CREDENTIAL: ${ACAPY_AUTO_STORE_CREDENTIAL:-true}
+      ACAPY_AUTO_VERIFY_PRESENTATION: ${ACAPY_AUTO_VERIFY_PRESENTATION:-true}
+      ACAPY_ENDPOINT: ${ACAPY_ENDPOINT}
+      ACAPY_GENESIS_URL: ${ACAPY_GENESIS_URL}
+      ACAPY_IMAGE_URL: ${ACAPY_IMAGE_URL:-https://dlt-public.s3.amazonaws.com/naesb-logo.png}
+      ACAPY_INVITE_PUBLIC: ${ACAPY_INVITE_PUBLIC:-true}
+      ACAPY_LABEL: ${ACAPY_LABEL}
+      ACAPY_LOG_LEVEL: ${ACAPY_LOG_LEVEL:-info}
+      ACAPY_MONITOR_REVOCATION_NOTIFICATION: ${ACAPY_MONITOR_REVOCATION_NOTIFICATION:-true}
+      ACAPY_NOTIFY_REVOCATION: ${ACAPY_NOTIFY_REVOCATION:-true}
+      ACAPY_PROFILE_ENDPOINT: ${ACAPY_PROFILE_ENDPOINT}
+      ACAPY_PUBLIC_INVITES: ${ACAPY_PUBLIC_INVITES:-true}
+      ACAPY_PRESERVE_EXCHANGE_RECORDS: ${ACAPY_PRESERVE_EXCHANGE_RECORDS:-true}
+      ACAPY_REQUESTS_THROUGH_PUBLIC_DID: ${ACAPY_REQUESTS_THROUGH_PUBLIC_DID:-true}
+      ACAPY_SERVICE_PORT: $ACAPY_SERVICE_PORT
+      ACAPY_TAILS_SERVER_BASE_URL: ${ACAPY_TAILS_SERVER_BASE_URL}
+      ACAPY_WALLET_KEY: ${ACAPY_WALLET_KEY:-key}
+      ACAPY_WALLET_NAME: ${ACAPY_WALLET_NAME:-default}
+      ACAPY_WALLET_SEED: ${ACAPY_WALLET_SEED}
+      ACAPY_WEBHOOK_URL: ${ACAPY_WEBHOOK_URL:-http://agent-api:8085/api/agent/v1/webhooks}
+      BOOTSTRAP_DID: ${BOOTSTRAP_DID}
+      DB_HOST: $DB_HOST
+      DB_PASSWORD: $DB_PASSWORD
+      DB_ACCOUNT: root
+      DB_ADMIN_ACCOUNT: root
+      DB_ADMIN_PASSWORD: $DB_PASSWORD
+      DB_PORT: ${DB_PORT:-5432}
+      INDY_ROLE: ${INDY_ROLE}
+      POOL_URL: ${POOL_URL}
+      SITE_URL: ${SITE_URL}
+  # zookeeper:
+  #   image: confluentinc/cp-zookeeper:latest
+  #   environment:
+  #     ZOOKEEPER_CLIENT_PORT: 2181
+  #     ZOOKEEPER_TICK_TIME: 2000
+  #   ports:
+  #     - 22181:2181
+
+  # kafka:
+  #   image: confluentinc/cp-kafka:latest
+  #   depends_on:
+  #     - zookeeper
+  #   ports:
+  #     - 29092:29092
+  #   environment:
+  #     KAFKA_BROKER_ID: 1
+  #     KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+  #     KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+  #     KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+  #     KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+  #     KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+  #   healthcheck:
+  #     test:
+  #       ['CMD', 'kafka-topics.sh', '--list', '--zookeeper', 'zookeeper:2181']
+  #     interval: 5s
+  #     timeout: 10s
+  #     retries: 5

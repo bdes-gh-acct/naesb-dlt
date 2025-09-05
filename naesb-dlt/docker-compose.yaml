@@ -1,0 +1,743 @@
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+version: '3.4'
+networks:
+  trade:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.55.0/24
+services:
+  couchdb-peer0.spire.naesbdlt.org:
+    image: couchdb:2.3
+    platform: $PLATFORM
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=spire
+      - COUCHDB_PASSWORD=spire
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports:
+      - '5984:5984'
+    networks:
+      trade:
+        ipv4_address: 192.168.55.25
+  couchdb-peer0.tva.naesbdlt.org:
+    image: couchdb:2.3
+    platform: $PLATFORM
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=tva
+      - COUCHDB_PASSWORD=tva
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports:
+      - '6984:5984'
+    networks:
+      trade:
+        ipv4_address: 192.168.55.26
+
+  couchdb-peer0.naesb.naesbdlt.org:
+    image: couchdb:2.3
+    platform: $PLATFORM
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=naesb
+      - COUCHDB_PASSWORD=naesb
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports:
+      - '7984:5984'
+    networks:
+      trade:
+        ipv4_address: 192.168.55.27
+  core-db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      PGPORT: 5432
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    deploy:
+      resources:
+        limits:
+          cpus: '0.7'
+          memory: 1g
+    volumes:
+      - ./docker/postgresql:/docker-entrypoint-initdb.d/
+    networks:
+      - trade
+  dnsmasq:
+    image: storytel/dnsmasq
+    command: 'dnsmasq --no-daemon --server=/consul/192.168.55.10#8600'
+    init: true
+    ports:
+      - '9000:53/udp'
+    networks:
+      trade:
+        ipv4_address: 192.168.55.9
+    cap_add:
+      - NET_ADMIN
+  consul:
+    depends_on: [dnsmasq]
+    image: consul
+    ports:
+      - '8400:8400'
+      - '8500:8500'
+      - '8600:8600/udp'
+    dns: '192.168.55.9'
+    environment:
+      CONSUL_BIND_INTERFACE: eth0
+      CONSUL_LOCAL_CONFIG: |
+        {
+          "client_addr": "0.0.0.0",
+          "recursors": [
+            "8.8.8.8",
+            "8.8.4.4"
+          ],
+          "server": true,
+          "bootstrap_expect": 1,
+          "ui_config": {
+            "enabled": true
+          }
+        }
+    hostname: consul
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail localhost:8500/v1/health/node/server-1 || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 6
+    networks:
+      trade:
+        ipv4_address: 192.168.55.10
+  vault:
+    image: vault:latest
+    dns: '192.168.55.9'
+    env_file: ./docker/vault/naesb-vault/config/.env
+    ports:
+      - 8200:8200
+      - 8201:8201
+      - 8203:8203
+      - 8250:8250
+    command: /bin/sh "/config/start.sh" &
+    environment:
+      VAULT_ADDR: 'http://127.0.0.1:8200'
+      VAULT_LOCAL_CONFIG: '{"backend": {"consul": {"address": "consul:8500", "path":"vault", "scheme": "http"}}, "listener": {"tcp":{"address": "0.0.0.0:8200","tls_disable":"1"}}, "default_lease_ttl": "168h", "max_lease_ttl": "720h", "disable_mlock": "true"}'
+    depends_on:
+      consul:
+        condition: service_healthy
+    volumes:
+      - ./docker/vault/naesb-vault/config:/config
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  http://localhost:8200/v1/sys/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    networks:
+      trade:
+        ipv4_address: 192.168.55.11
+  vault-agent:
+    image: naesb-vault-agent
+    env_file: ./docker/vault/naesb-vault/config/.env
+    environment:
+      - VAULT_ADDR=http://vault.service.consul:8200
+      - VAULT_ROLE=dev-naesbdlt-vault-user-role
+    healthcheck:
+      test: ['CMD-SHELL', 'test -f /tmp/token/vault-token-via-agent']
+      interval: 10s
+      timeout: 5s
+      retries: 6
+    depends_on:
+      consul:
+        condition: service_healthy
+      vault:
+        condition: service_healthy
+    dns: '192.168.55.9'
+    volumes:
+      - ./docker/vault-agent:/config
+      - auth-sink:/tmp/token
+    networks:
+      - trade
+  # client:
+  #   image: naesb-client
+  #   dns: '192.168.55.9'
+  #   ports:
+  #     - 6001:6001
+  #   networks:
+  #     - trade
+  orderer:
+    image: hyperledger/fabric-orderer:2.4
+    platform: $PLATFORM
+    environment:
+      - DOMAIN=$DOMAIN
+      - ORG_NAME=naesb
+      - ORG_ID=org_Zq88NZfnjTsOu2II
+      - ORDERER_ID=orderer
+      - FABRIC_LOGGING_SPEC=INFO
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:7777
+      - CORE_OPERATIONS_TLS_ENABLED=false
+      - CONSUL_ADDR=consul.service.consul
+      - DOCKER_ORDERER_PORT=7080
+      - OPERATIONS_PORT=8443
+      - OPERATIONS_LISTENADDRESS=0.0.0.0:8443
+      - ORDERER_ADMIN_LISTENADDRESS=0.0.0.0:7080
+      - ORDERER_ADMIN_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt
+      - ORDERER_ADMIN_TLS_CLIENTAUTHREQUIRED=true
+      - ORDERER_ADMIN_TLS_CLIENTROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+      - ORDERER_ADMIN_TLS_ENABLED=true
+      - ORDERER_ADMIN_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
+      - ORDERER_ADMIN_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+      - ORDERER_CHANNELPARTICIPATION_ENABLED=true
+      - ORDERER_GENERAL_BOOTSTRAPMETHOD=none
+      - ORDERER_GENERAL_CLUSTER_CLIENTCERTIFICATE=/var/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_CLUSTER_CLIENTPRIVATEKEY=/var/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_CLUSTER_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_LISTENPORT=7050
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
+      - ORDERER_GENERAL_LOCALMSPID=D000000000
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+      - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:8443
+      - VAULT_ADDR=http://vault.service.consul:8200
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: /bin/sh "/config/start.sh" &
+    dns: '192.168.55.9'
+    depends_on:
+      vault-agent:
+        condition: service_healthy
+      naesb-ca:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  http://localhost:8443/healthz || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    volumes:
+      - ./docker/orderer:/config
+      - auth-sink:/tmp/token
+    ports:
+      - 7050:7050
+      - 7080:7080
+    networks:
+      trade:
+        ipv4_address: 192.168.55.12
+  peer0.spire.naesbdlt.org:
+    image: hyperledger/fabric-peer:2.4
+    platform: $PLATFORM
+    environment:
+      - CONSUL_ADDR=consul.service.consul
+      - DOMAIN=$DOMAIN
+      - ORG_NAME=spire
+      - ORG_ID=org_N3LsIPXJkZqD5QD4
+      - VAULT_ADDR=http://vault.service.consul:8200
+      - PEER_ID=peer0
+      - SERVICE_PORT=9051
+      - CORE_VM_ENDPOINT=unix:///var/run/docker.sock
+      # the following setting starts chaincode containers on the same
+      # bridge network as the peers
+      # https://docs.docker.com/compose/networking/
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb-peer0.spire.naesbdlt.org:5984
+      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+      # provide the credentials for ledger to connect to CouchDB.  The username and password must
+      # match the username and password set for the associated CouchDB.
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=spire
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=spire
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=vault_trade
+      - FABRIC_LOGGING_SPEC=INFO
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_GOSSIP_USELEADERELECTION=true
+      - CORE_PEER_GOSSIP_ORGLEADER=false
+      - CORE_PEER_PROFILE_ENABLED=true
+      - CORE_PEER_ID=peer0.spire.naesbdlt.org
+      - CORE_PEER_CHAINCODEADDRESS=peer0.spire.naesbdlt.org:7052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
+      - CORE_PEER_LOCALMSPID=D188779862
+      - SERVICE_ADDRESS=192.168.55.13
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9043
+      # Allow more time for chaincode container to build on install.
+      - CORE_CHAINCODE_EXECUTETIMEOUT=500s
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  http://localhost:9043/healthz || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+      start_period: 1200s
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - auth-sink:/tmp/token
+      - ./docker/peer:/config
+    dns: '192.168.55.9'
+    depends_on:
+      spire-ca:
+        condition: service_healthy
+      couchdb-peer0.spire.naesbdlt.org:
+        condition: service_started
+    ports:
+      - 9051:9051
+    command: /bin/sh "/config/start.sh" &
+    networks:
+      trade:
+        ipv4_address: 192.168.55.13
+  core.naesbdlt.org:
+    image: naesb-api-core
+    environment:
+      - HOST_PORT=8080
+    env_file: ./packages/api-core/.env
+    networks:
+      - trade
+    depends_on:
+      core-db:
+        condition: service_healthy
+      admin:
+        condition: service_healthy
+  tsp.naesbdlt.org:
+    image: naesb-api-tsp
+    env_file: ./packages/api-tsp/.env
+    environment:
+      - HOST_PORT=8080
+      - DB_HOST=core-db
+    depends_on:
+      core-db:
+        condition: service_healthy
+      admin:
+        condition: service_healthy
+    networks:
+      - trade
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  localhost:8080/api/tsp/v1/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+  price.naesbdlt.org:
+    image: naesb-api-price
+    env_file: ./packages/api-price/.env
+    environment:
+      - HOST_PORT=8080
+      - DB_HOST=core-db
+    depends_on:
+      core-db:
+        condition: service_healthy
+      admin:
+        condition: service_healthy
+    networks:
+      trade:
+        ipv4_address: 192.168.55.24
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  localhost:8080/api/price/v1/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+  proxy:
+    image: nginx:latest
+    volumes:
+      - ./docker/nginx:/etc/nginx/
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - trade
+    depends_on:
+      core.naesbdlt.org:
+        condition: service_started
+      price.naesbdlt.org:
+        condition: service_healthy
+      tsp.naesbdlt.org:
+        condition: service_healthy
+  peer0.tva.naesbdlt.org:
+    image: hyperledger/fabric-peer:2.4
+    platform: $PLATFORM
+    environment:
+      - CONSUL_ADDR=consul.service.consul
+      - DOMAIN=$DOMAIN
+      - ORG_NAME=tva
+      - ORG_ID=org_ZVg6j5mzxBltGrJJ
+      - VAULT_ADDR=http://vault.service.consul:8200
+      - PEER_ID=peer0
+      - SERVICE_PORT=9051
+      - CORE_VM_ENDPOINT=unix:///var/run/docker.sock
+      # the following setting starts chaincode containers on the same
+      # bridge network as the peers
+      # https://docs.docker.com/compose/networking/
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=vault_trade
+      - FABRIC_LOGGING_SPEC=INFO
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_GOSSIP_USELEADERELECTION=true
+      - CORE_PEER_GOSSIP_ORGLEADER=false
+      - CORE_PEER_PROFILE_ENABLED=true
+      - CORE_PEER_ID=peer0.tva.naesbdlt.org
+      - CORE_PEER_CHAINCODEADDRESS=peer0.tva.naesbdlt.org:7052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
+      - CORE_PEER_LOCALMSPID=D001883032
+      - SERVICE_ADDRESS=192.168.55.16
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9043
+      # Allow more time for chaincode container to build on install.
+      - CORE_CHAINCODE_EXECUTETIMEOUT=500s
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb-peer0.tva.naesbdlt.org:5984
+      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+      # provide the credentials for ledger to connect to CouchDB.  The username and password must
+      # match the username and password set for the associated CouchDB.
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=tva
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=tva
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  http://localhost:9043/healthz || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - auth-sink:/tmp/token
+      - ./docker/peer:/config
+    dns: '192.168.55.9'
+    depends_on:
+      tva-ca:
+        condition: service_healthy
+      couchdb-peer0.tva.naesbdlt.org:
+        condition: service_started
+    command: /bin/sh "/config/start.sh" &
+    networks:
+      trade:
+        ipv4_address: 192.168.55.16
+  peer0.naesb.naesbdlt.org:
+    image: hyperledger/fabric-peer:2.4
+    platform: $PLATFORM
+    environment:
+      - REGISTER_SERVICE=true
+      - CONSUL_ADDR=consul.service.consul
+      - DOMAIN=$DOMAIN
+      - ORG_NAME=naesb
+      - ORG_ID=org_Zq88NZfnjTsOu2II
+      - VAULT_ADDR=http://vault.service.consul:8200
+      - PEER_ID=peer0
+      - SERVICE_PORT=9051
+      - CORE_VM_ENDPOINT=unix:///var/run/docker.sock
+      # the following setting starts chaincode containers on the same
+      # bridge network as the peers
+      # https://docs.docker.com/compose/networking/
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=vault_trade
+      - FABRIC_LOGGING_SPEC=INFO
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_GOSSIP_USELEADERELECTION=true
+      - CORE_PEER_GOSSIP_ORGLEADER=false
+      - CORE_PEER_PROFILE_ENABLED=true
+      - CORE_PEER_ID=peer0.naesb.naesbdlt.org
+      - CORE_PEER_CHAINCODEADDRESS=peer0.naesb.naesbdlt.org:7052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
+      - CORE_PEER_LOCALMSPID=D000000000
+      - SERVICE_ADDRESS=192.168.55.14
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9043
+      # Allow more time for chaincode container to build on install.
+      - CORE_CHAINCODE_EXECUTETIMEOUT=500s
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  http://localhost:9043/healthz || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - auth-sink:/tmp/token
+      - ./docker/peer:/config
+    dns: '192.168.55.9'
+    depends_on:
+      naesb-ca:
+        condition: service_healthy
+
+    command: /bin/sh "/config/start.sh" &
+    networks:
+      trade:
+        ipv4_address: 192.168.55.14
+  naesb-ca:
+    image: naesb-api-ledger-id
+    dns: '192.168.55.9'
+    ports:
+      - 8080:8080
+    environment:
+      - DOMAIN=$DOMAIN
+      - ORG_NAME=naesb
+      - HOST_PORT=8080
+      - DB_HOST=core-db
+      - ORG_ID=org_Zq88NZfnjTsOu2II
+    volumes:
+      - ./docker/orderer:/config
+      - auth-sink:/tmp/token
+    healthcheck:
+      test:
+        ['CMD-SHELL', 'curl --silent --fail  localhost:8080/health || exit 1']
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    depends_on:
+      vault-agent:
+        condition: service_healthy
+      core-db:
+        condition: service_healthy
+    networks:
+      - trade
+  admin:
+    image: naesb-api-ledger-admin
+    dns: '192.168.55.9'
+    environment:
+      - DOMAIN=$DOMAIN
+      - ORG_NAME=naesb
+      - HOST_PORT=8080
+      - DB_HOST=core-db
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - CORE_PEER_TLS_ENABLED=true
+      - ORG_ID=org_Zq88NZfnjTsOu2II
+    volumes:
+      - ./docker/orderer:/config
+      - ./contracts:/contracts
+      - auth-sink:/tmp/token
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  localhost:8080/api/admin/v1/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+      start_period: 20m
+    depends_on:
+      vault-agent:
+        condition: service_healthy
+      naesb-ca:
+        condition: service_healthy
+      spire-ca:
+        condition: service_healthy
+      tva-ca:
+        condition: service_healthy
+      peer0.naesb.naesbdlt.org:
+        condition: service_healthy
+      peer0.spire.naesbdlt.org:
+        condition: service_healthy
+      peer0.tva.naesbdlt.org:
+        condition: service_healthy
+    networks:
+      - trade
+  spire-ca:
+    image: naesb-api-ledger-id
+    dns: '192.168.55.9'
+    environment:
+      - DOMAIN=$DOMAIN
+      - ORG_NAME=spire
+      - HOST_PORT=8080
+      - DB_HOST=core-db
+      - DB_DATABASE=spire
+      - ORG_ID=org_N3LsIPXJkZqD5QD4
+    volumes:
+      - ./docker/orderer:/config
+      - auth-sink:/tmp/token
+    healthcheck:
+      test:
+        ['CMD-SHELL', 'curl --silent --fail  localhost:8080/health || exit 1']
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    depends_on:
+      vault-agent:
+        condition: service_healthy
+      core-db:
+        condition: service_healthy
+    networks:
+      - trade
+  tva-ca:
+    image: naesb-api-ledger-id
+    dns: '192.168.55.9'
+    environment:
+      - DOMAIN=$DOMAIN
+      - ORG_NAME=tva
+      - HOST_PORT=8080
+      - DB_HOST=core-db
+      - DB_DATABASE=tva
+      - ORG_ID=org_ZVg6j5mzxBltGrJJ
+    volumes:
+      - ./docker/orderer:/config
+      - auth-sink:/tmp/token
+    healthcheck:
+      test:
+        ['CMD-SHELL', 'curl --silent --fail  localhost:8080/health || exit 1']
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    depends_on:
+      vault-agent:
+        condition: service_healthy
+      core-db:
+        condition: service_healthy
+    networks:
+      - trade
+  org_Zq88NZfnjTsOu2II.naesbdlt.org:
+    image: naesb-api-ledger
+    dns: '192.168.55.9'
+    environment:
+      - CA_ADDRESS=http://naesb-ca:8080
+      - CORE_PEER_TLS_ENABLED=true
+      - DB_DATABASE=naesb
+      - DB_HOST=core-db
+      - DB_PASSWORD=$DB_PASSWORD
+      - DB_USERNAME=$DB_USERNAME
+      - DOMAIN=$DOMAIN
+      - HOST_PORT=8080
+      - IDENTITY_CLIENT_ID=$IDENTITY_CLIENT_ID
+      - IDENTITY_DOMAIN=$IDENTITY_DOMAIN
+      - IDENTITY_SECRET_ID=$IDENTITY_SECRET_ID
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORG_ID=org_Zq88NZfnjTsOu2II
+      - ORG_MSP_ID=D000000000
+      - ORG_NAME=naesb
+      - PEER_ADDRESS=grpcs://peer0.peer-naesb.service.consul:9051
+      - TOKEN_AUDIENCE=$TOKEN_AUDIENCE
+      - TOKEN_ISSUER_URL=$TOKEN_ISSUER_URL
+      - VAULT_ADDRESS=$VAULT_ADDRESS
+      - PRICE_API_URL=$PRICE_API_URL
+      - VAULT_CA=true
+    volumes:
+      - auth-sink:/tmp/token
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  localhost:8080/api/ledger/v1/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    depends_on:
+      admin:
+        condition: service_healthy
+    networks:
+      - trade
+  org_N3LsIPXJkZqD5QD4.naesbdlt.org:
+    image: naesb-api-ledger
+    dns: '192.168.55.9'
+    environment:
+      - CA_ADDRESS=http://spire-ca:8080
+      - CORE_PEER_TLS_ENABLED=true
+      - DB_DATABASE=spire
+      - DB_HOST=core-db
+      - DB_PASSWORD=$DB_PASSWORD
+      - DB_USERNAME=$DB_USERNAME
+      - DOMAIN=$DOMAIN
+      - HOST_PORT=8080
+      - IDENTITY_CLIENT_ID=$IDENTITY_CLIENT_ID
+      - IDENTITY_DOMAIN=$IDENTITY_DOMAIN
+      - IDENTITY_SECRET_ID=$IDENTITY_SECRET_ID
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORG_ID=org_N3LsIPXJkZqD5QD4
+      - ORG_MSP_ID=D188779862
+      - ORG_NAME=spire
+      - PEER_ADDRESS=grpcs://peer0.peer-spire.service.consul:9051
+      - TOKEN_AUDIENCE=$TOKEN_AUDIENCE
+      - TOKEN_ISSUER_URL=$TOKEN_ISSUER_URL
+      - VAULT_ADDRESS=$VAULT_ADDRESS
+      - PRICE_API_URL=$PRICE_API_URL
+      - VAULT_CA=true
+    volumes:
+      - auth-sink:/tmp/token
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  localhost:8080/api/ledger/v1/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    depends_on:
+      admin:
+        condition: service_healthy
+    networks:
+      - trade
+  org_ZVg6j5mzxBltGrJJ.naesbdlt.org:
+    image: naesb-api-ledger
+    dns: '192.168.55.9'
+    environment:
+      - CA_ADDRESS=http://tva-ca:8080
+      - CORE_PEER_TLS_ENABLED=true
+      - DB_DATABASE=tva
+      - DB_HOST=core-db
+      - DB_PASSWORD=$DB_PASSWORD
+      - DB_USERNAME=$DB_USERNAME
+      - DOMAIN=$DOMAIN
+      - HOST_PORT=8080
+      - IDENTITY_CLIENT_ID=$IDENTITY_CLIENT_ID
+      - IDENTITY_DOMAIN=$IDENTITY_DOMAIN
+      - IDENTITY_SECRET_ID=$IDENTITY_SECRET_ID
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORG_ID=org_ZVg6j5mzxBltGrJJ
+      - ORG_MSP_ID=D001883032
+      - ORG_NAME=tva
+      - PEER_ADDRESS=grpcs://peer0.peer-tva.service.consul:9051
+      - TOKEN_AUDIENCE=$TOKEN_AUDIENCE
+      - TOKEN_ISSUER_URL=$TOKEN_ISSUER_URL
+      - VAULT_ADDRESS=$VAULT_ADDRESS
+      - PRICE_API_URL=$PRICE_API_URL
+      - VAULT_CA=true
+    volumes:
+      - auth-sink:/tmp/token
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  localhost:8080/api/ledger/v1/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    depends_on:
+      admin:
+        condition: service_healthy
+    networks:
+      - trade
+volumes:
+  auth-sink:

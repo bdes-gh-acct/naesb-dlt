@@ -1,0 +1,10 @@
+{
+  "node_name": "Consul",
+  "connect": {
+    "enabled": true
+  },
+  "ports": {
+    "grpc": 8502,
+    "dns": 53
+  }
+}

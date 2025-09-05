@@ -1,0 +1,83 @@
+{
+  "min_packer_version": "1.5.4",
+  "variables": {
+    "aws_region": "us-east-1",
+    "consul_version": "1.21.3",
+    "ca_public_key_path": "{{template_dir}}/keys/consul-agent-ca.pem",
+    "tls_public_key_path": "{{template_dir}}/keys/dc1-server-consul-1.pem",
+    "tls_private_key_path": "{{template_dir}}/keys/dc1-server-consul-1-key.pem"
+  },
+  "builders": [
+    {
+      "name": "ubuntu24-ami",
+      "vpc_id": "vpc-016db0b3da943c5a1",
+      "subnet_id": "subnet-0d2e9f1cb9c479b60",
+      "ami_name": "NAESB-DLT-Consul-ubuntu-24.04-{{isotime | clean_resource_name}}-{{uuid}}",
+      "ami_description": "An Ubuntu 24.04 AMI that has Consul installed and TLS certificates.",
+      "instance_type": "t2.micro",
+      "region": "{{user `aws_region`}}",
+      "type": "amazon-ebs",
+      "source_ami_filter": {
+        "filters": {
+          "virtualization-type": "hvm",
+          "architecture": "x86_64",
+          "name": "ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*",
+          "block-device-mapping.volume-type": "gp3",
+          "root-device-type": "ebs"
+        },
+        "owners": ["099720109477"],
+        "most_recent": true
+      },
+      "ssh_username": "ubuntu"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "{{user `ca_public_key_path`}}",
+      "destination": "/tmp/ca.crt.pem"
+    },
+    {
+      "type": "file",
+      "source": "{{user `tls_public_key_path`}}",
+      "destination": "/tmp/consul.crt.pem"
+    },
+    {
+      "type": "file",
+      "source": "{{user `tls_private_key_path`}}",
+      "destination": "/tmp/consul.key.pem"
+    },
+    {
+      "type": "shell",
+      "inline": ["mkdir -p /tmp/terraform-aws-consul/modules"]
+    },
+    {
+      "type": "file",
+      "source": "{{template_dir}}/modules/",
+      "destination": "/tmp/terraform-aws-consul/modules"
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "chmod 755 /tmp/terraform-aws-consul/modules/install-consul -R",
+        "chmod 755 /tmp/terraform-aws-consul/modules/run-consul -R",
+        "chmod 755 /tmp/terraform-aws-consul/modules/setup-systemd-resolved -R"
+      ]
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "/tmp/terraform-aws-consul/modules/install-consul/install-consul --version {{user `consul_version`}} --ca-file-path /tmp/ca.crt.pem --cert-file-path /tmp/consul.crt.pem --key-file-path /tmp/consul.key.pem"
+      ],
+      "pause_before": "30s"
+    },
+    {
+      "type": "shell",
+      "only": ["ubuntu24-ami"],
+      "inline": [
+        "/tmp/terraform-aws-consul/modules/setup-systemd-resolved/setup-systemd-resolved"
+      ],
+      "pause_before": "30s"
+    }
+  ]
+}

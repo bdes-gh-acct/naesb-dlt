@@ -1,0 +1,16 @@
+node_modules
+build
+dist
+coverage
+bin
+organizations
+!ledger/config
+.env
+ledger/crypto-config
+ledger/channel-artifacts
+ledger/gateways
+.terraform
+.terraform.lock.hcl
+config/vault.docker.env
+ledger/msps
+*.tsbuildinfo

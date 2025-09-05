@@ -1,0 +1,16 @@
+IDENTITY_DOMAIN=naesb.us.auth0.com
+IDENTITY_CLIENT_ID=3X8zaHSVELt3LYFED54Dq6bc2xRn2NKR
+IDENTITY_SECRET_ID=uZEYOvNzZ9Cm9GEIj3sXFt6iW4becVUB6T33XZ2ExUd_mv4bmGUzN6dbh4ZiGPo7
+TOKEN_ISSUER_URL=https://naesb.us.auth0.com/
+TOKEN_AUDIENCE=https://naesb.us.auth0.com/api/v2/
+CONNECTION_PROFILE_PATH=../../ledger/gateways/spire/connection.json
+ORG_MSP_ID=SpireOrgMSP
+CA_HOST_NAME=ca.spire.naesb.com
+CA_AFFILIATION=spire.naesb.org
+WALLET_PATH=../wallets
+ADMIN_USER_ID=admin
+ADMIN_PASSWORD=adminpw
+DB_PORT=5432
+DB_HOST=core-db
+DB_USERNAME=postgres
+DB_PASSWORD=postgres

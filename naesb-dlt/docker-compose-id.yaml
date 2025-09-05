@@ -1,0 +1,161 @@
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+version: '3.4'
+networks:
+  trade:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.55.0/24
+services:
+  dnsmasq:
+    image: storytel/dnsmasq
+    command: 'dnsmasq --no-daemon --server=/consul/192.168.55.10#8600'
+    init: true
+    ports:
+      - '9000:53/udp'
+    networks:
+      trade:
+        ipv4_address: 192.168.55.9
+    cap_add:
+      - NET_ADMIN
+  consul:
+    depends_on: [dnsmasq]
+    image: consul
+    ports:
+      - '8400:8400'
+      - '8500:8500'
+      - '8600:8600/udp'
+    dns: '192.168.55.9'
+    environment:
+      CONSUL_BIND_INTERFACE: eth0
+      CONSUL_LOCAL_CONFIG: |
+        {
+          "client_addr": "0.0.0.0",
+          "recursors": [
+            "8.8.8.8",
+            "8.8.4.4"
+          ],
+          "server": true,
+          "bootstrap_expect": 1,
+          "ui_config": {
+            "enabled": true
+          }
+        }
+    hostname: consul
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail localhost:8500/v1/health/node/server-1 || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 6
+    networks:
+      trade:
+        ipv4_address: 192.168.55.10
+  vault:
+    image: vault:latest
+    dns: '192.168.55.9'
+    env_file: ./docker/vault/naesb-vault/config/.env
+    ports:
+      - 8200:8200
+      - 8201:8201
+      - 8203:8203
+      - 8250:8250
+    command: /bin/sh "/config/start.sh" &
+    environment:
+      VAULT_ADDR: 'http://127.0.0.1:8200'
+      VAULT_LOCAL_CONFIG: '{"backend": {"consul": {"address": "consul:8500", "path":"vault", "scheme": "http"}}, "listener": {"tcp":{"address": "0.0.0.0:8200","tls_disable":"1"}}, "default_lease_ttl": "168h", "max_lease_ttl": "720h", "disable_mlock": "true"}'
+    depends_on:
+      consul:
+        condition: service_healthy
+    volumes:
+      - ./docker/vault/naesb-vault/config:/config
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  http://localhost:8200/v1/sys/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    networks:
+      trade:
+        ipv4_address: 192.168.55.11
+  vault-agent:
+    image: naesb-vault-agent
+    env_file: ./docker/vault/naesb-vault/config/.env
+    environment:
+      - VAULT_ADDR=http://vault.service.consul:8200
+      - VAULT_ROLE=dev-naesbdlt-vault-user-role
+    healthcheck:
+      test: ['CMD-SHELL', 'test -f /tmp/token/vault-token-via-agent']
+      interval: 10s
+      timeout: 5s
+      retries: 6
+    depends_on:
+      consul:
+        condition: service_healthy
+      vault:
+        condition: service_healthy
+    dns: '192.168.55.9'
+    volumes:
+      - ./docker/vault-agent:/config
+      - auth-sink:/tmp/token
+    networks:
+      - trade
+  naesb-ca:
+    image: naesb-api-ledger-id
+    dns: '192.168.55.9'
+    ports:
+      - 8080:8080
+    environment:
+      - DOMAIN=$DOMAIN
+      - ORG_NAME=naesb
+      - HOST_PORT=8080
+      - DB_HOST=core-db
+      - ORG_ID=org_Zq88NZfnjTsOu2II
+    volumes:
+      - ./docker/orderer:/config
+      - auth-sink:/tmp/token
+    healthcheck:
+      test:
+        ['CMD-SHELL', 'curl --silent --fail  localhost:8080/health || exit 1']
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    depends_on:
+      vault-agent:
+        condition: service_healthy
+      core-db:
+        condition: service_healthy
+    networks:
+      - trade
+  core-db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      PGPORT: 5432
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    deploy:
+      resources:
+        limits:
+          cpus: '0.7'
+          memory: 1g
+    volumes:
+      - ./docker/postgresql:/docker-entrypoint-initdb.d/
+    networks:
+      - trade
+volumes:
+  auth-sink:

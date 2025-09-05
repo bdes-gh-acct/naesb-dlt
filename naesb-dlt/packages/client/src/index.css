@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+@font-face {
+  font-family: 'Tungsten-Semibold';
+  src: local('Tungsten-Semibold'),
+    url(./assets/Tungsten-Semibold.otf) format('opentype');
+}
+@font-face {
+  font-family: 'Tungsten-Book';
+  src: local('Tungsten-Book'),
+    url(./assets/Tungsten-Book.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Helvetica-Neue-Std';
+  src: local('Helvetica-Neue-Std'),
+    url(./assets/HelveticaNeueLTStd-Cn.otf) format('opentype');
+}
+
+body {
+  font-family: 'Roboto, sans-serif';
+  background-color: '#f5f8fa !important';
+  padding: 0;
+}
+
+#root {
+  height: '100%';
+  padding: 0 !important;
+}
+
+.css-1srxxoq {
+  padding: 23px 30px 0 !important;
+}

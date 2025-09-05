@@ -1,0 +1,91 @@
+{
+  "min_packer_version": "1.5.4",
+  "variables": {
+    "aws_region": "us-east-1",
+    "vault_version": "1.6.1",
+    "fabric_version": "2.4.1",
+    "ca_version": "1.5.2",
+    "consul_module_version": "v0.8.0",
+    "consul_version": "1.9.2",
+    "consul_download_url": "{{env `CONSUL_DOWNLOAD_URL`}}",
+    "vault_download_url": "{{env `VAULT_DOWNLOAD_URL`}}",
+    "install_auth_signing_script": "true",
+    "ca_public_key_path": "{{template_dir}}/keys/consul-agent-ca.pem",
+    "tls_public_key_path": "{{template_dir}}/keys/dc1-client-consul-1.pem",
+    "tls_private_key_path": "{{template_dir}}/keys/dc1-client-consul-1-key.pem"
+  },
+  "builders": [
+    {
+      "name": "ubuntu24-ami",
+      "vpc_id": "vpc-016db0b3da943c5a1",
+      "subnet_id": "subnet-0d2e9f1cb9c479b60",
+      "ami_name": "NAESB-DLT-hyperledger-ubuntu-24.04-{{isotime | clean_resource_name}}-{{uuid}}",
+      "ami_description": "An Ubuntu 24.04 AMI that has hyperledger installed.",
+      "instance_type": "t2.micro",
+      "region": "{{user `aws_region`}}",
+      "type": "amazon-ebs",
+      "source_ami_filter": {
+        "filters": {
+          "virtualization-type": "hvm",
+          "architecture": "x86_64",
+          "name": "ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*",
+          "block-device-mapping.volume-type": "gp3",
+          "root-device-type": "ebs"
+        },
+        "owners": ["099720109477"],
+        "most_recent": true
+      },
+      "ssh_username": "ubuntu"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo apt update -y",
+        "sudo apt install ca-certificates curl gnupg lsb-release -y",
+        "sudo install -m 0755 -d /etc/apt/keyrings",
+        "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg",
+        "sudo chmod a+r /etc/apt/keyrings/docker.gpg",
+        "echo deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null",
+        "sudo apt update",
+        "sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin",
+        "sudo systemctl start docker",
+        "sudo systemctl enable docker",
+        "sudo usermod -a -G docker ubuntu",
+        "sudo systemctl restart docker",
+        "sudo chmod 666 /var/run/docker.sock",
+        "mkdir /tmp/apps",
+        "cd /tmp/apps",
+        "curl -sSL https://bit.ly/2ysbOFE | bash -s -- {{user `fabric_version`}} {{user `ca_version`}}",
+        "mkdir -p /tmp/terraform-aws-consul/modules/setup-systemd-resolved"
+      ],
+      "pause_before": "30s"
+    },
+    {
+      "type": "file",
+      "source": "{{template_dir}}/modules/setup-systemd-resolved",
+      "destination": "/tmp/terraform-aws-consul/modules"
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "chmod 755 /tmp/terraform-aws-consul/modules/setup-systemd-resolved -R"
+      ]
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "chmod 755 /tmp/terraform-aws-consul/modules/setup-systemd-resolved/setup-systemd-resolved",
+        "chmod +x /tmp/terraform-aws-consul/modules/setup-systemd-resolved/setup-systemd-resolved",
+        "ls -l /tmp/terraform-aws-consul/modules/setup-systemd-resolved/setup-systemd-resolved"
+      ]
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "bash /tmp/terraform-aws-consul/modules/setup-systemd-resolved/setup-systemd-resolved"
+      ]
+    }
+  ]
+}
