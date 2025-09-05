@@ -1,0 +1,164 @@
+version: '3.5'
+services:
+  network-db:
+    image: postgres
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-db
+    ports:
+      - ${POSTGRES_PORT:-5433}:5432
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-root}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+  tails-server:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/external/indy-tails-server
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-tails
+    environment:
+      - STORAGE_PATH=/tmp/tails-files
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    ports:
+      - 6543:6543
+    command: >
+      tails-server
+        --host 0.0.0.0
+        --port 6543
+        --storage-path /tmp/tails-files
+        --log-level INFO
+  webserver:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/external/indy-explorer:latest
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-server
+    depends_on:
+      - network-db
+    command: "bash -c 'sleep 100; ./scripts/start_webserver.sh;'"
+    environment:
+      - ANONYMOUS=${ANONYMOUS}
+      - DOCKERHOST=${DOCKERHOST:-host.docker.internal}
+      - GENESIS_URL=${GENESIS_URL}
+      - HEADER_BRAND=${HEADER_BRAND:-Hyperledger Indy}
+      - IP=${IP}
+      - IPS=${IPS}
+      - LEDGER_CACHE_PATH=${LEDGER_CACHE_PATH}
+      - LEDGER_INSTANCE_NAME=${LEDGER_INSTANCE_NAME:-localhost}
+      - LEDGER_SEED=${LEDGER_SEED}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - MAX_FETCH=${MAX_FETCH:-50000}
+      - POSTGRES_DB=${POSTGRES_DB:-postgres}
+      - POSTGRES_HOST=${POSTGRES_HOST:-network-db}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-root}
+      - POSTGRES_PORT=${POSTGRES_PORT:-5432}
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - REGISTER_NEW_DIDS=${REGISTER_NEW_DIDS:-True}
+      - RESYNC_TIME=${RESYNC_TIME:-120000}
+      - RUST_LOG=${RUST_LOG}
+    volumes:
+      - webserver-cli:/home/indy/.indy-cli
+      - node1-data:/home/indy/ledger
+    ports:
+      - 443:8080
+      - 4000:4000
+  node1:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/external/indy-explorer-node:latest
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-node1
+    command: "bash -c './scripts/start_node.sh 1'"
+    ports:
+      - 9701:9701
+      - 9702:9702
+    environment:
+      - IP=${IP}
+      - IPS=${IPS}
+      - DOCKERHOST=${DOCKERHOST:-host.docker.internal}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - RUST_LOG=${RUST_LOG}
+    volumes:
+      - node1-data:/home/indy/ledger
+
+  node2:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/external/indy-explorer-node:latest
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-node2
+    command: "bash -c './scripts/start_node.sh 2'"
+    ports:
+      - 9703:9703
+      - 9704:9704
+    environment:
+      - IP=${IP}
+      - IPS=${IPS}
+      - DOCKERHOST=${DOCKERHOST:-host.docker.internal}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - RUST_LOG=${RUST_LOG}
+    volumes:
+      - node2-data:/home/indy/ledger
+
+  node3:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/external/indy-explorer-node:latest
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-node3
+    command: "bash -c './scripts/start_node.sh 3'"
+    ports:
+      - 9705:9705
+      - 9706:9706
+    environment:
+      - IP=${IP}
+      - IPS=${IPS}
+      - DOCKERHOST=${DOCKERHOST:-host.docker.internal}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - RUST_LOG=${RUST_LOG}
+    volumes:
+      - node3-data:/home/indy/ledger
+
+  node4:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/external/indy-explorer-node:latest
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-node4
+    command: "bash -c './scripts/start_node.sh 4'"
+    ports:
+      - 9707:9707
+      - 9708:9708
+    environment:
+      - IP=${IP}
+      - IPS=${IPS}
+      - DOCKERHOST=${DOCKERHOST:-0.0.0.0}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - RUST_LOG=${RUST_LOG}
+    volumes:
+      - node4-data:/home/indy/ledger
+volumes:
+  client-data:
+  webserver-cli:
+  webserver-ledger:
+  node1-data:
+  node2-data:
+  node3-data:
+  node4-data:
+  nodes-data:

@@ -1,0 +1,10 @@
+{
+  "packages": ["packages/*"],
+  "command": {
+    "bootstrap": {
+      "hoist": true,
+      "npmClientArgs": ["--legacy-peer-deps"]
+    }
+  },
+  "version": "0.0.0"
+}

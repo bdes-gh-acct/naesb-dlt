@@ -1,0 +1,81 @@
+{
+  "name": "@shared/agent-utils",
+  "version": "1.0.0",
+  "description": "Utilities for agent services",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "private": true,
+  "scripts": {
+    "build": "nest build",
+    "coverage": "jest --coverage",
+    "test": "jest",
+    "lint-staged": "lint-staged -q",
+    "lint": "eslint src/ --ext .js,.ts --quiet",
+    "cicd": "echo cicd",
+    "lint-fix": "eslint src/  --ext .js,.ts --fix --quiet"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/core": "^9.0.0",
+    "@nestjs/swagger": "^6.1.0",
+    "@nestjs/typeorm": "^9.0.0",
+    "axios": "^1.0.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.21",
+    "rxjs": "7.3.0"
+  },
+  "dependencies": {
+    "@nestjs/microservices": "^9.0.0",
+    "@naesb/aries-types": "file:../model",
+    "axios-retry": "^3.3.1",
+    "kafkajs": "^2.2.4",
+    "typeorm": "^0.3.11",
+    "zod": "^3.20.2"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "reporters": [
+      [
+        "jest-silent-reporter",
+        {
+          "useDots": true
+        }
+      ]
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "clover",
+      "json-summary"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 0,
+        "functions": 0,
+        "lines": 0,
+        "statements": 0
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/build/"
+    ],
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.{js,jsx,ts,tsx}",
+      "!**/node_modules/**",
+      "!**/build/**",
+      "!**/src/index.ts"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+version: 0.2
+env:
+  variables:
+    CI: 0
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - echo building $CODEBUILD_SOURCE_VERSION
+      - docker pull registry.access.redhat.com/ubi8/nodejs-16:latest
+      - npm install -g lerna@^6.0.0 webpack-cli typescript @nestjs/cli @craco/craco rimraf
+      - aws codeartifact login --tool npm --repository naesb --domain naesb --namespace=@naesb
+      - npm ci
+      - lerna bootstrap
+      - CI=0 lerna run build
+      - lerna version 0.0.$CODEBUILD_BUILD_NUMBER --no-git-tag-version --no-push --yes
+      - lerna publish from-package --git-head ${CODEBUILD_RESOLVED_SOURCE_VERSION} --no-git-reset  --yes
+      - sh npm-setup.sh
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 094458522773.dkr.ecr.us-east-1.amazonaws.com
+  build:
+    commands:
+      - npm run build-agent-api
+      - npm run build-portal-ui
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...

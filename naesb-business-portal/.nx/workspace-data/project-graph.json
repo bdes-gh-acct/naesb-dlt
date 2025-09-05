@@ -1,0 +1,656 @@
+{
+  "nodes": {
+    "@local/business-agent": {
+      "name": "@local/business-agent",
+      "type": "lib",
+      "data": {
+        "root": "packages/business-agent",
+        "name": "@local/business-agent",
+        "tags": [
+          "npm:private"
+        ],
+        "metadata": {
+          "targetGroups": {
+            "NPM Scripts": [
+              "build",
+              "start",
+              "docker",
+              "lint-staged",
+              "cicd",
+              "lint",
+              "lint-fix"
+            ]
+          },
+          "description": "API for handling Aries activities",
+          "js": {
+            "packageName": "@local/business-agent",
+            "packageMain": "build/main.js",
+            "isInPackageManagerWorkspaces": true
+          }
+        },
+        "targets": {
+          "build": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "metadata": {
+              "scriptContent": "nest build",
+              "runCommand": "npm run build"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "inputs": [
+              "nonTest",
+              "^nonTest"
+            ],
+            "dependsOn": [
+              "^build"
+            ]
+          },
+          "start": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start"
+            },
+            "metadata": {
+              "scriptContent": "nest start",
+              "runCommand": "npm run start"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "docker": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "docker"
+            },
+            "metadata": {
+              "scriptContent": "docker build -t naesb-business-agent-api -f ./Dockerfile ../../ --platform=linux/amd64",
+              "runCommand": "npm run docker"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "lint-staged": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "lint-staged"
+            },
+            "metadata": {
+              "scriptContent": "lint-staged -q",
+              "runCommand": "npm run lint-staged"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "cicd": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "cicd"
+            },
+            "metadata": {
+              "scriptContent": "echo cicd",
+              "runCommand": "npm run cicd"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "dependsOn": [
+              "build",
+              "lint",
+              "test"
+            ]
+          },
+          "lint": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "lint"
+            },
+            "metadata": {
+              "scriptContent": "eslint src/ --ext .js,.ts --quiet",
+              "runCommand": "npm run lint"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "inputs": [
+              "default",
+              "^nonTest"
+            ],
+            "dependsOn": [
+              "build"
+            ]
+          },
+          "lint-fix": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "lint-fix"
+            },
+            "metadata": {
+              "scriptContent": "eslint src/  --ext .js,.ts --fix --quiet",
+              "runCommand": "npm run lint-fix"
+            },
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "implicitDependencies": []
+      }
+    },
+    "@local/agent-client": {
+      "name": "@local/agent-client",
+      "type": "lib",
+      "data": {
+        "root": "packages/agent-client",
+        "name": "@local/agent-client",
+        "tags": [
+          "npm:private"
+        ],
+        "metadata": {
+          "targetGroups": {
+            "NPM Scripts": [
+              "build",
+              "docker",
+              "eject",
+              "format",
+              "serve",
+              "start",
+              "test"
+            ]
+          },
+          "js": {
+            "packageName": "@local/agent-client",
+            "isInPackageManagerWorkspaces": true
+          }
+        },
+        "targets": {
+          "build": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "metadata": {
+              "scriptContent": "npx cross-env CI=false react-scripts build",
+              "runCommand": "npm run build"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "inputs": [
+              "nonTest",
+              "^nonTest"
+            ],
+            "dependsOn": [
+              "^build"
+            ]
+          },
+          "docker": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "docker"
+            },
+            "metadata": {
+              "scriptContent": "docker build -t naesb-business-portal -f ./Dockerfile ../../",
+              "runCommand": "npm run docker"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "eject": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "eject"
+            },
+            "metadata": {
+              "scriptContent": "react-scripts eject",
+              "runCommand": "npm run eject"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "format": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "format"
+            },
+            "metadata": {
+              "scriptContent": "prettier --write src/**/*.ts{,x}",
+              "runCommand": "npm run format"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "serve": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "serve"
+            },
+            "metadata": {
+              "scriptContent": "npx http-server ./build -p 8080",
+              "runCommand": "npm run serve"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "start": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start"
+            },
+            "metadata": {
+              "scriptContent": "react-scripts start",
+              "runCommand": "npm run start"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            },
+            "metadata": {
+              "scriptContent": "react-scripts test",
+              "runCommand": "npm run test"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "inputs": [
+              "default",
+              "^nonTest"
+            ],
+            "dependsOn": [
+              "^build"
+            ]
+          }
+        },
+        "implicitDependencies": []
+      }
+    },
+    "@shared/agent-utils": {
+      "name": "@shared/agent-utils",
+      "type": "lib",
+      "data": {
+        "root": "packages/agent-utils",
+        "name": "@shared/agent-utils",
+        "tags": [
+          "npm:private"
+        ],
+        "metadata": {
+          "targetGroups": {
+            "NPM Scripts": [
+              "build",
+              "coverage",
+              "test",
+              "lint-staged",
+              "lint",
+              "cicd",
+              "lint-fix"
+            ]
+          },
+          "description": "Utilities for agent services",
+          "js": {
+            "packageName": "@shared/agent-utils",
+            "packageMain": "build/index.js",
+            "isInPackageManagerWorkspaces": true
+          }
+        },
+        "targets": {
+          "build": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "metadata": {
+              "scriptContent": "nest build",
+              "runCommand": "npm run build"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "inputs": [
+              "nonTest",
+              "^nonTest"
+            ],
+            "dependsOn": [
+              "^build"
+            ]
+          },
+          "coverage": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "coverage"
+            },
+            "metadata": {
+              "scriptContent": "jest --coverage",
+              "runCommand": "npm run coverage"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            },
+            "metadata": {
+              "scriptContent": "jest",
+              "runCommand": "npm run test"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "inputs": [
+              "default",
+              "^nonTest"
+            ],
+            "dependsOn": [
+              "^build"
+            ]
+          },
+          "lint-staged": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "lint-staged"
+            },
+            "metadata": {
+              "scriptContent": "lint-staged -q",
+              "runCommand": "npm run lint-staged"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "lint": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "lint"
+            },
+            "metadata": {
+              "scriptContent": "eslint src/ --ext .js,.ts --quiet",
+              "runCommand": "npm run lint"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "inputs": [
+              "default",
+              "^nonTest"
+            ],
+            "dependsOn": [
+              "build"
+            ]
+          },
+          "cicd": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "cicd"
+            },
+            "metadata": {
+              "scriptContent": "echo cicd",
+              "runCommand": "npm run cicd"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "dependsOn": [
+              "build",
+              "lint",
+              "test"
+            ]
+          },
+          "lint-fix": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "lint-fix"
+            },
+            "metadata": {
+              "scriptContent": "eslint src/  --ext .js,.ts --fix --quiet",
+              "runCommand": "npm run lint-fix"
+            },
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "implicitDependencies": []
+      }
+    },
+    "@local/admin": {
+      "name": "@local/admin",
+      "type": "lib",
+      "data": {
+        "root": "packages/agent",
+        "name": "@local/admin",
+        "tags": [
+          "npm:private"
+        ],
+        "metadata": {
+          "targetGroups": {
+            "NPM Scripts": [
+              "build",
+              "start",
+              "docker",
+              "docker-tag",
+              "lint-staged",
+              "cicd",
+              "lint",
+              "lint-fix"
+            ]
+          },
+          "description": "API for issuing credentials from NAESB",
+          "js": {
+            "packageName": "@local/admin",
+            "packageMain": "build/main.js",
+            "isInPackageManagerWorkspaces": true
+          }
+        },
+        "targets": {
+          "build": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "metadata": {
+              "scriptContent": "nest build",
+              "runCommand": "npm run build"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "inputs": [
+              "nonTest",
+              "^nonTest"
+            ],
+            "dependsOn": [
+              "^build"
+            ]
+          },
+          "start": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start"
+            },
+            "metadata": {
+              "scriptContent": "nest start",
+              "runCommand": "npm run start"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "docker": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "docker"
+            },
+            "metadata": {
+              "scriptContent": "docker build -t naesb-agent-api -f ./Dockerfile ../../ --platform=linux/amd64",
+              "runCommand": "npm run docker"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "docker-tag": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "docker-tag"
+            },
+            "metadata": {
+              "scriptContent": "docker tag naesb-agent-api:latest 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/aries-naesb-api:latest && docker push 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/aries-naesb-api:latest",
+              "runCommand": "npm run docker-tag"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "lint-staged": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "lint-staged"
+            },
+            "metadata": {
+              "scriptContent": "lint-staged -q",
+              "runCommand": "npm run lint-staged"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "cicd": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "cicd"
+            },
+            "metadata": {
+              "scriptContent": "echo cicd",
+              "runCommand": "npm run cicd"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "dependsOn": [
+              "build",
+              "lint",
+              "test"
+            ]
+          },
+          "lint": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "lint"
+            },
+            "metadata": {
+              "scriptContent": "eslint src/ --ext .js,.ts --quiet",
+              "runCommand": "npm run lint"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "inputs": [
+              "default",
+              "^nonTest"
+            ],
+            "dependsOn": [
+              "build"
+            ]
+          },
+          "lint-fix": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "lint-fix"
+            },
+            "metadata": {
+              "scriptContent": "eslint src/  --ext .js,.ts --fix --quiet",
+              "runCommand": "npm run lint-fix"
+            },
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "implicitDependencies": []
+      }
+    },
+    "@naesb/aries-types": {
+      "name": "@naesb/aries-types",
+      "type": "lib",
+      "data": {
+        "root": "packages/model",
+        "name": "@naesb/aries-types",
+        "tags": [
+          "npm:public"
+        ],
+        "metadata": {
+          "targetGroups": {
+            "NPM Scripts": [
+              "build"
+            ]
+          },
+          "description": "type package",
+          "js": {
+            "packageName": "@naesb/aries-types",
+            "packageMain": "build/index.js",
+            "isInPackageManagerWorkspaces": true
+          }
+        },
+        "targets": {
+          "build": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "metadata": {
+              "scriptContent": "tsc",
+              "runCommand": "npm run build"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "inputs": [
+              "nonTest",
+              "^nonTest"
+            ],
+            "dependsOn": [
+              "^build"
+            ]
+          },
+          "nx-release-publish": {
+            "executor": "@nx/js:release-publish",
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "options": {},
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "implicitDependencies": []
+      }
+    }
+  },
+  "externalNodes": {},
+  "dependencies": {
+    "@local/business-agent": [
+      {
+        "source": "@local/business-agent",
+        "target": "@shared/agent-utils",
+        "type": "static"
+      },
+      {
+        "source": "@local/business-agent",
+        "target": "@naesb/aries-types",
+        "type": "static"
+      }
+    ],
+    "@local/agent-client": [
+      {
+        "source": "@local/agent-client",
+        "target": "@naesb/aries-types",
+        "type": "static"
+      }
+    ],
+    "@shared/agent-utils": [
+      {
+        "source": "@shared/agent-utils",
+        "target": "@naesb/aries-types",
+        "type": "static"
+      }
+    ],
+    "@local/admin": [
+      {
+        "source": "@local/admin",
+        "target": "@shared/agent-utils",
+        "type": "static"
+      }
+    ],
+    "@naesb/aries-types": []
+  },
+  "version": "6.0",
+  "errors": [],
+  "computedAt": 1756829620267
+}

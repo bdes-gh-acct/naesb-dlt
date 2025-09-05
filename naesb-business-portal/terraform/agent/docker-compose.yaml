@@ -1,0 +1,161 @@
+version: '3.5'
+services:
+  db:
+    image: postgres:10
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-db
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-mysecretpassword}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+  agent-db:
+    image: postgres:10
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-agent-db
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-mysecretpassword}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+  agent-api:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/aries-agent-api:latest
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-agent-api
+    environment:
+      AGENT_URL: http://agent:${ACAPY_ADMIN_PORT:-6000}
+      LEDGER_SYNC_INTERVAL: 10000
+      HOST_PORT: 8080
+      DB_PORT: 5432
+      DB_HOST: agent-db
+      DB_USERNAME: postgres
+      DB_PASSWORD: mysecretpassword
+      SYNCHRONIZE_SCHEMA: true
+      VDR_URL: http://vdr:8080
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  http://localhost:8080/api/agent/v1/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    depends_on:
+      agent-db:
+        condition: service_healthy
+      agent:
+        condition: service_healthy
+
+  vdr:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/indy-vdr
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-vdr
+    restart: always
+    environment:
+      GENESIS_URL: https://indy.dev.naesbdlt.org/api/genesis
+      HOST_PORT: 8080
+  ui:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/business-portal-ui
+  proxy:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/external/nginx
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-proxy
+    volumes:
+      - /tmp/nginx:/etc/nginx/
+    ports:
+      - 443:443
+    depends_on:
+      agent-api:
+        condition: service_healthy
+  agent:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/aries-agent:latest
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-agent
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  http://localhost:6000/status || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    ports:
+      - 6000:${ACAPY_ADMIN_PORT:-6000}
+      - 10000:${ACAPY_SERVICE_PORT:-10000}
+    environment:
+      # ACAPY_LEDGER_POOL_NAME: ${ACAPY_LEDGER_POOL_NAME:-NAESB}
+      ACAPY_ADMIN_INSECURE_MODE: ${ACAPY_ADMIN_INSECURE_MODE:-true}
+      ACAPY_ADMIN_PORT: ${ACAPY_ADMIN_PORT:-6000}
+      ACAPY_AUTO_ACCEPT_INVITES: ${ACAPY_AUTO_ACCEPT_INVITES:-true}
+      ACAPY_AUTO_ACCEPT_REQUESTS: ${ACAPY_AUTO_ACCEPT_REQUESTS:-true}
+      ACAPY_AUTO_PING_CONNECTION: ${ACAPY_AUTO_PING_CONNECTION:-true}
+      ACAPY_AUTO_PROVISION: ${ACAPY_AUTO_PROVISION:-true}
+      ACAPY_AUTO_RESPOND_CREDENTIAL_OFFER: ${ACAPY_AUTO_RESPOND_CREDENTIAL_OFFER:-true}
+      ACAPY_AUTO_RESPOND_CREDENTIAL_REQUEST: ${ACAPY_AUTO_RESPOND_CREDENTIAL_REQUEST:-true}
+      ACAPY_AUTO_RESPOND_PRESENTATION_PROPOSAL: ${ACAPY_AUTO_RESPOND_PRESENTATION_PROPOSAL:-true}
+      ACAPY_AUTO_STORE_CREDENTIAL: ${ACAPY_AUTO_STORE_CREDENTIAL:-true}
+      ACAPY_AUTO_VERIFY_PRESENTATION: ${ACAPY_AUTO_VERIFY_PRESENTATION:-true}
+      ACAPY_ENDPOINT: ${ACAPY_ENDPOINT}
+      ACAPY_GENESIS_URL: ${ACAPY_GENESIS_URL}
+      ACAPY_IMAGE_URL: ${ACAPY_IMAGE_URL:-https://dlt-public.s3.amazonaws.com/naesb-logo.png}
+      ACAPY_INVITE_PUBLIC: ${ACAPY_INVITE_PUBLIC:-true}
+      ACAPY_LABEL: ${ACAPY_LABEL}
+      ACAPY_LOG_LEVEL: ${ACAPY_LOG_LEVEL:-info}
+      ACAPY_MONITOR_REVOCATION_NOTIFICATION: ${ACAPY_MONITOR_REVOCATION_NOTIFICATION:-true}
+      ACAPY_NOTIFY_REVOCATION: ${ACAPY_NOTIFY_REVOCATION:-true}
+      ACAPY_PROFILE_ENDPOINT: ${ACAPY_PROFILE_ENDPOINT}
+      ACAPY_PUBLIC_INVITES: ${ACAPY_PUBLIC_INVITES:-true}
+      ACAPY_PRESERVE_EXCHANGE_RECORDS: ${ACAPY_PRESERVE_EXCHANGE_RECORDS:-true}
+      ACAPY_REQUESTS_THROUGH_PUBLIC_DID: ${ACAPY_REQUESTS_THROUGH_PUBLIC_DID:-true}
+      ACAPY_SERVICE_PORT: ${ACAPY_SERVICE_PORT:-10000}
+      ACAPY_TAILS_SERVER_BASE_URL: ${ACAPY_TAILS_SERVER_BASE_URL}
+      ACAPY_WALLET_KEY: ${ACAPY_WALLET_KEY:-key}
+      ACAPY_WALLET_NAME: ${ACAPY_WALLET_NAME:-default}
+      ACAPY_WALLET_SEED: ${ACAPY_WALLET_SEED}
+      ACAPY_WEBHOOK_URL: ${ACAPY_WEBHOOK_URL:-http://agent-api:8080/api/agent/v1/webhooks}
+      BOOTSTRAP_DID: ${BOOTSTRAP_DID}
+      DB_ACCOUNT: ${POSTGRES_USER:-postgres}
+      DB_ADMIN_ACCOUNT: ${POSTGRES_USER:-postgres}
+      DB_ADMIN_PASSWORD: ${POSTGRES_PASSWORD:-mysecretpassword}
+      DB_HOST: ${DB_HOST:-db}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-mysecretpassword}
+      DB_PORT: ${DB_PORT:-5432}
+      INDY_ROLE: ${INDY_ROLE}
+      POOL_URL: ${POOL_URL}
+      SITE_URL: ${SITE_URL}

@@ -1,0 +1,1281 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.8.2",
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": ".dockerignore",
+        "hash": "15135715078715607004"
+      },
+      {
+        "file": ".eslintrc.js",
+        "hash": "4519659349521076512"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "17113679448108186073"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "13651968477724535712"
+      },
+      {
+        "file": "buildspec.yml",
+        "hash": "5358976325008701902"
+      },
+      {
+        "file": "docker-compose.yaml",
+        "hash": "14286962380958837580"
+      },
+      {
+        "file": "docker/agent/Dockerfile",
+        "hash": "18379189893178350128"
+      },
+      {
+        "file": "docker/agent/start.sh",
+        "hash": "18335402659394905141"
+      },
+      {
+        "file": "lerna.json",
+        "hash": "3171206419510989579"
+      },
+      {
+        "file": "npm-setup.sh",
+        "hash": "4607902064591374377"
+      },
+      {
+        "file": "nx.json",
+        "hash": "1510565185353703837"
+      },
+      {
+        "file": "package.json",
+        "hash": "5716283108761163561"
+      },
+      {
+        "file": "start.sh",
+        "hash": "5407323511268117491"
+      },
+      {
+        "file": "startcopy.sh",
+        "hash": "10901501524354295984"
+      },
+      {
+        "file": "terraform.tfstate",
+        "hash": "12016586349268061035"
+      },
+      {
+        "file": "terraform/agent/.terraform.lock.hcl",
+        "hash": "18294561615781924309"
+      },
+      {
+        "file": "terraform/agent/docker-compose.yaml",
+        "hash": "578710566892739729"
+      },
+      {
+        "file": "terraform/agent/main.tf",
+        "hash": "13129716028792457288"
+      },
+      {
+        "file": "terraform/agent/modules/agent/main.tf",
+        "hash": "14066600954260209873"
+      },
+      {
+        "file": "terraform/agent/modules/agent/user-data.sh",
+        "hash": "832751465913591530"
+      },
+      {
+        "file": "terraform/agent/modules/agent/variables.tf",
+        "hash": "11107676683401338676"
+      },
+      {
+        "file": "terraform/agent/nginx.conf",
+        "hash": "8601558463825491513"
+      },
+      {
+        "file": "terraform/agent/outputs.tf",
+        "hash": "5764254443205692718"
+      },
+      {
+        "file": "terraform/agent/provider.tf",
+        "hash": "1686403432029955740"
+      },
+      {
+        "file": "terraform/agent/terraform.tfvars",
+        "hash": "15198708445567187401"
+      },
+      {
+        "file": "terraform/agent/variables.tf",
+        "hash": "16755216824362981482"
+      },
+      {
+        "file": "terraform/network/.terraform.lock.hcl",
+        "hash": "7525213440236454631"
+      },
+      {
+        "file": "terraform/network/errored.tfstate",
+        "hash": "16216151593382518752"
+      },
+      {
+        "file": "terraform/network/main.tf",
+        "hash": "13919103305998348561"
+      },
+      {
+        "file": "terraform/network/modules/ledger/docker-compose.yaml",
+        "hash": "15505230887683315240"
+      },
+      {
+        "file": "terraform/network/modules/ledger/main.tf",
+        "hash": "14179531847941587251"
+      },
+      {
+        "file": "terraform/network/modules/ledger/user-data.sh",
+        "hash": "1926799183986516035"
+      },
+      {
+        "file": "terraform/network/modules/ledger/variables.tf",
+        "hash": "8240184696952048835"
+      },
+      {
+        "file": "terraform/network/outputs.tf",
+        "hash": "5764254443205692718"
+      },
+      {
+        "file": "terraform/network/provider.tf",
+        "hash": "8969372207013497022"
+      },
+      {
+        "file": "terraform/network/terraform.tfvars",
+        "hash": "15198708445567187401"
+      },
+      {
+        "file": "terraform/network/variables.tf",
+        "hash": "16755216824362981482"
+      },
+      {
+        "file": "terraform/shared/acm_domain/.terraform.lock.hcl",
+        "hash": "11937747645591057722"
+      },
+      {
+        "file": "terraform/shared/acm_domain/main.tf",
+        "hash": "7323093468298953509"
+      },
+      {
+        "file": "terraform/shared/acm_domain/output.tf",
+        "hash": "2809539516691992413"
+      },
+      {
+        "file": "terraform/shared/acm_domain/variables.tf",
+        "hash": "8775693372025030050"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "14218900140253716125"
+      }
+    ],
+    "projectFileMap": {
+      "@local/agent-client": [
+        {
+          "file": "packages/agent-client/.env",
+          "hash": "282916844648596702"
+        },
+        {
+          "file": "packages/agent-client/.eslintrc.js",
+          "hash": "6774186011149995743"
+        },
+        {
+          "file": "packages/agent-client/.gitignore",
+          "hash": "5403484524555424706"
+        },
+        {
+          "file": "packages/agent-client/Dockerfile",
+          "hash": "8469768645238883967"
+        },
+        {
+          "file": "packages/agent-client/README.md",
+          "hash": "17911282315018038361"
+        },
+        {
+          "file": "packages/agent-client/package-lock.json",
+          "hash": "6293137984323146944"
+        },
+        {
+          "file": "packages/agent-client/package.json",
+          "hash": "13961513886876387705",
+          "deps": [
+            "@naesb/aries-types",
+            "npm:axios",
+            "npm:lodash",
+            "npm:react",
+            "npm:react-dom",
+            "npm:sass"
+          ]
+        },
+        {
+          "file": "packages/agent-client/public/favicon.ico",
+          "hash": "17807956970400168983"
+        },
+        {
+          "file": "packages/agent-client/public/index.html",
+          "hash": "11989902931950847290"
+        },
+        {
+          "file": "packages/agent-client/public/logo192.png",
+          "hash": "7585273181698778288"
+        },
+        {
+          "file": "packages/agent-client/public/logo512.png",
+          "hash": "9339365414554387981"
+        },
+        {
+          "file": "packages/agent-client/public/manifest.json",
+          "hash": "1447645250373428393"
+        },
+        {
+          "file": "packages/agent-client/public/robots.txt",
+          "hash": "2790380794362165217"
+        },
+        {
+          "file": "packages/agent-client/src/App.tsx",
+          "hash": "7970441303469939599"
+        },
+        {
+          "file": "packages/agent-client/src/components/header/AccountMenuItems.tsx",
+          "hash": "2733763054015346088"
+        },
+        {
+          "file": "packages/agent-client/src/components/header/LoginButton.tsx",
+          "hash": "422561972688027113"
+        },
+        {
+          "file": "packages/agent-client/src/components/header/LogoutButton.tsx",
+          "hash": "18252964793882617707"
+        },
+        {
+          "file": "packages/agent-client/src/components/header/Navigation.tsx",
+          "hash": "12527865329971366780"
+        },
+        {
+          "file": "packages/agent-client/src/components/header/Profile.tsx",
+          "hash": "1815211349652687898"
+        },
+        {
+          "file": "packages/agent-client/src/components/header/drop_logo.png",
+          "hash": "17322265242317219741"
+        },
+        {
+          "file": "packages/agent-client/src/components/header/index.tsx",
+          "hash": "7902070842433768774"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/deliveries/search/index.tsx",
+          "hash": "7201250701725122325"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/directory/List.tsx",
+          "hash": "3391807792830323816"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/directory/detail/connection/BaseContractStep.tsx",
+          "hash": "7366766227450805647"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/directory/detail/connection/ChannelStepCard.tsx",
+          "hash": "7154225665963660854"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/directory/detail/connection/ConnectionStepCard.tsx",
+          "hash": "15495003061618413612"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/directory/detail/connection/Setup.tsx",
+          "hash": "13683121524082944827"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/directory/detail/connection/index.tsx",
+          "hash": "11603676184392289180"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/directory/detail/contract/index.tsx",
+          "hash": "13458123891813612897"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/directory/detail/deliveries/index.tsx",
+          "hash": "6121089577031600318"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/directory/detail/facilities/index.tsx",
+          "hash": "18323283636715005602"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/directory/detail/index.tsx",
+          "hash": "3094362806449863970"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/directory/detail/scheduling/index.tsx",
+          "hash": "5699109867992472382"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/directory/detail/trades/index.tsx",
+          "hash": "6715409430423476927"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/directory/elements/BaseContractCellRenderer.tsx",
+          "hash": "12643557852351448654"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/directory/elements/ConnectButtonCellRenderer.tsx",
+          "hash": "13483768275770660878"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/directory/elements/DirectoryLinkCellRenderer.tsx",
+          "hash": "9011477308723585848"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/directory/elements/RoleCellRenderer.tsx",
+          "hash": "8078652967821610386"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/directory/routes.tsx",
+          "hash": "8719791132300841382"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/home/index.tsx",
+          "hash": "17456266130890163030"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/infrastructure/certificates/elements/Create.tsx",
+          "hash": "6523567258092195600"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/infrastructure/certificates/index.tsx",
+          "hash": "17635094767391572941"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/infrastructure/fields/elements/Create.tsx",
+          "hash": "18040920602177793845"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/infrastructure/fields/index.tsx",
+          "hash": "13257364476343191792"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/infrastructure/wells/elements/Create.tsx",
+          "hash": "16739761890592535217"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/infrastructure/wells/index.tsx",
+          "hash": "15090102839140629349"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/issuer/credentialDefinitions/elements/Create.tsx",
+          "hash": "16190685653876802264"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/issuer/credentialDefinitions/index.tsx",
+          "hash": "5168424108891753949"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/issuer/credentials/elements/Create.tsx",
+          "hash": "8221797841497777119"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/issuer/credentials/index.tsx",
+          "hash": "9423553217291621277"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/issuer/schemas/index.tsx",
+          "hash": "6964401768183753732"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/trade/details/Deliveries.tsx",
+          "hash": "12663789714416527167"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/trade/details/Details.tsx",
+          "hash": "16327687185191476936"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/trade/details/History.tsx",
+          "hash": "13535444054291765484"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/trade/details/Reply.tsx",
+          "hash": "15136535540135891242"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/trade/details/index.tsx",
+          "hash": "6199258943420748653"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/trade/routes.tsx",
+          "hash": "4173672559836772263"
+        },
+        {
+          "file": "packages/agent-client/src/components/pages/trade/search/index.tsx",
+          "hash": "10988863925684552269"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/Layout.tsx",
+          "hash": "1239256940141124667"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/auth/Provider.tsx",
+          "hash": "8321178648267258897"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/breadcrumb/index.tsx",
+          "hash": "5264119452732563929"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/contract/AcceptButton.tsx",
+          "hash": "18401863664679970611"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/contract/Create.tsx",
+          "hash": "4200940112980093186"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/contract/FormContent.tsx",
+          "hash": "16464946648758131588"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/contract/Help.tsx",
+          "hash": "17206172219086795781"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/contract/Modal.tsx",
+          "hash": "2503973377059271635"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/contract/schema.ts",
+          "hash": "15720381502730804333"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/delivery/CreateDelivery.tsx",
+          "hash": "15298721994862278553"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/delivery/allocation/Allocation.tsx",
+          "hash": "667315413542668749"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/delivery/allocation/AllocationGrid.tsx",
+          "hash": "15866946211403324746"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/delivery/allocation/Dialog.tsx",
+          "hash": "9635946930984025974"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/delivery/allocation/Nomination.tsx",
+          "hash": "16794856099243741982"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/delivery/allocation/index.tsx",
+          "hash": "6315406487611501327"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/delivery/allocation/schema.ts",
+          "hash": "15365827863960870850"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/delivery/schema.ts",
+          "hash": "13348887616459069056"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/dialog/index.tsx",
+          "hash": "13771626477094663605"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/display/index.tsx",
+          "hash": "7789078517391206887"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/facility/Create.tsx",
+          "hash": "15284689936162143199"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/facility/schema.ts",
+          "hash": "14987921613391859799"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/display/index.tsx",
+          "hash": "5113234704340968286"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/divide/index.tsx",
+          "hash": "16989429254375038836"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/form/Submit.tsx",
+          "hash": "7012067699250488300"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/form/index.tsx",
+          "hash": "6452177221259566354"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/index.ts",
+          "hash": "4518621100687021123"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/autocomplete/Autocomplete.tsx",
+          "hash": "16718118086462874942"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/autocomplete/VirtualizedList.tsx",
+          "hash": "7601251081099372637"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/autocomplete/index.ts",
+          "hash": "3571481866832771880"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/autocomplete/types.ts",
+          "hash": "2743660477147456538"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/autocomplete/useAutocomplete.ts",
+          "hash": "14629388126536396411"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/checkbox/index.tsx",
+          "hash": "14254949476115671882"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/connectionAutocomplete/index.tsx",
+          "hash": "7198806707608221161"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/credentialDefinitionAutocomplete/index.tsx",
+          "hash": "16184729865165223364"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/date/BaseDatePicker.tsx",
+          "hash": "2669434203039255734"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/date/DatePicker.tsx",
+          "hash": "7323658220070597489"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/date/index.tsx",
+          "hash": "7249811629622372584"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/date/util.ts",
+          "hash": "13316443025749915730"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/fieldAutocomplete/index.tsx",
+          "hash": "15982427379823460705"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/index.tsx",
+          "hash": "17722792856978650582"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/organization/index.tsx",
+          "hash": "13009191903029913693"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/priceIndex/index.tsx",
+          "hash": "9562462164660492084"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/schemaAutocomplete/index.tsx",
+          "hash": "1282248181347063441"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/select/index.tsx",
+          "hash": "8272891938166580072"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/textfield/index.tsx",
+          "hash": "4154616135022911500"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/toggleButton/index.tsx",
+          "hash": "16096670283676960590"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/trade/BuySell.tsx",
+          "hash": "13375364224066769480"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/trade/Party.tsx",
+          "hash": "10659612181157840953"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/tsp/index.tsx",
+          "hash": "4648520469852300841"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/form/input/tspLocation/index.tsx",
+          "hash": "1920474220823527506"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/header/NavButton.tsx",
+          "hash": "17604117299800193161"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/header/SidebarButton.tsx",
+          "hash": "5383932709058662686"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/link/index.tsx",
+          "hash": "17901452239559442143"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/loader/index.tsx",
+          "hash": "13792495157059165390"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/roles/index.tsx",
+          "hash": "560953519378337689"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/snackbar/BaseSnackbar.tsx",
+          "hash": "683420639256727729"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/stepper/Step.tsx",
+          "hash": "18033974773426688960"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/stepper/index.tsx",
+          "hash": "15749252032636580176"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/table/Grid.tsx",
+          "hash": "9035039264236367802"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/table/cellRenderers/DealIdCellRenderer.tsx",
+          "hash": "18267493898450160380"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/table/cellRenderers/DeliveryIdCellRenderer.tsx",
+          "hash": "7996037658874419527"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/table/cellRenderers/DeliveryModalCellRenderer.tsx",
+          "hash": "17723649356018174182"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/table/cellRenderers/EditableCellRenderer.tsx",
+          "hash": "745964270817915053"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/table/cellRenderers/StatusCellRenderer.tsx",
+          "hash": "3966707885726025573"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/table/cellRenderers/index.ts",
+          "hash": "11110929620677690358"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/table/formatters/date.ts",
+          "hash": "3187763295170083046"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/table/formatters/index.ts",
+          "hash": "11691334118094091720"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/table/formatters/performanceType.ts",
+          "hash": "11324361652276447395"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/table/formatters/priceType.ts",
+          "hash": "17654195636947089373"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/table/formatters/status.ts",
+          "hash": "18415322272516424974"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/table/hooks/index.ts",
+          "hash": "4532250347962593228"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/table/hooks/useCellRendererRef.ts",
+          "hash": "8529997529390177960"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/table/index.ts",
+          "hash": "7790943511265757026"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/table/styles.scss",
+          "hash": "3191739082739062153"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/table/types.ts",
+          "hash": "15185788826337297117"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/tabs/RouterTabs.tsx",
+          "hash": "8388227986566825023"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/tabs/Tab.tsx",
+          "hash": "3892036262799671969"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/tabs/hook/index.ts",
+          "hash": "2454105709097129965"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/tabs/hook/useRouterTabs.ts",
+          "hash": "12049201428071365570"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/tooltip/index.tsx",
+          "hash": "13277464979546430987"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/trade/Create.tsx",
+          "hash": "13234802950199360684"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/trade/schema.ts",
+          "hash": "14987921613391859799"
+        },
+        {
+          "file": "packages/agent-client/src/components/shared/util.ts",
+          "hash": "17839127292361620380"
+        },
+        {
+          "file": "packages/agent-client/src/index.css",
+          "hash": "2640247656684736947"
+        },
+        {
+          "file": "packages/agent-client/src/index.tsx",
+          "hash": "16389438261780326644"
+        },
+        {
+          "file": "packages/agent-client/src/logo.svg",
+          "hash": "5137778160416929466"
+        },
+        {
+          "file": "packages/agent-client/src/logoutButton.tsx",
+          "hash": "7110360596804789126"
+        },
+        {
+          "file": "packages/agent-client/src/query.ts",
+          "hash": "16780807145761265421"
+        },
+        {
+          "file": "packages/agent-client/src/query/certificates.ts",
+          "hash": "8703265035722411704"
+        },
+        {
+          "file": "packages/agent-client/src/query/channel.ts",
+          "hash": "10485243829932306282"
+        },
+        {
+          "file": "packages/agent-client/src/query/connections.ts",
+          "hash": "17324247782886565747"
+        },
+        {
+          "file": "packages/agent-client/src/query/contract.ts",
+          "hash": "6354649921126087691"
+        },
+        {
+          "file": "packages/agent-client/src/query/credential.ts",
+          "hash": "17198740388491574527"
+        },
+        {
+          "file": "packages/agent-client/src/query/credentialDefinitions.ts",
+          "hash": "12598270527528711372"
+        },
+        {
+          "file": "packages/agent-client/src/query/deliveries.ts",
+          "hash": "17903531178022750200"
+        },
+        {
+          "file": "packages/agent-client/src/query/dids.ts",
+          "hash": "16817362905892526584"
+        },
+        {
+          "file": "packages/agent-client/src/query/directory.ts",
+          "hash": "12886131893272241055"
+        },
+        {
+          "file": "packages/agent-client/src/query/field.ts",
+          "hash": "5119664563591358551"
+        },
+        {
+          "file": "packages/agent-client/src/query/price.ts",
+          "hash": "5320775099603903246"
+        },
+        {
+          "file": "packages/agent-client/src/query/profile.ts",
+          "hash": "16947360739471773010"
+        },
+        {
+          "file": "packages/agent-client/src/query/schemas.ts",
+          "hash": "641310786241232405"
+        },
+        {
+          "file": "packages/agent-client/src/query/trade.ts",
+          "hash": "12163323698424790823"
+        },
+        {
+          "file": "packages/agent-client/src/query/tsp.ts",
+          "hash": "13448115402335196188"
+        },
+        {
+          "file": "packages/agent-client/src/query/wells.ts",
+          "hash": "84723191500891946"
+        },
+        {
+          "file": "packages/agent-client/src/react-app-env.d.ts",
+          "hash": "3195158367843515590"
+        },
+        {
+          "file": "packages/agent-client/src/reportWebVitals.ts",
+          "hash": "4905365886999342103"
+        },
+        {
+          "file": "packages/agent-client/src/root.tsx",
+          "hash": "2300692211043939671"
+        },
+        {
+          "file": "packages/agent-client/src/router.tsx",
+          "hash": "7911407973590856037"
+        },
+        {
+          "file": "packages/agent-client/src/setupTests.ts",
+          "hash": "16903885983588411080"
+        },
+        {
+          "file": "packages/agent-client/src/theme.ts",
+          "hash": "12961921487430078796"
+        },
+        {
+          "file": "packages/agent-client/src/utils/auth.ts",
+          "hash": "42682601933516662"
+        },
+        {
+          "file": "packages/agent-client/tsconfig.build.json",
+          "hash": "16467205776295856974"
+        },
+        {
+          "file": "packages/agent-client/tsconfig.json",
+          "hash": "10007712252498033086"
+        }
+      ],
+      "@naesb/aries-types": [
+        {
+          "file": "packages/model/package.json",
+          "hash": "3571360906036234122"
+        },
+        {
+          "file": "packages/model/src/index.ts",
+          "hash": "15677512585685327451"
+        },
+        {
+          "file": "packages/model/tsconfig.json",
+          "hash": "12236476620617906586"
+        }
+      ],
+      "@shared/agent-utils": [
+        {
+          "file": "packages/agent-utils/.eslintrc.js",
+          "hash": "8980774389625607939"
+        },
+        {
+          "file": "packages/agent-utils/nest-cli.json",
+          "hash": "16383276560199654136"
+        },
+        {
+          "file": "packages/agent-utils/package-lock.json",
+          "hash": "11199241426804182185"
+        },
+        {
+          "file": "packages/agent-utils/package.json",
+          "hash": "5508748335850483183",
+          "deps": [
+            "@naesb/aries-types"
+          ]
+        },
+        {
+          "file": "packages/agent-utils/src/agent/agent.module.ts",
+          "hash": "17053056720969413589"
+        },
+        {
+          "file": "packages/agent-utils/src/agent/agent.service.ts",
+          "hash": "3128978501897910254"
+        },
+        {
+          "file": "packages/agent-utils/src/agent/index.ts",
+          "hash": "7825623826321201776"
+        },
+        {
+          "file": "packages/agent-utils/src/broker/broker.module.ts",
+          "hash": "12428750140218664670"
+        },
+        {
+          "file": "packages/agent-utils/src/db/certificate.entity.ts",
+          "hash": "1278766642443157071"
+        },
+        {
+          "file": "packages/agent-utils/src/db/certificateProof.entity.ts",
+          "hash": "14049031886583170364"
+        },
+        {
+          "file": "packages/agent-utils/src/db/connection.entity.ts",
+          "hash": "2896029785677362363"
+        },
+        {
+          "file": "packages/agent-utils/src/db/credentialDefinition.entity.ts",
+          "hash": "3369587380205771006"
+        },
+        {
+          "file": "packages/agent-utils/src/db/did.entity.ts",
+          "hash": "16219637380500539216"
+        },
+        {
+          "file": "packages/agent-utils/src/db/index.ts",
+          "hash": "12822448455622115222"
+        },
+        {
+          "file": "packages/agent-utils/src/db/pointer.entity.ts",
+          "hash": "15097408365969901610"
+        },
+        {
+          "file": "packages/agent-utils/src/db/schema.entity.ts",
+          "hash": "13161292246945283328"
+        },
+        {
+          "file": "packages/agent-utils/src/db/transaction.entity.ts",
+          "hash": "2277813298857988937"
+        },
+        {
+          "file": "packages/agent-utils/src/index.ts",
+          "hash": "14084152483356743471"
+        },
+        {
+          "file": "packages/agent-utils/src/ledger/credentialDefinition.service.ts",
+          "hash": "16767022486024976151"
+        },
+        {
+          "file": "packages/agent-utils/src/ledger/did.service.ts",
+          "hash": "11058240778210454164"
+        },
+        {
+          "file": "packages/agent-utils/src/ledger/index.ts",
+          "hash": "13569947360008175417"
+        },
+        {
+          "file": "packages/agent-utils/src/ledger/ledger.controller.ts",
+          "hash": "785876257092626290"
+        },
+        {
+          "file": "packages/agent-utils/src/ledger/ledger.module.ts",
+          "hash": "10630068923929303689"
+        },
+        {
+          "file": "packages/agent-utils/src/ledger/ledger.service.ts",
+          "hash": "15192682258134497630"
+        },
+        {
+          "file": "packages/agent-utils/src/ledger/schema.service.ts",
+          "hash": "4538517894005678206"
+        },
+        {
+          "file": "packages/agent-utils/src/ledger/sync.service.ts",
+          "hash": "10333272304158969161"
+        },
+        {
+          "file": "packages/agent-utils/src/ledger/transaction.service.ts",
+          "hash": "15259040805534001586"
+        },
+        {
+          "file": "packages/agent-utils/src/util/__tests__/index.ts",
+          "hash": "11421764150721309174"
+        },
+        {
+          "file": "packages/agent-utils/src/util/index.ts",
+          "hash": "7889290776827500922"
+        },
+        {
+          "file": "packages/agent-utils/src/util/transaction.ts",
+          "hash": "16890235115641964606"
+        },
+        {
+          "file": "packages/agent-utils/src/util/types.ts",
+          "hash": "13193029632829414932"
+        },
+        {
+          "file": "packages/agent-utils/src/util/validate.d.ts",
+          "hash": "16049279515207185679"
+        },
+        {
+          "file": "packages/agent-utils/src/util/validate.d.ts.map",
+          "hash": "15593569220698589518"
+        },
+        {
+          "file": "packages/agent-utils/src/util/validate.js",
+          "hash": "2720913993576446669"
+        },
+        {
+          "file": "packages/agent-utils/src/util/validate.ts",
+          "hash": "8458848720995186923"
+        },
+        {
+          "file": "packages/agent-utils/src/webhook/AriesWebhook.dto.ts",
+          "hash": "8788402559452404173"
+        },
+        {
+          "file": "packages/agent-utils/src/webhook/credential.service.ts",
+          "hash": "2487605154402760600"
+        },
+        {
+          "file": "packages/agent-utils/src/webhook/credentialProof.service.ts",
+          "hash": "15512454902559725507"
+        },
+        {
+          "file": "packages/agent-utils/src/webhook/webhook.controller.ts",
+          "hash": "7608744894782433918"
+        },
+        {
+          "file": "packages/agent-utils/src/webhook/webhook.module.ts",
+          "hash": "14819427557631504073"
+        },
+        {
+          "file": "packages/agent-utils/src/webhook/webhook.service.ts",
+          "hash": "9690926915359946067"
+        },
+        {
+          "file": "packages/agent-utils/tsconfig.json",
+          "hash": "1784004400991307275"
+        }
+      ],
+      "@local/admin": [
+        {
+          "file": "packages/agent/.env",
+          "hash": "15936406811402675668"
+        },
+        {
+          "file": "packages/agent/.eslintrc.js",
+          "hash": "4927646409951956070"
+        },
+        {
+          "file": "packages/agent/Dockerfile",
+          "hash": "1561241268917797948"
+        },
+        {
+          "file": "packages/agent/nest-cli.json",
+          "hash": "5324668039137450562"
+        },
+        {
+          "file": "packages/agent/package.json",
+          "hash": "827379006667331065",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:@nestjs/swagger",
+            "npm:@nestjs/terminus",
+            "npm:@nestjs/typeorm",
+            "@shared/agent-utils",
+            "npm:axios",
+            "npm:dotenv",
+            "npm:express",
+            "npm:lodash",
+            "npm:reflect-metadata",
+            "npm:rxjs",
+            "npm:typeorm",
+            "npm:@types/node",
+            "npm:@types/jest"
+          ]
+        },
+        {
+          "file": "packages/agent/src/app.module.ts",
+          "hash": "14546519542634306717"
+        },
+        {
+          "file": "packages/agent/src/connection/connection.controller.ts",
+          "hash": "1037266112157446377"
+        },
+        {
+          "file": "packages/agent/src/connection/connection.module.ts",
+          "hash": "2357662296455171333"
+        },
+        {
+          "file": "packages/agent/src/connection/connection.service.ts",
+          "hash": "14091653362632705719"
+        },
+        {
+          "file": "packages/agent/src/health/health.controller.ts",
+          "hash": "4710613806782562530"
+        },
+        {
+          "file": "packages/agent/src/ledger/ledger.controller.ts",
+          "hash": "10106454242048636706"
+        },
+        {
+          "file": "packages/agent/src/ledger/ledger.module.ts",
+          "hash": "9468051530801129073"
+        },
+        {
+          "file": "packages/agent/src/ledger/ledger.service.ts",
+          "hash": "7539925125547029298"
+        },
+        {
+          "file": "packages/agent/src/main.ts",
+          "hash": "12348513407567456739"
+        },
+        {
+          "file": "packages/agent/src/schema/schema.controller.ts",
+          "hash": "10061909562544329342"
+        },
+        {
+          "file": "packages/agent/src/schema/schema.module.ts",
+          "hash": "13448966098162445260"
+        },
+        {
+          "file": "packages/agent/src/schema/schema.service.ts",
+          "hash": "15370672135680970595"
+        },
+        {
+          "file": "packages/agent/tsconfig.json",
+          "hash": "6212337123625744372"
+        }
+      ],
+      "@local/business-agent": [
+        {
+          "file": "packages/business-agent/.env",
+          "hash": "864154880435258211"
+        },
+        {
+          "file": "packages/business-agent/.eslintrc.js",
+          "hash": "4927646409951956070"
+        },
+        {
+          "file": "packages/business-agent/Dockerfile",
+          "hash": "1024852524290480629"
+        },
+        {
+          "file": "packages/business-agent/nest-cli.json",
+          "hash": "3995561187235034900"
+        },
+        {
+          "file": "packages/business-agent/package.json",
+          "hash": "5064072556919854477",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:@nestjs/microservices",
+            "npm:@nestjs/swagger",
+            "npm:@nestjs/terminus",
+            "npm:@nestjs/typeorm",
+            "@shared/agent-utils",
+            "@naesb/aries-types",
+            "npm:axios",
+            "npm:dotenv",
+            "npm:express",
+            "npm:kafkajs",
+            "npm:lodash",
+            "npm:reflect-metadata",
+            "npm:rxjs",
+            "npm:typeorm",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/business-agent/src/app.module.ts",
+          "hash": "10749106159694804143"
+        },
+        {
+          "file": "packages/business-agent/src/certificate/certificate.controller.ts",
+          "hash": "4197096329639058604"
+        },
+        {
+          "file": "packages/business-agent/src/certificate/certificate.module.ts",
+          "hash": "6361055497748833301"
+        },
+        {
+          "file": "packages/business-agent/src/certificate/certificate.service.ts",
+          "hash": "15207846541553333644"
+        },
+        {
+          "file": "packages/business-agent/src/connection/connection.controller.ts",
+          "hash": "13687421193092949942"
+        },
+        {
+          "file": "packages/business-agent/src/connection/connection.module.ts",
+          "hash": "7471653368647497397"
+        },
+        {
+          "file": "packages/business-agent/src/connection/connection.service.ts",
+          "hash": "10128932124819353912"
+        },
+        {
+          "file": "packages/business-agent/src/credential/credential.controller.ts",
+          "hash": "16072749019764467209"
+        },
+        {
+          "file": "packages/business-agent/src/credential/credential.module.ts",
+          "hash": "1748414796401345303"
+        },
+        {
+          "file": "packages/business-agent/src/credential/credential.service.ts",
+          "hash": "3461605325026870360"
+        },
+        {
+          "file": "packages/business-agent/src/credentialDefinition/credentialDefinition.controller.ts",
+          "hash": "11006601328321899389"
+        },
+        {
+          "file": "packages/business-agent/src/credentialDefinition/credentialDefinition.module.ts",
+          "hash": "3755548079760784227"
+        },
+        {
+          "file": "packages/business-agent/src/credentialDefinition/credentialDefinition.service.ts",
+          "hash": "18336937162172744187"
+        },
+        {
+          "file": "packages/business-agent/src/health/health.controller.ts",
+          "hash": "4710613806782562530"
+        },
+        {
+          "file": "packages/business-agent/src/main.ts",
+          "hash": "18045853410237466291"
+        },
+        {
+          "file": "packages/business-agent/src/schema/schema.controller.ts",
+          "hash": "2711384615657905659"
+        },
+        {
+          "file": "packages/business-agent/src/schema/schema.module.ts",
+          "hash": "13448966098162445260"
+        },
+        {
+          "file": "packages/business-agent/src/schema/schema.service.ts",
+          "hash": "2202644430235981276"
+        },
+        {
+          "file": "packages/business-agent/src/wallet/wallet.controller.ts",
+          "hash": "4877719889780339440"
+        },
+        {
+          "file": "packages/business-agent/src/wallet/wallet.module.ts",
+          "hash": "5989921417229132303"
+        },
+        {
+          "file": "packages/business-agent/src/wallet/wallet.service.ts",
+          "hash": "4081922590587423457"
+        },
+        {
+          "file": "packages/business-agent/tsconfig.json",
+          "hash": "6212337123625744372"
+        }
+      ]
+    }
+  }
+}

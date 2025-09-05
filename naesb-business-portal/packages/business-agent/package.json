@@ -1,0 +1,43 @@
+{
+  "name": "@local/business-agent",
+  "version": "1.0.0",
+  "description": "API for handling Aries activities",
+  "main": "build/main.js",
+  "types": "build/index.d.ts",
+  "private": true,
+  "scripts": {
+    "build": "nest build",
+    "start": "nest start",
+    "docker": "docker build -t naesb-business-agent-api -f ./Dockerfile ../../ --platform=linux/amd64",
+    "lint-staged": "lint-staged -q",
+    "cicd": "echo cicd",
+    "lint": "eslint src/ --ext .js,.ts --quiet",
+    "lint-fix": "eslint src/  --ext .js,.ts --fix --quiet"
+  },
+  "dependencies": {
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/core": "^9.0.0",
+    "@nestjs/microservices": "^9.0.0",
+    "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/swagger": "^6.1.0",
+    "@nestjs/terminus": "^9.0.0",
+    "@nestjs/typeorm": "^9.0.0",
+    "@shared/agent-utils": "file:../agent-utils",
+    "@naesb/aries-types": "file:../model",
+    "axios": "^1.2.2",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.2",
+    "date-fns": "^2.22.1",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.1",
+    "kafkajs": "^2.2.4",
+    "lodash": "^4.17.21",
+    "pg": "^8.8.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "7.3.0",
+    "swagger-ui-express": "^4.1.6",
+    "typeorm": "^0.3.10",
+    "zod": "^3.20.2",
+    "axios-retry": "^3.3.1"
+  }
+}

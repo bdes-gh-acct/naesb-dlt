@@ -1,0 +1,8 @@
+
+> @local/admin@1.0.0 build
+> nest build
+
+[1G[0K
+[48;2;210;0;75m[1m[38;2;0;0;0m Error [39m[22m[49m (0 , util_1.isObject) is not a function
+
+[1G[0K⠙[1G[0K

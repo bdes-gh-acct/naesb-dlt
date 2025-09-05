@@ -1,0 +1,40 @@
+{
+  "name": "@local/admin",
+  "version": "1.0.0",
+  "description": "API for issuing credentials from NAESB",
+  "main": "build/main.js",
+  "types": "build/index.d.ts",
+  "private": true,
+  "scripts": {
+    "build": "nest build",
+    "start": "nest start",
+    "docker": "docker build -t naesb-agent-api -f ./Dockerfile ../../ --platform=linux/amd64",
+    "docker-tag": "docker tag naesb-agent-api:latest 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/aries-naesb-api:latest && docker push 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/aries-naesb-api:latest",
+    "lint-staged": "lint-staged -q",
+    "cicd": "echo cicd",
+    "lint": "eslint src/ --ext .js,.ts --quiet",
+    "lint-fix": "eslint src/  --ext .js,.ts --fix --quiet"
+  },
+  "dependencies": {
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/core": "^9.0.0",
+    "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/swagger": "^6.1.0",
+    "@nestjs/terminus": "^9.0.0",
+    "@nestjs/typeorm": "^9.0.0",
+    "@shared/agent-utils": "*",
+    "axios": "^1.2.2",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.2",
+    "date-fns": "^2.22.1",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.21",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "7.3.0",
+    "swagger-ui-express": "^4.1.6",
+    "typeorm": "^0.3.10",
+    "@types/node": "^24.0.3",
+    "@types/jest": "^30.0.0"
+  }
+}

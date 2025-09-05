@@ -1,0 +1,75 @@
+
+> @local/agent-client@0.1.0 docker
+> docker build -t naesb-business-portal -f ./Dockerfile ../../
+
+[1G[0K[1A[1B[0G[?25l[+] Building 0.0s (0/0)  docker:desktop-linux
+[?25h[1A[0G[?25l[+] Building 0.0s (0/1)                                                                                                                                             docker:desktop-linux
+[?25h[1A[0G[?25l[+] Building 0.2s (1/2)                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                0.0s
+[0m[34m => => transferring dockerfile: 773B                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                      0.0s
+ => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                   0.2s
+[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.3s (1/2)                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                0.0s
+[0m[34m => => transferring dockerfile: 773B                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                      0.0s
+ => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                   0.3s
+[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.5s (1/2)                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                0.0s
+[0m[34m => => transferring dockerfile: 773B                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                      0.0s
+ => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                   0.5s
+[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.6s (1/2)                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                0.0s
+[0m[34m => => transferring dockerfile: 773B                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                      0.0s
+ => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                   0.6s
+[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.7s (2/2)                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                0.0s
+[0m[34m => => transferring dockerfile: 773B                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                      0.0s
+[34m => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                   0.6s
+[0m[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.8s (6/16)                                                                                                                                            docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                0.0s
+[0m[34m => => transferring dockerfile: 773B                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                      0.0s
+[34m => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                   0.6s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                   0.0s
+[0m[34m => => transferring context: 198B                                                                                                                                                   0.0s
+[0m[34m => [prebuild 1/2] FROM registry.access.redhat.com/ubi8/nodejs-16:latest@sha256:d4a32cc382fdd326a3c0c3f41fad72486f44136bb0018edb3a6720c074be065a                                    0.0s
+[0m => [internal] load build context                                                                                                                                                   0.1s
+ => => transferring context: 1.82MB                                                                                                                                                 0.1s
+[34m => CACHED [prebuild 2/2] RUN npm install -g lerna@^6.0.0 @nestjs/cli                                                                                                               0.0s
+[0m[34m => CACHED [stage-1  1/10] WORKDIR /opt/app-root                                                                                                                                    0.0s
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.9s (8/16)                                                                                                                                            docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                0.0s
+[0m[34m => => transferring dockerfile: 773B                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                      0.0s
+[34m => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                   0.6s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                   0.0s
+[0m[34m => => transferring context: 198B                                                                                                                                                   0.0s
+[0m[34m => [prebuild 1/2] FROM registry.access.redhat.com/ubi8/nodejs-16:latest@sha256:d4a32cc382fdd326a3c0c3f41fad72486f44136bb0018edb3a6720c074be065a                                    0.0s
+[0m[34m => [internal] load build context                                                                                                                                                   0.2s
+[0m[34m => => transferring context: 1.84MB                                                                                                                                                 0.1s
+[0m[34m => CACHED [prebuild 2/2] RUN npm install -g lerna@^6.0.0 @nestjs/cli                                                                                                               0.0s
+[0m[34m => CACHED [stage-1  1/10] WORKDIR /opt/app-root                                                                                                                                    0.0s
+[0m[31m => ERROR [stage-1  2/10] COPY package.json package-lock.json lerna.json tsconfig.json nx.json .npmrc ./                                                                            0.0s
+[0m[?25h------
+ > [stage-1  2/10] COPY package.json package-lock.json lerna.json tsconfig.json nx.json .npmrc ./:
+------
+
+ [33m2 warnings found (use docker --debug to expand):
+[0m - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 15)
+Dockerfile:9
+--------------------
+   7 |     WORKDIR /opt/app-root
+   8 |     USER root
+   9 | >>> COPY package.json package-lock.json lerna.json tsconfig.json nx.json .npmrc ./
+  10 |     COPY packages/agent-client/package.json ./packages/agent-client/
+  11 |     COPY packages/model/package.json ./packages/model/
+--------------------
+ERROR: failed to solve: failed to compute cache key: failed to calculate checksum of ref 3df344e4-d2c4-49e0-a267-161f50659a1d::jpp5o5a92m16mziagwx9ul1o0: "/.npmrc": not found
+
+View build details: ]8;;docker-desktop://dashboard/build/desktop-linux/desktop-linux/natv96bxfo2g0svcper14sgmk\docker-desktop://dashboard/build/desktop-linux/desktop-linux/natv96bxfo2g0svcper14sgmk]8;;\
+[1G[0K⠙[1G[0K

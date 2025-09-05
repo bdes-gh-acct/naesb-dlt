@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "lerna run start --scope @local/business-agent",
+    "startTime": "2025-09-02T15:25:11.018Z",
+    "endTime": "2025-09-02T15:25:12.549Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "@local/business-agent:start",
+      "target": "start",
+      "projectName": "@local/business-agent",
+      "hash": "6710063254913888238",
+      "startTime": "2025-09-02T15:25:11.063Z",
+      "endTime": "2025-09-02T15:25:12.547Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    }
+  ]
+}

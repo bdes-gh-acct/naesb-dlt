@@ -1,0 +1,320 @@
+
+> @shared/agent-utils@1.0.0 build
+> nest build
+
+[1G[0K[96msrc/agent/agent.module.ts[0m:[93m1[0m:[93m24[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m1[0m import { Module } from '@nestjs/common';
+[7m [0m [91m                       ~~~~~~~~~~~~~~~~[0m
+[96msrc/agent/agent.service.ts[0m:[93m1[0m:[93m28[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m1[0m import { Injectable } from '@nestjs/common';
+[7m [0m [91m                           ~~~~~~~~~~~~~~~~[0m
+[96msrc/agent/agent.service.ts[0m:[93m8[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m8[0m } from '@naesb/aries-types';
+[7m [0m [91m       ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/agent/agent.service.ts[0m:[93m11[0m:[93m25[0m - [91merror[0m[90m TS2307: [0mCannot find module 'dotenv' or its corresponding type declarations.
+
+[7m11[0m import * as dotenv from 'dotenv';
+[7m  [0m [91m                        ~~~~~~~~[0m
+[96msrc/broker/broker.module.ts[0m:[93m1[0m:[93m24[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m1[0m import { Module } from '@nestjs/common';
+[7m [0m [91m                       ~~~~~~~~~~~~~~~~[0m
+[96msrc/broker/broker.module.ts[0m:[93m2[0m:[93m42[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/microservices' or its corresponding type declarations.
+
+[7m2[0m import { ClientsModule, Transport } from '@nestjs/microservices';
+[7m [0m [91m                                         ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/db/certificate.entity.ts[0m:[93m1[0m:[93m70[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m1[0m import { Entity, PrimaryColumn, ManyToOne, JoinColumn, Column } from 'typeorm';
+[7m [0m [91m                                                                     ~~~~~~~~~[0m
+[96msrc/db/certificateProof.entity.ts[0m:[93m1[0m:[93m70[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m1[0m import { Entity, PrimaryColumn, ManyToOne, JoinColumn, Column } from 'typeorm';
+[7m [0m [91m                                                                     ~~~~~~~~~[0m
+[96msrc/db/connection.entity.ts[0m:[93m1[0m:[93m22[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m1[0m import { IDid } from '@naesb/aries-types';
+[7m [0m [91m                     ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/db/connection.entity.ts[0m:[93m2[0m:[93m70[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m2[0m import { Entity, PrimaryColumn, ManyToOne, JoinColumn, Column } from 'typeorm';
+[7m [0m [91m                                                                     ~~~~~~~~~[0m
+[96msrc/db/credentialDefinition.entity.ts[0m:[93m1[0m:[93m70[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m1[0m import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+[7m [0m [91m                                                                     ~~~~~~~~~[0m
+[96msrc/db/credentialDefinition.entity.ts[0m:[93m2[0m:[93m45[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m2[0m import { ICredentialDefinition, IDid } from '@naesb/aries-types';
+[7m [0m [91m                                            ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/db/did.entity.ts[0m:[93m1[0m:[93m58[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m1[0m import { Entity, PrimaryColumn, Column, OneToMany } from 'typeorm';
+[7m [0m [91m                                                         ~~~~~~~~~[0m
+[96msrc/db/did.entity.ts[0m:[93m2[0m:[93m45[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m2[0m import { IndyRoleType, IDid, ISchema } from '@naesb/aries-types';
+[7m [0m [91m                                            ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/db/did.entity.ts[0m:[93m31[0m:[93m29[0m - [91merror[0m[90m TS7006: [0mParameter 'schema' implicitly has an 'any' type.
+
+[7m31[0m   @OneToMany(() => Schema, (schema) => schema.did)
+[7m  [0m [91m                            ~~~~~~[0m
+[96msrc/db/index.ts[0m:[93m1[0m:[93m24[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m1[0m import { Module } from '@nestjs/common';
+[7m [0m [91m                       ~~~~~~~~~~~~~~~~[0m
+[96msrc/db/index.ts[0m:[93m2[0m:[93m31[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/typeorm' or its corresponding type declarations.
+
+[7m2[0m import { TypeOrmModule } from '@nestjs/typeorm';
+[7m [0m [91m                              ~~~~~~~~~~~~~~~~~[0m
+[96msrc/db/index.ts[0m:[93m3[0m:[93m25[0m - [91merror[0m[90m TS2307: [0mCannot find module 'dotenv' or its corresponding type declarations.
+
+[7m3[0m import * as dotenv from 'dotenv';
+[7m [0m [91m                        ~~~~~~~~[0m
+[96msrc/db/pointer.entity.ts[0m:[93m1[0m:[93m65[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m1[0m import { Entity, PrimaryColumn, Column, UpdateDateColumn } from 'typeorm';
+[7m [0m [91m                                                                ~~~~~~~~~[0m
+[96msrc/db/schema.entity.ts[0m:[93m1[0m:[93m70[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m1[0m import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+[7m [0m [91m                                                                     ~~~~~~~~~[0m
+[96msrc/db/schema.entity.ts[0m:[93m2[0m:[93m31[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m2[0m import { IDid, ISchema } from '@naesb/aries-types';
+[7m [0m [91m                              ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/db/schema.entity.ts[0m:[93m25[0m:[93m26[0m - [91merror[0m[90m TS7006: [0mParameter 'did' implicitly has an 'any' type.
+
+[7m25[0m   @ManyToOne(() => Did, (did) => did.schemas)
+[7m  [0m [91m                         ~~~[0m
+[96msrc/db/transaction.entity.ts[0m:[93m7[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m7[0m } from 'typeorm';
+[7m [0m [91m       ~~~~~~~~~[0m
+[96msrc/db/transaction.entity.ts[0m:[93m13[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m13[0m } from '@naesb/aries-types';
+[7m  [0m [91m       ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/credentialDefinition.service.ts[0m:[93m2[0m:[93m25[0m - [91merror[0m[90m TS2307: [0mCannot find module 'dotenv' or its corresponding type declarations.
+
+[7m2[0m import * as dotenv from 'dotenv';
+[7m [0m [91m                        ~~~~~~~~[0m
+[96msrc/ledger/credentialDefinition.service.ts[0m:[93m3[0m:[93m28[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m3[0m import { Injectable } from '@nestjs/common';
+[7m [0m [91m                           ~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/credentialDefinition.service.ts[0m:[93m8[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m8[0m } from '@naesb/aries-types';
+[7m [0m [91m       ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/credentialDefinition.service.ts[0m:[93m9[0m:[93m34[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/typeorm' or its corresponding type declarations.
+
+[7m9[0m import { InjectRepository } from '@nestjs/typeorm';
+[7m [0m [91m                                 ~~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/credentialDefinition.service.ts[0m:[93m10[0m:[93m45[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m10[0m import { FindManyOptions, Repository } from 'typeorm';
+[7m  [0m [91m                                            ~~~~~~~~~[0m
+[96msrc/ledger/did.service.ts[0m:[93m2[0m:[93m25[0m - [91merror[0m[90m TS2307: [0mCannot find module 'dotenv' or its corresponding type declarations.
+
+[7m2[0m import * as dotenv from 'dotenv';
+[7m [0m [91m                        ~~~~~~~~[0m
+[96msrc/ledger/did.service.ts[0m:[93m3[0m:[93m28[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m3[0m import { Injectable } from '@nestjs/common';
+[7m [0m [91m                           ~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/did.service.ts[0m:[93m9[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m9[0m } from '@naesb/aries-types';
+[7m [0m [91m       ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/did.service.ts[0m:[93m10[0m:[93m34[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/typeorm' or its corresponding type declarations.
+
+[7m10[0m import { InjectRepository } from '@nestjs/typeorm';
+[7m  [0m [91m                                 ~~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/did.service.ts[0m:[93m11[0m:[93m49[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m11[0m import { FindManyOptions, In, Repository } from 'typeorm';
+[7m  [0m [91m                                                ~~~~~~~~~[0m
+[96msrc/ledger/did.service.ts[0m:[93m51[0m:[93m34[0m - [91merror[0m[90m TS7006: [0mParameter 'did' implicitly has an 'any' type.
+
+[7m51[0m       (acc: Record<string, any>, did) => ({ ...acc, [did.id]: did.attributes }),
+[7m  [0m [91m                                 ~~~[0m
+[96msrc/ledger/ledger.controller.ts[0m:[93m1[0m:[93m33[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m1[0m import { Controller, Get } from '@nestjs/common';
+[7m [0m [91m                                ~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/ledger.controller.ts[0m:[93m2[0m:[93m25[0m - [91merror[0m[90m TS2307: [0mCannot find module 'dotenv' or its corresponding type declarations.
+
+[7m2[0m import * as dotenv from 'dotenv';
+[7m [0m [91m                        ~~~~~~~~[0m
+[96msrc/ledger/ledger.module.ts[0m:[93m1[0m:[93m24[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m1[0m import { Module } from '@nestjs/common';
+[7m [0m [91m                       ~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/ledger.service.ts[0m:[93m4[0m:[93m25[0m - [91merror[0m[90m TS2307: [0mCannot find module 'dotenv' or its corresponding type declarations.
+
+[7m4[0m import * as dotenv from 'dotenv';
+[7m [0m [91m                        ~~~~~~~~[0m
+[96msrc/ledger/ledger.service.ts[0m:[93m5[0m:[93m28[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m5[0m import { Injectable } from '@nestjs/common';
+[7m [0m [91m                           ~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/ledger.service.ts[0m:[93m6[0m:[93m45[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m6[0m import { IndyTransaction, LedgerType } from '@naesb/aries-types';
+[7m [0m [91m                                            ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/schema.service.ts[0m:[93m2[0m:[93m25[0m - [91merror[0m[90m TS2307: [0mCannot find module 'dotenv' or its corresponding type declarations.
+
+[7m2[0m import * as dotenv from 'dotenv';
+[7m [0m [91m                        ~~~~~~~~[0m
+[96msrc/ledger/schema.service.ts[0m:[93m3[0m:[93m28[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m3[0m import { Injectable } from '@nestjs/common';
+[7m [0m [91m                           ~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/schema.service.ts[0m:[93m9[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m9[0m } from '@naesb/aries-types';
+[7m [0m [91m       ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/schema.service.ts[0m:[93m10[0m:[93m34[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/typeorm' or its corresponding type declarations.
+
+[7m10[0m import { InjectRepository } from '@nestjs/typeorm';
+[7m  [0m [91m                                 ~~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/schema.service.ts[0m:[93m11[0m:[93m45[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m11[0m import { FindManyOptions, Repository } from 'typeorm';
+[7m  [0m [91m                                            ~~~~~~~~~[0m
+[96msrc/ledger/sync.service.ts[0m:[93m2[0m:[93m25[0m - [91merror[0m[90m TS2307: [0mCannot find module 'dotenv' or its corresponding type declarations.
+
+[7m2[0m import * as dotenv from 'dotenv';
+[7m [0m [91m                        ~~~~~~~~[0m
+[96msrc/ledger/sync.service.ts[0m:[93m3[0m:[93m28[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m3[0m import { Injectable } from '@nestjs/common';
+[7m [0m [91m                           ~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/sync.service.ts[0m:[93m4[0m:[93m45[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m4[0m import { IndyTransaction, LedgerType } from '@naesb/aries-types';
+[7m [0m [91m                                            ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/sync.service.ts[0m:[93m5[0m:[93m34[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/typeorm' or its corresponding type declarations.
+
+[7m5[0m import { InjectRepository } from '@nestjs/typeorm';
+[7m [0m [91m                                 ~~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/sync.service.ts[0m:[93m6[0m:[93m28[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m6[0m import { Repository } from 'typeorm';
+[7m [0m [91m                           ~~~~~~~~~[0m
+[96msrc/ledger/transaction.service.ts[0m:[93m2[0m:[93m25[0m - [91merror[0m[90m TS2307: [0mCannot find module 'dotenv' or its corresponding type declarations.
+
+[7m2[0m import * as dotenv from 'dotenv';
+[7m [0m [91m                        ~~~~~~~~[0m
+[96msrc/ledger/transaction.service.ts[0m:[93m3[0m:[93m28[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m3[0m import { Injectable } from '@nestjs/common';
+[7m [0m [91m                           ~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/transaction.service.ts[0m:[93m4[0m:[93m45[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m4[0m import { IndyTransaction, LedgerType } from '@naesb/aries-types';
+[7m [0m [91m                                            ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/transaction.service.ts[0m:[93m5[0m:[93m34[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/typeorm' or its corresponding type declarations.
+
+[7m5[0m import { InjectRepository } from '@nestjs/typeorm';
+[7m [0m [91m                                 ~~~~~~~~~~~~~~~~~[0m
+[96msrc/ledger/transaction.service.ts[0m:[93m6[0m:[93m45[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m6[0m import { FindManyOptions, Repository } from 'typeorm';
+[7m [0m [91m                                            ~~~~~~~~~[0m
+[96msrc/util/__tests__/index.ts[0m:[93m1[0m:[93m28[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m1[0m import { LedgerType } from '@naesb/aries-types';
+[7m [0m [91m                           ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/util/index.ts[0m:[93m2[0m:[93m59[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m2[0m import { LedgerType, TransactionType, IndyRoleType } from '@naesb/aries-types';
+[7m [0m [91m                                                          ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/util/transaction.ts[0m:[93m6[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m6[0m } from '@naesb/aries-types';
+[7m [0m [91m       ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/util/validate.ts[0m:[93m1[0m:[93m37[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m1[0m import { BadRequestException } from '@nestjs/common';
+[7m [0m [91m                                    ~~~~~~~~~~~~~~~~[0m
+[96msrc/util/validate.ts[0m:[93m2[0m:[93m24[0m - [91merror[0m[90m TS2307: [0mCannot find module 'zod' or its corresponding type declarations.
+
+[7m2[0m import { Schema } from 'zod';
+[7m [0m [91m                       ~~~~~[0m
+[96msrc/webhook/credential.service.ts[0m:[93m1[0m:[93m36[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m1[0m import { Injectable, Logger } from '@nestjs/common';
+[7m [0m [91m                                   ~~~~~~~~~~~~~~~~[0m
+[96msrc/webhook/credential.service.ts[0m:[93m2[0m:[93m34[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/typeorm' or its corresponding type declarations.
+
+[7m2[0m import { InjectRepository } from '@nestjs/typeorm';
+[7m [0m [91m                                 ~~~~~~~~~~~~~~~~~[0m
+[96msrc/webhook/credential.service.ts[0m:[93m3[0m:[93m42[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m3[0m import { Repository, TypeORMError } from 'typeorm';
+[7m [0m [91m                                         ~~~~~~~~~[0m
+[96msrc/webhook/credentialProof.service.ts[0m:[93m1[0m:[93m44[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m1[0m import { Inject, Injectable, Logger } from '@nestjs/common';
+[7m [0m [91m                                           ~~~~~~~~~~~~~~~~[0m
+[96msrc/webhook/credentialProof.service.ts[0m:[93m2[0m:[93m34[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/typeorm' or its corresponding type declarations.
+
+[7m2[0m import { InjectRepository } from '@nestjs/typeorm';
+[7m [0m [91m                                 ~~~~~~~~~~~~~~~~~[0m
+[96msrc/webhook/credentialProof.service.ts[0m:[93m3[0m:[93m42[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m3[0m import { Repository, TypeORMError } from 'typeorm';
+[7m [0m [91m                                         ~~~~~~~~~[0m
+[96msrc/webhook/credentialProof.service.ts[0m:[93m4[0m:[93m36[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m4[0m import { PresentProofRecord } from '@naesb/aries-types';
+[7m [0m [91m                                   ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/webhook/credentialProof.service.ts[0m:[93m5[0m:[93m29[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/microservices' or its corresponding type declarations.
+
+[7m5[0m import { ClientProxy } from '@nestjs/microservices';
+[7m [0m [91m                            ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/webhook/webhook.controller.ts[0m:[93m1[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m1[0m import { Body, Controller, Post } from '@nestjs/common';
+[7m [0m [91m                                       ~~~~~~~~~~~~~~~~[0m
+[96msrc/webhook/webhook.controller.ts[0m:[93m2[0m:[93m23[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common/decorators/http/route-params.decorator' or its corresponding type declarations.
+
+[7m2[0m import { Param } from '@nestjs/common/decorators/http/route-params.decorator';
+[7m [0m [91m                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/webhook/webhook.controller.ts[0m:[93m3[0m:[93m35[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m3[0m import { AriesWebhookTopic } from '@naesb/aries-types';
+[7m [0m [91m                                  ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/webhook/webhook.controller.ts[0m:[93m4[0m:[93m30[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/microservices' or its corresponding type declarations.
+
+[7m4[0m import { EventPattern } from '@nestjs/microservices';
+[7m [0m [91m                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/webhook/webhook.controller.ts[0m:[93m5[0m:[93m25[0m - [91merror[0m[90m TS2307: [0mCannot find module 'dotenv' or its corresponding type declarations.
+
+[7m5[0m import * as dotenv from 'dotenv';
+[7m [0m [91m                        ~~~~~~~~[0m
+[96msrc/webhook/webhook.module.ts[0m:[93m1[0m:[93m24[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m1[0m import { Module } from '@nestjs/common';
+[7m [0m [91m                       ~~~~~~~~~~~~~~~~[0m
+[96msrc/webhook/webhook.service.ts[0m:[93m1[0m:[93m36[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/common' or its corresponding type declarations.
+
+[7m1[0m import { Inject, Injectable } from '@nestjs/common';
+[7m [0m [91m                                   ~~~~~~~~~~~~~~~~[0m
+[96msrc/webhook/webhook.service.ts[0m:[93m2[0m:[93m35[0m - [91merror[0m[90m TS2307: [0mCannot find module '@naesb/aries-types' or its corresponding type declarations.
+
+[7m2[0m import { AriesWebhookTopic } from '@naesb/aries-types';
+[7m [0m [91m                                  ~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/webhook/webhook.service.ts[0m:[93m3[0m:[93m29[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/microservices' or its corresponding type declarations.
+
+[7m3[0m import { ClientProxy } from '@nestjs/microservices';
+[7m [0m [91m                            ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+Found 78 error(s).
+
+[1G[0K⠙[1G[0K

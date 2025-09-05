@@ -1,0 +1,13 @@
+{
+  "name": "@naesb/aries-types",
+  "version": "1.0.0",
+  "description": "type package",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "publishConfig": {
+    "registry": "https://naesb-094458522773.d.codeartifact.us-east-1.amazonaws.com/npm/naesb/"
+  }
+}

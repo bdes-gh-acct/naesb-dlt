@@ -1,0 +1,72 @@
+version: '3.5'
+services:
+  swn-db:
+    image: postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-root}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  canary-db:
+    image: postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-root}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  agent-api:
+    image: naesb-agent-api
+    environment:
+      # AGENT_URL: https://naesb.dev.naesbdlt.org:6002
+      AGENT_URL: https://naesb.dev.naesbdlt.org:6002
+      HOST_PORT: 8080
+      NAESB_DID: 4NFShaQW3JvC2DcXtCP5oR
+    ports:
+      - 8080:8080
+  # swn-agent-api:
+  #   image: naesb-business-agent-api
+  #   environment:
+  #     AGENT_URL: https://swn.agent.indy.dev.naesbdlt.org:5000
+  #     HOST_PORT: 8000
+  #     NAESB_DID: 9A6uHxLyk7gGHs3rZoMHm6
+  #     DB_PORT: 5432
+  #     DB_HOST: swn-db
+  #     DB_USERNAME: postgres
+  #     DB_PASSWORD: root
+  #     SYNCHRONIZE_SCHEMA: true
+  #     VDR_URL: http://vdr:8080
+  #   depends_on:
+  #     swn-db:
+  #       condition: service_healthy
+  #   ports:
+  #     - 8000:8000
+  # vdr:
+  #   image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-dlt/indy-vdr
+  #   environment:
+  #     GENESIS_URL: https://indy.dev.naesbdlt.org/api/genesis
+  #     HOST_PORT: 8080
+  # canary-agent-api:
+  #   image: naesb-business-agent-api
+  #   environment:
+  #     AGENT_URL: https://canary.agent.indy.dev.naesbdlt.org:5000
+  #     HOST_PORT: 8001
+  #     NAESB_DID: 9A6uHxLyk7gGHs3rZoMHm6
+  #     DB_PORT: 5432
+  #     DB_HOST: canary-db
+  #     DB_USERNAME: postgres
+  #     DB_PASSWORD: root
+  #     SYNCHRONIZE_SCHEMA: true
+  #     VDR_URL: http://vdr:8080
+  #   depends_on:
+  #     canary-db:
+  #       condition: service_healthy
+  #   ports:
+  #     - 8001:8001
