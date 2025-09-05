@@ -1,0 +1,29 @@
+version: 0.2
+env:
+  variables:
+    CI: 0
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - chmod +x ./build.sh
+      - cd /tmp
+      - curl  -sSL https://bit.ly/2ysbOFE | bash -s -- -d -s -- 2.5.3
+      - export PATH=/tmp/bin:$PATH
+      - cd -
+      - npm install
+
+  pre_build:
+    commands:
+
+  build:
+    commands:
+      - npm run build
+      - CC_PATH=./ CC_LANGUAGE=node CC_LABEL=NAESB_SMART_TRADE_CONTRACT CC_VERSION=v1.$CODEBUILD_BUILD_NUMBER ./build.sh
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - NAESB_SMART_TRADE_CONTRACT_v1.$CODEBUILD_BUILD_NUMBER.tar.gz

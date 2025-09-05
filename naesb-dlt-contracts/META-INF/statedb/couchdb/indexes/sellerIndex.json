@@ -1,0 +1,8 @@
+{
+  "index": {
+    "fields": ["SellerTrader"]
+  },
+  "ddoc": "sellerIndexDoc",
+  "name": "sellerIndex",
+  "type": "json"
+}

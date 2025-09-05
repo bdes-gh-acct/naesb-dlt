@@ -1,0 +1,8 @@
+{
+  "index": {
+    "fields": ["DeliveryLocation", "Date"]
+  },
+  "ddoc": "locationIndexDoc",
+  "name": "locationIndex",
+  "type": "json"
+}
