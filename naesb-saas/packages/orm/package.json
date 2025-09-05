@@ -1,0 +1,61 @@
+{
+  "name": "@shared/orm",
+  "version": "1.0.0",
+  "description": "orm package for handling queries",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "typeorm": "^0.3.12",
+    "@shared/orm-model": "*",
+    "zod": "^3.20.6"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "reporters": [
+      [
+        "jest-silent-reporter",
+        {
+          "useDots": true
+        }
+      ]
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "clover",
+      "json-summary"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 0,
+        "functions": 0,
+        "lines": 0,
+        "statements": 0
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/build/"
+    ],
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.{js,jsx,ts,tsx}",
+      "!**/node_modules/**",
+      "!**/build/**",
+      "!**/src/index.ts"
+    ]
+  }
+}

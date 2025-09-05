@@ -1,0 +1,12 @@
+
+> api@1.0.0 start
+> nest start
+
+
+[48;2;210;0;75m[1m[38;2;0;0;0m Error [39m[22m[49m (0 , util_1.isObject) is not a function
+
+npm notice
+npm notice New minor version of npm available! 11.3.0 -> 11.4.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.4.2
+npm notice To update run: npm install -g npm@11.4.2
+npm notice

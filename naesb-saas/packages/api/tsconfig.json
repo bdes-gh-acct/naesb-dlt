@@ -1,0 +1,29 @@
+{
+
+    "extends": "../../tsconfig.json",
+  
+    "compilerOptions": {
+  
+      "esModuleInterop": true,
+  
+      "declarationDir": "./build",
+  
+      "outDir": "./build",
+  
+      "rootDir": "./src",
+  
+      "baseUrl": "./",
+  
+      "target": "esnext",
+  
+      "module": "CommonJS",
+  
+      "types": ["reflect-metadata"]
+  
+    },
+  
+    "include": ["src"],
+  
+    "exclude": ["build"]
+  
+  }

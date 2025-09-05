@@ -1,0 +1,144 @@
+
+> api@1.0.0 build
+> npx rimraf build && nest build
+
+[1G[0K[1G[0K⠙[1G[0K[1G[0K⠙[1G[0K[31m[96msrc/app.module.ts[0m:[93m2[0m:[93m32[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/terminus' or its corresponding type declarations.
+
+[7m2[0m import { TerminusModule } from '@nestjs/terminus';
+[7m [0m [91m                               ~~~~~~~~~~~~~~~~~~[0m
+[96msrc/auth.ts[0m:[93m9[0m:[93m45[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/passport' or its corresponding type declarations.
+
+[7m9[0m import { AuthGuard, PassportStrategy } from '@nestjs/passport';
+[7m [0m [91m                                            ~~~~~~~~~~~~~~~~~~[0m
+[96msrc/auth.ts[0m:[93m12[0m:[93m35[0m - [91merror[0m[90m TS2307: [0mCannot find module 'jwks-rsa' or its corresponding type declarations.
+
+[7m12[0m import { passportJwtSecret } from 'jwks-rsa';
+[7m  [0m [91m                                  ~~~~~~~~~~[0m
+[96msrc/db/BusinessRole.entity.ts[0m:[93m8[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m8[0m } from 'typeorm';
+[7m [0m [91m       ~~~~~~~~~[0m
+[96msrc/db/BusinessRoleJunction.entity.ts[0m:[93m9[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m9[0m } from 'typeorm';
+[7m [0m [91m       ~~~~~~~~~[0m
+[96msrc/db/db.module.ts[0m:[93m1[0m:[93m31[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/typeorm' or its corresponding type declarations.
+
+[7m1[0m import { TypeOrmModule } from '@nestjs/typeorm';
+[7m [0m [91m                              ~~~~~~~~~~~~~~~~~[0m
+[96msrc/db/directionOfFlow.entity.ts[0m:[93m2[0m:[93m47[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m2[0m import { Entity, Column, PrimaryColumn } from 'typeorm';
+[7m [0m [91m                                              ~~~~~~~~~[0m
+[96msrc/db/field.entity.ts[0m:[93m10[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m10[0m } from 'typeorm';
+[7m  [0m [91m       ~~~~~~~~~[0m
+[96msrc/db/locationTypeIndicator.entity.ts[0m:[93m5[0m:[93m47[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m5[0m import { Entity, Column, PrimaryColumn } from 'typeorm';
+[7m [0m [91m                                              ~~~~~~~~~[0m
+[96msrc/db/organization.entity.ts[0m:[93m14[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m14[0m } from 'typeorm';
+[7m  [0m [91m       ~~~~~~~~~[0m
+[96msrc/db/organization.entity.ts[0m:[93m75[0m:[93m43[0m - [91merror[0m[90m TS7006: [0mParameter 'role' implicitly has an 'any' type.
+
+[7m75[0m   @OneToMany(() => BusinessRoleJunction, (role) => role.organization)
+[7m  [0m [91m                                          ~~~~[0m
+[96msrc/db/priceIndex.entity.ts[0m:[93m3[0m:[93m70[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m3[0m import { Entity, Column, PrimaryColumn, ManyToOne, JoinColumn } from 'typeorm';
+[7m [0m [91m                                                                     ~~~~~~~~~[0m
+[96msrc/db/priceIndex.entity.ts[0m:[93m17[0m:[93m41[0m - [91merror[0m[90m TS7006: [0mParameter 'provider' implicitly has an 'any' type.
+
+[7m17[0m   @ManyToOne(() => PriceIndexProvider, (provider) => provider.indices)
+[7m  [0m [91m                                        ~~~~~~~~[0m
+[96msrc/db/priceIndexDate.entity.ts[0m:[93m2[0m:[93m70[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m2[0m import { Entity, Column, PrimaryColumn, ManyToOne, JoinColumn } from 'typeorm';
+[7m [0m [91m                                                                     ~~~~~~~~~[0m
+[96msrc/db/priceIndexProvider.entity.ts[0m:[93m3[0m:[93m58[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m3[0m import { Entity, Column, PrimaryColumn, OneToMany } from 'typeorm';
+[7m [0m [91m                                                         ~~~~~~~~~[0m
+[96msrc/db/priceIndexProvider.entity.ts[0m:[93m17[0m:[93m33[0m - [91merror[0m[90m TS7006: [0mParameter 'location' implicitly has an 'any' type.
+
+[7m17[0m   @OneToMany(() => PriceIndex, (location) => location.provider)
+[7m  [0m [91m                                ~~~~~~~~[0m
+[96msrc/db/tspLocation.entity.ts[0m:[93m15[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m15[0m } from 'typeorm';
+[7m  [0m [91m       ~~~~~~~~~[0m
+[96msrc/db/userOrganization.entity.ts[0m:[93m2[0m:[93m62[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m2[0m import { Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
+[7m [0m [91m                                                             ~~~~~~~~~[0m
+[96msrc/db/well.entity.ts[0m:[93m10[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m10[0m } from 'typeorm';
+[7m  [0m [91m       ~~~~~~~~~[0m
+[96msrc/field/field.service.ts[0m:[93m2[0m:[93m34[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/typeorm' or its corresponding type declarations.
+
+[7m2[0m import { InjectRepository } from '@nestjs/typeorm';
+[7m [0m [91m                                 ~~~~~~~~~~~~~~~~~[0m
+[96msrc/field/field.service.ts[0m:[93m3[0m:[93m45[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m3[0m import { FindManyOptions, Repository } from 'typeorm';
+[7m [0m [91m                                            ~~~~~~~~~[0m
+[96msrc/health/health.controller.ts[0m:[93m1[0m:[93m49[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/terminus' or its corresponding type declarations.
+
+[7m1[0m import { HealthCheck, HealthCheckService } from '@nestjs/terminus';
+[7m [0m [91m                                                ~~~~~~~~~~~~~~~~~~[0m
+[96msrc/organization/organization.service.ts[0m:[93m2[0m:[93m34[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/typeorm' or its corresponding type declarations.
+
+[7m2[0m import { InjectRepository } from '@nestjs/typeorm';
+[7m [0m [91m                                 ~~~~~~~~~~~~~~~~~[0m
+[96msrc/organization/organization.service.ts[0m:[93m3[0m:[93m45[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m3[0m import { FindManyOptions, Repository } from 'typeorm';
+[7m [0m [91m                                            ~~~~~~~~~[0m
+[96msrc/priceIndex/priceIndex.service.ts[0m:[93m2[0m:[93m34[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/typeorm' or its corresponding type declarations.
+
+[7m2[0m import { InjectRepository } from '@nestjs/typeorm';
+[7m [0m [91m                                 ~~~~~~~~~~~~~~~~~[0m
+[96msrc/priceIndex/priceIndex.service.ts[0m:[93m3[0m:[93m45[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m3[0m import { FindManyOptions, Repository } from 'typeorm';
+[7m [0m [91m                                            ~~~~~~~~~[0m
+[96msrc/priceIndexProvider/priceIndexProvider.service.ts[0m:[93m2[0m:[93m34[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/typeorm' or its corresponding type declarations.
+
+[7m2[0m import { InjectRepository } from '@nestjs/typeorm';
+[7m [0m [91m                                 ~~~~~~~~~~~~~~~~~[0m
+[96msrc/priceIndexProvider/priceIndexProvider.service.ts[0m:[93m3[0m:[93m45[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m3[0m import { FindManyOptions, Repository } from 'typeorm';
+[7m [0m [91m                                            ~~~~~~~~~[0m
+[96msrc/tsp/tspLocation.service.ts[0m:[93m3[0m:[93m34[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/typeorm' or its corresponding type declarations.
+
+[7m3[0m import { InjectRepository } from '@nestjs/typeorm';
+[7m [0m [91m                                 ~~~~~~~~~~~~~~~~~[0m
+[96msrc/tsp/tspLocation.service.ts[0m:[93m4[0m:[93m45[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m4[0m import { FindManyOptions, Repository } from 'typeorm';
+[7m [0m [91m                                            ~~~~~~~~~[0m
+[96msrc/userOrganization/userOrganization.service.ts[0m:[93m2[0m:[93m34[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/typeorm' or its corresponding type declarations.
+
+[7m2[0m import { InjectRepository } from '@nestjs/typeorm';
+[7m [0m [91m                                 ~~~~~~~~~~~~~~~~~[0m
+[96msrc/userOrganization/userOrganization.service.ts[0m:[93m3[0m:[93m45[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m3[0m import { FindManyOptions, Repository } from 'typeorm';
+[7m [0m [91m                                            ~~~~~~~~~[0m
+[96msrc/well/well.service.ts[0m:[93m2[0m:[93m34[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/typeorm' or its corresponding type declarations.
+
+[7m2[0m import { InjectRepository } from '@nestjs/typeorm';
+[7m [0m [91m                                 ~~~~~~~~~~~~~~~~~[0m
+[96msrc/well/well.service.ts[0m:[93m3[0m:[93m45[0m - [91merror[0m[90m TS2307: [0mCannot find module 'typeorm' or its corresponding type declarations.
+
+[7m3[0m import { FindManyOptions, Repository } from 'typeorm';
+[7m [0m [91m                                            ~~~~~~~~~[0m
+[39m
+Found 34 error(s).
+
+[1G[0K⠙[1G[0K

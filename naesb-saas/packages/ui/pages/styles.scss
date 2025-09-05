@@ -1,0 +1,52 @@
+@use '~ag-grid-community/styles' as ag;
+$primary: #009abd;
+$secondary: #1bc5bd;
+$error: #d32f2f;
+$background: var(--joy-palette-background-surface);
+@include ag.grid-styles(
+  (
+    (
+      theme: material,
+      --ag-font-family: var(--joy-fontFamily-body),
+      --ag-background-color: $background,
+      --ag-header-background-color: $background,
+      --ag-tooltip-background-color: $background,
+      --ag-disabled-foreground-color: $background,
+      --ag-subheader-background-color: $background,
+      --ag-subheader-toolbar-background-color: $background,
+      --ag-control-panel-background-color: $background,
+      --ag-side-button-selected-background-color: $background,
+      --ag-selected-row-background-color: $background,
+      --ag-odd-row-background-color: $background,
+      --ag-material-primary-color: var(--joy-palette-primary-plainColor),
+      --ag-modal-overlay-background-color: $background,
+      --ag-foreground-color: var(--joy-palette-neutral-100),
+      --ag-secondary-foreground-color: var(--joy-palette-neutral-300),
+      --ag-row-hover-color: var(--joy-palette-neutral-outlinedHoverBg),
+      --ag-header-cell-hover-background-color:
+        var(--joy-palette-neutral-outlinedHoverBg)
+    )
+  )
+);
+
+.ag-theme-material .ag-layout-auto-height .ag-center-cols-clipper,
+.ag-theme-material .ag-layout-auto-height .ag-center-cols-container,
+.ag-theme-material .ag-layout-print .ag-center-cols-clipper,
+.ag-theme-material .ag-layout-print .ag-center-cols-container {
+  min-height: 50px;
+}
+
+.ag-theme-material {
+  .ag-ltr .ag-floating-filter-button {
+    margin-left: 8px;
+  }
+  .ag-header-cell.ag-floating-filter {
+    background-color: var(--joy-palette-neutral-outlinedHoverBg);
+  }
+  .ag-floating-filter-input {
+    input.ag-input-field-input {
+      padding-bottom: 0px;
+      height: 30px;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+
+> ui@0.1.0 build
+> next build
+
+[1G[0K[33m[33mwarn[39m  - Invalid next.config.js options detected: [39m
+[31m  - The value at .experimental has an unexpected property, outputStandalone, which is not in the list of allowed properties (adjustFontFallbacks, adjustFontFallbacksWithSizeAdjust, amp, cpus, craCompat, disableOptimizedLoading, disablePostcssPresetEnv, esmExternals, appDir, externalDir, fallbackNodePolyfills, fetchCache, forceSwcTransforms, fullySpecified, gzipSize, incrementalCacheHandlerPath, isrFlushToDisk, isrMemoryCacheSize, largePageDataBytes, legacyBrowsers, manualClientBasePath, middlewarePrefetch, newNextLinkBehavior, nextScriptWorkers, optimizeCss, optimisticClientCache, outputFileTracingRoot, outputFileTracingIgnores, pageEnv, profiling, proxyTimeout, runtime, serverComponentsExternalPackages, scrollRestoration, sharedPool, sri, swcFileReading, swcMinify, swcMinifyDebugOptions, swcPlugins, swcTraceProfiling, urlImports, enableUndici, workerThreads, fontLoaders, webVitalsAttribution, mdxRs, turbotrace).[39m
+[31m
+See more info here: https://nextjs.org/docs/messages/invalid-next-config[39m
+[33m[33mwarn[39m  - [1mYou have enabled experimental features (outputStandalone, outputFileTracingRoot) in next.config.js.[22m[39m
+[33m[33mwarn[39m  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.[39m
+[33m[39m
+[33m[33mwarn[39m  - experimental.outputStandalone has been renamed to "output: 'standalone'", please move the config.[39m
+[?25l[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[31mFailed to compile.[39m
+[31m[39m
+[36m./components/shared/form/input/select/index.tsx[39m:[33m13[39m:[33m16[39m
+[31m[1mType error[22m[39m: Generic type 'SelectProps' requires between 2 and 3 type arguments.
+
+[0m [90m 11 | [39m[0m
+[0m [90m 12 | [39m[36mexport[39m [36minterface[39m [33mSelectProps[39m[33m<[39m[33mTOption[39m[33m>[39m[0m
+[0m[31m[1m>[22m[39m[90m 13 | [39m  [36mextends[39m [33mOmit[39m[33m<[39m[33mMuiSelectProps[39m[33m<[39m[33many[39m[33m>[39m[33m,[39m [32m'value'[39m[33m>[39m {[0m
+[0m [90m    | [39m               [31m[1m^[22m[39m[0m
+[0m [90m 14 | [39m  name[33m:[39m string[33m;[39m[0m
+[0m [90m 15 | [39m  label[33m:[39m string[33m;[39m[0m
+[0m [90m 16 | [39m  options[33m:[39m [33mArray[39m[33m<[39m[33mTOption[39m[33m>[39m[33m;[39m[0m
+[?25h[1G[0K⠙[1G[0K

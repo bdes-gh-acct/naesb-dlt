@@ -1,0 +1,91 @@
+
+> ui@0.1.0 docker
+> docker build -t naesb-saas-ui -f ./Dockerfile ../../
+
+[1G[0K[1A[1B[0G[?25l[+] Building 0.0s (0/0)  docker:desktop-linux
+[?25h[1A[0G[?25l[+] Building 0.0s (0/1)                                                                                                                                                                               docker:desktop-linux
+[?25h[1A[0G[?25l[+] Building 0.2s (1/2)                                                                                                                                                                               docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.39kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+ => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.2s
+[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.3s (1/2)                                                                                                                                                                               docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.39kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+ => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.3s
+[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.3s (2/2)                                                                                                                                                                               docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.39kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.3s
+[0m[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.5s (11/25)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.39kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.3s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/1] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e                                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 32.55kB                                                                                                                                                                                  0.0s
+[0m[34m => CACHED [builder  1/13] WORKDIR /app                                                                                                                                                                               0.0s
+[0m[34m => CACHED [builder  2/13] RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python                                                                                                                  0.0s
+[0m[34m => CACHED [builder  3/13] RUN apk add pipx                                                                                                                                                                           0.0s
+[0m => [builder  4/13] RUN pipx install --no-cache --upgrade pip setuptools                                                                                                                                              0.1s
+[2m => => # usage: pipx [-h] [--quiet] [--verbose] [--global] [--version]                                                                                                                                                    
+[0m[2m => => #             {install,install-all,uninject,inject,pin,unpin,upgrade,upgrade-all,upgrade-shared,uninstall,uninstall-all,reinstall,reinstall-all,list,interpreter,run,runpip,ensurepath,environment,completions}    
+[0m[2m => => #             ...                                                                                                                                                                                                  
+[0m[2m => => # pipx: error: unrecognized arguments: --no-cache --upgrade                                                                                                                                                        
+[0m[34m => CACHED [final 2/8] RUN addgroup --system --gid 1001 nodejs                                                                                                                                                        0.0s
+[0m[34m => CACHED [final 3/8] RUN adduser --system --uid 1001 nextjs                                                                                                                                                         0.0s
+[0m[34m => CACHED [final 4/8] COPY packages/ui/public ./public/                                                                                                                                                              0.0s
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.5s (12/25)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.39kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.3s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/1] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e                                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 32.55kB                                                                                                                                                                                  0.0s
+[0m[34m => CACHED [builder  1/13] WORKDIR /app                                                                                                                                                                               0.0s
+[0m[34m => CACHED [builder  2/13] RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python                                                                                                                  0.0s
+[0m[34m => CACHED [builder  3/13] RUN apk add pipx                                                                                                                                                                           0.0s
+[0m[31m => ERROR [builder  4/13] RUN pipx install --no-cache --upgrade pip setuptools                                                                                                                                        0.2s
+[0m[34m => CACHED [final 2/8] RUN addgroup --system --gid 1001 nodejs                                                                                                                                                        0.0s
+[0m[34m => CACHED [final 3/8] RUN adduser --system --uid 1001 nextjs                                                                                                                                                         0.0s
+[0m[34m => CACHED [final 4/8] COPY packages/ui/public ./public/                                                                                                                                                              0.0s
+[0m                                                                                                                                                                                                                           
+                                                                                                                                                                                                                           
+                                                                                                                                                                                                                           
+                                                                                                                                                                                                                           
+[4A[0G[?25h------
+ > [builder  4/13] RUN pipx install --no-cache --upgrade pip setuptools:
+0.148 usage: pipx [-h] [--quiet] [--verbose] [--global] [--version]
+0.148             {install,install-all,uninject,inject,pin,unpin,upgrade,upgrade-all,upgrade-shared,uninstall,uninstall-all,reinstall,reinstall-all,list,interpreter,run,runpip,ensurepath,environment,completions}
+0.148             ...
+0.148 pipx: error: unrecognized arguments: --no-cache --upgrade
+------
+
+ [33m7 warnings found (use docker --debug to expand):
+[0m - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 10)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 11)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 12)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 21)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 25)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 27)
+Dockerfile:8
+--------------------
+   6 |     RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+   7 |     RUN apk add pipx
+   8 | >>> RUN pipx install --no-cache --upgrade pip setuptools
+   9 |     RUN npm install -g lerna@^6.0.0
+  10 |     ENV NODE_ENV development
+--------------------
+ERROR: failed to solve: process "/bin/sh -c pipx install --no-cache --upgrade pip setuptools" did not complete successfully: exit code: 2
+
+View build details: ]8;;docker-desktop://dashboard/build/desktop-linux/desktop-linux/8bjpd49l12yoiyiuplw3fihh7\docker-desktop://dashboard/build/desktop-linux/desktop-linux/8bjpd49l12yoiyiuplw3fihh7]8;;\
+[1G[0K⠙[1G[0K

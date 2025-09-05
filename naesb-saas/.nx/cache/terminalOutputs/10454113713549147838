@@ -1,0 +1,267 @@
+
+> api@1.0.0 docker
+> docker build -t naesb-saas-api -f ./Dockerfile ../../
+
+[1G[0K[1A[1B[0G[?25l[+] Building 0.0s (0/0)  docker:desktop-linux
+[?25h[1A[0G[?25l[+] Building 0.0s (0/1)                                                                                                                                                                               docker:desktop-linux
+[?25h[1A[0G[?25l[+] Building 0.2s (1/2)                                                                                                                                                                               docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 917B                                                                                                                                                                                  0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+ => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                                                     0.2s
+[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.2s (2/2)                                                                                                                                                                               docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 917B                                                                                                                                                                                  0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                                                     0.2s
+[0m[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.5s (12/17)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 917B                                                                                                                                                                                  0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                                                     0.2s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/2] FROM registry.access.redhat.com/ubi8/nodejs-16:latest@sha256:d4a32cc382fdd326a3c0c3f41fad72486f44136bb0018edb3a6720c074be065a                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 1.33MB                                                                                                                                                                                   0.0s
+[0m[34m => CACHED [prebuild 2/2] RUN npm install -g lerna@^6.0.0 @nestjs/cli                                                                                                                                                 0.0s
+[0m[34m => CACHED [stage-1  1/11] WORKDIR /opt/app-root                                                                                                                                                                      0.0s
+[0m[34m => CACHED [stage-1  2/11] COPY package.json package-lock.json lerna.json tsconfig.json nx.json ./                                                                                                                    0.0s
+[0m[34m => CACHED [stage-1  3/11] COPY packages/model/package.json ./packages/model/                                                                                                                                         0.0s
+[0m[34m => [stage-1  4/11] COPY packages/api/package.json ./packages/api/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  5/11] COPY packages/orm/package.json ./packages/orm/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  6/11] COPY packages/orm-model/package.json ./packages/orm-model/                                                                                                                                        0.0s
+[0m => [stage-1  7/11] RUN npm ci --legacy-peer-deps                                                                                                                                                                     0.2s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.6s (12/17)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 917B                                                                                                                                                                                  0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                                                     0.2s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/2] FROM registry.access.redhat.com/ubi8/nodejs-16:latest@sha256:d4a32cc382fdd326a3c0c3f41fad72486f44136bb0018edb3a6720c074be065a                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 1.33MB                                                                                                                                                                                   0.0s
+[0m[34m => CACHED [prebuild 2/2] RUN npm install -g lerna@^6.0.0 @nestjs/cli                                                                                                                                                 0.0s
+[0m[34m => CACHED [stage-1  1/11] WORKDIR /opt/app-root                                                                                                                                                                      0.0s
+[0m[34m => CACHED [stage-1  2/11] COPY package.json package-lock.json lerna.json tsconfig.json nx.json ./                                                                                                                    0.0s
+[0m[34m => CACHED [stage-1  3/11] COPY packages/model/package.json ./packages/model/                                                                                                                                         0.0s
+[0m[34m => [stage-1  4/11] COPY packages/api/package.json ./packages/api/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  5/11] COPY packages/orm/package.json ./packages/orm/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  6/11] COPY packages/orm-model/package.json ./packages/orm-model/                                                                                                                                        0.0s
+[0m => [stage-1  7/11] RUN npm ci --legacy-peer-deps                                                                                                                                                                     0.3s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.8s (12/17)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 917B                                                                                                                                                                                  0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                                                     0.2s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/2] FROM registry.access.redhat.com/ubi8/nodejs-16:latest@sha256:d4a32cc382fdd326a3c0c3f41fad72486f44136bb0018edb3a6720c074be065a                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 1.33MB                                                                                                                                                                                   0.0s
+[0m[34m => CACHED [prebuild 2/2] RUN npm install -g lerna@^6.0.0 @nestjs/cli                                                                                                                                                 0.0s
+[0m[34m => CACHED [stage-1  1/11] WORKDIR /opt/app-root                                                                                                                                                                      0.0s
+[0m[34m => CACHED [stage-1  2/11] COPY package.json package-lock.json lerna.json tsconfig.json nx.json ./                                                                                                                    0.0s
+[0m[34m => CACHED [stage-1  3/11] COPY packages/model/package.json ./packages/model/                                                                                                                                         0.0s
+[0m[34m => [stage-1  4/11] COPY packages/api/package.json ./packages/api/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  5/11] COPY packages/orm/package.json ./packages/orm/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  6/11] COPY packages/orm-model/package.json ./packages/orm-model/                                                                                                                                        0.0s
+[0m => [stage-1  7/11] RUN npm ci --legacy-peer-deps                                                                                                                                                                     0.5s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.9s (12/17)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 917B                                                                                                                                                                                  0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                                                     0.2s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/2] FROM registry.access.redhat.com/ubi8/nodejs-16:latest@sha256:d4a32cc382fdd326a3c0c3f41fad72486f44136bb0018edb3a6720c074be065a                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 1.33MB                                                                                                                                                                                   0.0s
+[0m[34m => CACHED [prebuild 2/2] RUN npm install -g lerna@^6.0.0 @nestjs/cli                                                                                                                                                 0.0s
+[0m[34m => CACHED [stage-1  1/11] WORKDIR /opt/app-root                                                                                                                                                                      0.0s
+[0m[34m => CACHED [stage-1  2/11] COPY package.json package-lock.json lerna.json tsconfig.json nx.json ./                                                                                                                    0.0s
+[0m[34m => CACHED [stage-1  3/11] COPY packages/model/package.json ./packages/model/                                                                                                                                         0.0s
+[0m[34m => [stage-1  4/11] COPY packages/api/package.json ./packages/api/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  5/11] COPY packages/orm/package.json ./packages/orm/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  6/11] COPY packages/orm-model/package.json ./packages/orm-model/                                                                                                                                        0.0s
+[0m => [stage-1  7/11] RUN npm ci --legacy-peer-deps                                                                                                                                                                     0.6s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.1s (12/17)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 917B                                                                                                                                                                                  0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                                                     0.2s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/2] FROM registry.access.redhat.com/ubi8/nodejs-16:latest@sha256:d4a32cc382fdd326a3c0c3f41fad72486f44136bb0018edb3a6720c074be065a                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 1.33MB                                                                                                                                                                                   0.0s
+[0m[34m => CACHED [prebuild 2/2] RUN npm install -g lerna@^6.0.0 @nestjs/cli                                                                                                                                                 0.0s
+[0m[34m => CACHED [stage-1  1/11] WORKDIR /opt/app-root                                                                                                                                                                      0.0s
+[0m[34m => CACHED [stage-1  2/11] COPY package.json package-lock.json lerna.json tsconfig.json nx.json ./                                                                                                                    0.0s
+[0m[34m => CACHED [stage-1  3/11] COPY packages/model/package.json ./packages/model/                                                                                                                                         0.0s
+[0m[34m => [stage-1  4/11] COPY packages/api/package.json ./packages/api/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  5/11] COPY packages/orm/package.json ./packages/orm/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  6/11] COPY packages/orm-model/package.json ./packages/orm-model/                                                                                                                                        0.0s
+[0m => [stage-1  7/11] RUN npm ci --legacy-peer-deps                                                                                                                                                                     0.8s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.2s (12/17)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 917B                                                                                                                                                                                  0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                                                     0.2s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/2] FROM registry.access.redhat.com/ubi8/nodejs-16:latest@sha256:d4a32cc382fdd326a3c0c3f41fad72486f44136bb0018edb3a6720c074be065a                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 1.33MB                                                                                                                                                                                   0.0s
+[0m[34m => CACHED [prebuild 2/2] RUN npm install -g lerna@^6.0.0 @nestjs/cli                                                                                                                                                 0.0s
+[0m[34m => CACHED [stage-1  1/11] WORKDIR /opt/app-root                                                                                                                                                                      0.0s
+[0m[34m => CACHED [stage-1  2/11] COPY package.json package-lock.json lerna.json tsconfig.json nx.json ./                                                                                                                    0.0s
+[0m[34m => CACHED [stage-1  3/11] COPY packages/model/package.json ./packages/model/                                                                                                                                         0.0s
+[0m[34m => [stage-1  4/11] COPY packages/api/package.json ./packages/api/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  5/11] COPY packages/orm/package.json ./packages/orm/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  6/11] COPY packages/orm-model/package.json ./packages/orm-model/                                                                                                                                        0.0s
+[0m => [stage-1  7/11] RUN npm ci --legacy-peer-deps                                                                                                                                                                     0.9s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.4s (12/17)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 917B                                                                                                                                                                                  0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                                                     0.2s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/2] FROM registry.access.redhat.com/ubi8/nodejs-16:latest@sha256:d4a32cc382fdd326a3c0c3f41fad72486f44136bb0018edb3a6720c074be065a                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 1.33MB                                                                                                                                                                                   0.0s
+[0m[34m => CACHED [prebuild 2/2] RUN npm install -g lerna@^6.0.0 @nestjs/cli                                                                                                                                                 0.0s
+[0m[34m => CACHED [stage-1  1/11] WORKDIR /opt/app-root                                                                                                                                                                      0.0s
+[0m[34m => CACHED [stage-1  2/11] COPY package.json package-lock.json lerna.json tsconfig.json nx.json ./                                                                                                                    0.0s
+[0m[34m => CACHED [stage-1  3/11] COPY packages/model/package.json ./packages/model/                                                                                                                                         0.0s
+[0m[34m => [stage-1  4/11] COPY packages/api/package.json ./packages/api/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  5/11] COPY packages/orm/package.json ./packages/orm/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  6/11] COPY packages/orm-model/package.json ./packages/orm-model/                                                                                                                                        0.0s
+[0m => [stage-1  7/11] RUN npm ci --legacy-peer-deps                                                                                                                                                                     1.1s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.4s (12/17)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 917B                                                                                                                                                                                  0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                                                     0.2s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/2] FROM registry.access.redhat.com/ubi8/nodejs-16:latest@sha256:d4a32cc382fdd326a3c0c3f41fad72486f44136bb0018edb3a6720c074be065a                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 1.33MB                                                                                                                                                                                   0.0s
+[0m[34m => CACHED [prebuild 2/2] RUN npm install -g lerna@^6.0.0 @nestjs/cli                                                                                                                                                 0.0s
+[0m[34m => CACHED [stage-1  1/11] WORKDIR /opt/app-root                                                                                                                                                                      0.0s
+[0m[34m => CACHED [stage-1  2/11] COPY package.json package-lock.json lerna.json tsconfig.json nx.json ./                                                                                                                    0.0s
+[0m[34m => CACHED [stage-1  3/11] COPY packages/model/package.json ./packages/model/                                                                                                                                         0.0s
+[0m[34m => [stage-1  4/11] COPY packages/api/package.json ./packages/api/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  5/11] COPY packages/orm/package.json ./packages/orm/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  6/11] COPY packages/orm-model/package.json ./packages/orm-model/                                                                                                                                        0.0s
+[0m => [stage-1  7/11] RUN npm ci --legacy-peer-deps                                                                                                                                                                     1.1s
+[2m => => # npm WARN EBADENGINE Unsupported engine {                                                                                                                                                                         
+[0m[2m => => # npm                                                                                                                                                                                                              
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.4s (13/17)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 917B                                                                                                                                                                                  0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for registry.access.redhat.com/ubi8/nodejs-16:latest                                                                                                                                     0.2s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/2] FROM registry.access.redhat.com/ubi8/nodejs-16:latest@sha256:d4a32cc382fdd326a3c0c3f41fad72486f44136bb0018edb3a6720c074be065a                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 1.33MB                                                                                                                                                                                   0.0s
+[0m[34m => CACHED [prebuild 2/2] RUN npm install -g lerna@^6.0.0 @nestjs/cli                                                                                                                                                 0.0s
+[0m[34m => CACHED [stage-1  1/11] WORKDIR /opt/app-root                                                                                                                                                                      0.0s
+[0m[34m => CACHED [stage-1  2/11] COPY package.json package-lock.json lerna.json tsconfig.json nx.json ./                                                                                                                    0.0s
+[0m[34m => CACHED [stage-1  3/11] COPY packages/model/package.json ./packages/model/                                                                                                                                         0.0s
+[0m[34m => [stage-1  4/11] COPY packages/api/package.json ./packages/api/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  5/11] COPY packages/orm/package.json ./packages/orm/                                                                                                                                                    0.0s
+[0m[34m => [stage-1  6/11] COPY packages/orm-model/package.json ./packages/orm-model/                                                                                                                                        0.0s
+[0m[31m => ERROR [stage-1  7/11] RUN npm ci --legacy-peer-deps                                                                                                                                                               1.1s
+[0m                                                                                                                                                                                                                           
+                                                                                                                                                                                                                           
+[2A[0G[?25h------
+ > [stage-1  7/11] RUN npm ci --legacy-peer-deps:
+1.056 npm WARN EBADENGINE Unsupported engine {
+1.056 npm WARN EBADENGINE   package: 'body-parser@2.2.0',
+1.056 npm WARN EBADENGINE   required: { node: '>=18' },
+1.056 npm WARN EBADENGINE   current: { node: 'v16.20.2', npm: '8.19.4' }
+1.056 npm WARN EBADENGINE }
+1.057 npm WARN EBADENGINE Unsupported engine {
+1.057 npm WARN EBADENGINE   package: 'express@5.1.0',
+1.057 npm WARN EBADENGINE   required: { node: '>= 18' },
+1.057 npm WARN EBADENGINE   current: { node: 'v16.20.2', npm: '8.19.4' }
+1.057 npm WARN EBADENGINE }
+1.059 npm WARN EBADENGINE Unsupported engine {
+1.059 npm WARN EBADENGINE   package: 'merge-descriptors@2.0.0',
+1.059 npm WARN EBADENGINE   required: { node: '>=18' },
+1.059 npm WARN EBADENGINE   current: { node: 'v16.20.2', npm: '8.19.4' }
+1.059 npm WARN EBADENGINE }
+1.060 npm WARN EBADENGINE Unsupported engine {
+1.060 npm WARN EBADENGINE   package: 'router@2.2.0',
+1.060 npm WARN EBADENGINE   required: { node: '>= 18' },
+1.060 npm WARN EBADENGINE   current: { node: 'v16.20.2', npm: '8.19.4' }
+1.060 npm WARN EBADENGINE }
+1.060 npm WARN EBADENGINE Unsupported engine {
+1.060 npm WARN EBADENGINE   package: 'send@1.2.0',
+1.060 npm WARN EBADENGINE   required: { node: '>= 18' },
+1.060 npm WARN EBADENGINE   current: { node: 'v16.20.2', npm: '8.19.4' }
+1.060 npm WARN EBADENGINE }
+1.061 npm WARN EBADENGINE Unsupported engine {
+1.061 npm WARN EBADENGINE   package: 'serve-static@2.2.0',
+1.061 npm WARN EBADENGINE   required: { node: '>= 18' },
+1.061 npm WARN EBADENGINE   current: { node: 'v16.20.2', npm: '8.19.4' }
+1.061 npm WARN EBADENGINE }
+1.061 npm WARN EBADENGINE Unsupported engine {
+1.061 npm WARN EBADENGINE   package: 'sharp@0.34.1',
+1.061 npm WARN EBADENGINE   required: { node: '^18.17.0 || ^20.3.0 || >=21.0.0' },
+1.061 npm WARN EBADENGINE   current: { node: 'v16.20.2', npm: '8.19.4' }
+1.061 npm WARN EBADENGINE }
+1.063 npm ERR! code EUSAGE
+1.065 npm ERR! 
+1.065 npm ERR! `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+1.065 npm ERR! 
+1.065 npm ERR! Invalid: lock file's @nestjs/platform-express@9.4.3 does not satisfy @nestjs/platform-express@10.4.19
+1.065 npm ERR! Invalid: lock file's body-parser@1.20.2 does not satisfy body-parser@1.20.3
+1.065 npm ERR! Invalid: lock file's tslib@2.5.3 does not satisfy tslib@2.8.1
+1.065 npm ERR! Invalid: lock file's qs@6.11.0 does not satisfy qs@6.13.0
+1.065 npm ERR! 
+1.065 npm ERR! Clean install a project
+1.065 npm ERR! 
+1.065 npm ERR! Usage:
+1.065 npm ERR! npm ci
+1.065 npm ERR! 
+1.065 npm ERR! Options:
+1.065 npm ERR! [-S|--save|--no-save|--save-prod|--save-dev|--save-optional|--save-peer|--save-bundle]
+1.065 npm ERR! [-E|--save-exact] [-g|--global] [--global-style] [--legacy-bundling]
+1.065 npm ERR! [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+1.065 npm ERR! [--strict-peer-deps] [--no-package-lock] [--foreground-scripts]
+1.065 npm ERR! [--ignore-scripts] [--no-audit] [--no-bin-links] [--no-fund] [--dry-run]
+1.065 npm ERR! [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+1.065 npm ERR! [-ws|--workspaces] [--include-workspace-root] [--install-links]
+1.065 npm ERR! 
+1.065 npm ERR! aliases: clean-install, ic, install-clean, isntall-clean
+1.065 npm ERR! 
+1.065 npm ERR! Run "npm help ci" for more info
+1.066 
+1.066 npm ERR! A complete log of this run can be found in:
+1.066 npm ERR!     /opt/app-root/src/.npm/_logs/2025-06-10T20_21_56_200Z-debug-0.log
+------
+
+ [33m4 warnings found (use docker --debug to expand):
+[0m - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 15)
+ - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 6)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 14)
+Dockerfile:13
+--------------------
+  11 |     COPY packages/orm/package.json ./packages/orm/
+  12 |     COPY packages/orm-model/package.json ./packages/orm-model/
+  13 | >>> RUN npm ci --legacy-peer-deps
+  14 |     ENV NX_SKIP_NX_CACHE true
+  15 |     ENV NX_DAEMON false
+--------------------
+ERROR: failed to solve: process "/bin/sh -c npm ci --legacy-peer-deps" did not complete successfully: exit code: 1
+
+View build details: ]8;;docker-desktop://dashboard/build/desktop-linux/desktop-linux/brjvmdqyqnjbf7jd4atm0kmcf\docker-desktop://dashboard/build/desktop-linux/desktop-linux/brjvmdqyqnjbf7jd4atm0kmcf]8;;\
+[1G[0K⠙[1G[0K

@@ -1,0 +1,42 @@
+
+> ui@0.1.0 start
+> next start
+
+[32mready[39m - started server on 0.0.0.0:3000, url: http://localhost:3000
+[36minfo[39m  - Loaded env from /Users/rdobson/Development/naesb-saas/packages/ui/.env.local
+[33mwarn[39m  - [1mYou have enabled experimental feature (outputFileTracingRoot) in next.config.js.[22m
+[33mwarn[39m  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.
+
+Error: Cannot find module '/Users/rdobson/Development/naesb-saas/packages/ui/.next/server/font-loader-manifest.json'
+Require stack:
+- /Users/rdobson/Development/naesb-saas/node_modules/next/dist/server/next-server.js
+- /Users/rdobson/Development/naesb-saas/node_modules/next/dist/server/next.js
+- /Users/rdobson/Development/naesb-saas/node_modules/next/dist/server/lib/start-server.js
+- /Users/rdobson/Development/naesb-saas/node_modules/next/dist/cli/next-start.js
+- /Users/rdobson/Development/naesb-saas/node_modules/next/dist/lib/commands.js
+- /Users/rdobson/Development/naesb-saas/node_modules/next/dist/bin/next
+[90m    at Module.<anonymous> (node:internal/modules/cjs/loader:1405:15)[39m
+    at mod._resolveFilename (/Users/rdobson/Development/naesb-saas/node_modules/[4mnext[24m/dist/build/webpack/require-hook.js:23:32)
+[90m    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)[39m
+[90m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)[39m
+[90m    at Module._load (node:internal/modules/cjs/loader:1215:37)[39m
+[90m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[90m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[90m    at Module.require (node:internal/modules/cjs/loader:1491:12)[39m
+[90m    at require (node:internal/modules/helpers:135:16)[39m
+    at NextNodeServer.getFontLoaderManifest (/Users/rdobson/Development/naesb-saas/node_modules/[4mnext[24m/dist/server/next-server.js:606:16) {
+  code: [32m'MODULE_NOT_FOUND'[39m,
+  requireStack: [
+    [32m'/Users/rdobson/Development/naesb-saas/node_modules/next/dist/server/next-server.js'[39m,
+    [32m'/Users/rdobson/Development/naesb-saas/node_modules/next/dist/server/next.js'[39m,
+    [32m'/Users/rdobson/Development/naesb-saas/node_modules/next/dist/server/lib/start-server.js'[39m,
+    [32m'/Users/rdobson/Development/naesb-saas/node_modules/next/dist/cli/next-start.js'[39m,
+    [32m'/Users/rdobson/Development/naesb-saas/node_modules/next/dist/lib/commands.js'[39m,
+    [32m'/Users/rdobson/Development/naesb-saas/node_modules/next/dist/bin/next'[39m
+  ]
+}
+npm notice
+npm notice New minor version of npm available! 11.3.0 -> 11.4.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.4.2
+npm notice To update run: npm install -g npm@11.4.2
+npm notice

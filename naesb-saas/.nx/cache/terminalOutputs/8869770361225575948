@@ -1,0 +1,17 @@
+
+> api@1.0.0 start
+> nest start
+
+Error: Cannot find module 'cookie-parser'
+Require stack:
+- /Users/rdobson/Development/naesb-saas/packages/api/build/main.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1145:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:986:27)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/Users/rdobson/Development/naesb-saas/packages/api/src/main.ts:3:1)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:174:12)

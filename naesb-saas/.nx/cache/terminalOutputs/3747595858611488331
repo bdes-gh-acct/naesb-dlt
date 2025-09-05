@@ -1,0 +1,24 @@
+
+> api@1.0.0 build
+> npx rimraf build && nest build
+
+[1G[0K[1G[0K⠙[1G[0K[1G[0K⠙[1G[0K[31m[96msrc/app.module.ts[0m:[93m2[0m:[93m32[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/terminus' or its corresponding type declarations.
+
+[7m2[0m import { TerminusModule } from '@nestjs/terminus';
+[7m [0m [91m                               ~~~~~~~~~~~~~~~~~~[0m
+[96msrc/auth.ts[0m:[93m9[0m:[93m45[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/passport' or its corresponding type declarations.
+
+[7m9[0m import { AuthGuard, PassportStrategy } from '@nestjs/passport';
+[7m [0m [91m                                            ~~~~~~~~~~~~~~~~~~[0m
+[96msrc/auth.ts[0m:[93m12[0m:[93m35[0m - [91merror[0m[90m TS2307: [0mCannot find module 'jwks-rsa' or its corresponding type declarations.
+
+[7m12[0m import { passportJwtSecret } from 'jwks-rsa';
+[7m  [0m [91m                                  ~~~~~~~~~~[0m
+[96msrc/health/health.controller.ts[0m:[93m1[0m:[93m49[0m - [91merror[0m[90m TS2307: [0mCannot find module '@nestjs/terminus' or its corresponding type declarations.
+
+[7m1[0m import { HealthCheck, HealthCheckService } from '@nestjs/terminus';
+[7m [0m [91m                                                ~~~~~~~~~~~~~~~~~~[0m
+[39m
+Found 4 error(s).
+
+[1G[0K⠙[1G[0K

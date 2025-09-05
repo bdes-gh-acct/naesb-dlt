@@ -1,0 +1,180 @@
+
+> ui@0.1.0 docker
+> docker build -t naesb-saas-ui -f ./Dockerfile ../../
+
+[1G[0K[1A[1B[0G[?25l[+] Building 0.0s (0/0)  docker:desktop-linux
+[?25h[1A[0G[?25l[+] Building 0.0s (0/1)                                                                                                                                                                               docker:desktop-linux
+[?25h[1A[0G[?25l[+] Building 0.2s (1/2)                                                                                                                                                                               docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.39kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+ => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.2s
+[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.3s (1/2)                                                                                                                                                                               docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.39kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+ => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.3s
+[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.4s (2/2)                                                                                                                                                                               docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.39kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.4s
+[0m[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.5s (10/25)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.39kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.4s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/1] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e                                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 32.55kB                                                                                                                                                                                  0.0s
+[0m[34m => CACHED [builder  1/13] WORKDIR /app                                                                                                                                                                               0.0s
+[0m[34m => CACHED [builder  2/13] RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python                                                                                                                  0.0s
+[0m => [builder  3/13] RUN apk add pip3                                                                                                                                                                                  0.1s
+[2m => => # fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/APKINDEX.tar.gz                                                                                                                                   
+[0m[34m => CACHED [final 2/8] RUN addgroup --system --gid 1001 nodejs                                                                                                                                                        0.0s
+[0m[34m => CACHED [final 3/8] RUN adduser --system --uid 1001 nextjs                                                                                                                                                         0.0s
+[0m[34m => CACHED [final 4/8] COPY packages/ui/public ./public/                                                                                                                                                              0.0s
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.7s (10/25)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.39kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.4s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/1] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e                                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 32.55kB                                                                                                                                                                                  0.0s
+[0m[34m => CACHED [builder  1/13] WORKDIR /app                                                                                                                                                                               0.0s
+[0m[34m => CACHED [builder  2/13] RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python                                                                                                                  0.0s
+[0m => [builder  3/13] RUN apk add pip3                                                                                                                                                                                  0.3s
+[2m => => # fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/APKINDEX.tar.gz                                                                                                                                   
+[0m[34m => CACHED [final 2/8] RUN addgroup --system --gid 1001 nodejs                                                                                                                                                        0.0s
+[0m[34m => CACHED [final 3/8] RUN adduser --system --uid 1001 nextjs                                                                                                                                                         0.0s
+[0m[34m => CACHED [final 4/8] COPY packages/ui/public ./public/                                                                                                                                                              0.0s
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.8s (10/25)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.39kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.4s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/1] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e                                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 32.55kB                                                                                                                                                                                  0.0s
+[0m[34m => CACHED [builder  1/13] WORKDIR /app                                                                                                                                                                               0.0s
+[0m[34m => CACHED [builder  2/13] RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python                                                                                                                  0.0s
+[0m => [builder  3/13] RUN apk add pip3                                                                                                                                                                                  0.4s
+[2m => => # fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/APKINDEX.tar.gz                                                                                                                                   
+[0m[2m => => # fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/aarch64/APKINDEX.tar.gz                                                                                                                              
+[0m[34m => CACHED [final 2/8] RUN addgroup --system --gid 1001 nodejs                                                                                                                                                        0.0s
+[0m[34m => CACHED [final 3/8] RUN adduser --system --uid 1001 nextjs                                                                                                                                                         0.0s
+[0m[34m => CACHED [final 4/8] COPY packages/ui/public ./public/                                                                                                                                                              0.0s
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.0s (10/25)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.39kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.4s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/1] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e                                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 32.55kB                                                                                                                                                                                  0.0s
+[0m[34m => CACHED [builder  1/13] WORKDIR /app                                                                                                                                                                               0.0s
+[0m[34m => CACHED [builder  2/13] RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python                                                                                                                  0.0s
+[0m => [builder  3/13] RUN apk add pip3                                                                                                                                                                                  0.5s
+[2m => => # fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/APKINDEX.tar.gz                                                                                                                                   
+[0m[2m => => # fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/aarch64/APKINDEX.tar.gz                                                                                                                              
+[0m[34m => CACHED [final 2/8] RUN addgroup --system --gid 1001 nodejs                                                                                                                                                        0.0s
+[0m[34m => CACHED [final 3/8] RUN adduser --system --uid 1001 nextjs                                                                                                                                                         0.0s
+[0m[34m => CACHED [final 4/8] COPY packages/ui/public ./public/                                                                                                                                                              0.0s
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.1s (10/25)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.39kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.4s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/1] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e                                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 32.55kB                                                                                                                                                                                  0.0s
+[0m[34m => CACHED [builder  1/13] WORKDIR /app                                                                                                                                                                               0.0s
+[0m[34m => CACHED [builder  2/13] RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python                                                                                                                  0.0s
+[0m => [builder  3/13] RUN apk add pip3                                                                                                                                                                                  0.7s
+[2m => => # fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/APKINDEX.tar.gz                                                                                                                                   
+[0m[2m => => # fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/aarch64/APKINDEX.tar.gz                                                                                                                              
+[0m[34m => CACHED [final 2/8] RUN addgroup --system --gid 1001 nodejs                                                                                                                                                        0.0s
+[0m[34m => CACHED [final 3/8] RUN adduser --system --uid 1001 nextjs                                                                                                                                                         0.0s
+[0m[34m => CACHED [final 4/8] COPY packages/ui/public ./public/                                                                                                                                                              0.0s
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.2s (10/25)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.39kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.4s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/1] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e                                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 32.55kB                                                                                                                                                                                  0.0s
+[0m[34m => CACHED [builder  1/13] WORKDIR /app                                                                                                                                                                               0.0s
+[0m[34m => CACHED [builder  2/13] RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python                                                                                                                  0.0s
+[0m => [builder  3/13] RUN apk add pip3                                                                                                                                                                                  0.8s
+[2m => => # fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/APKINDEX.tar.gz                                                                                                                                   
+[0m[2m => => # fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/aarch64/APKINDEX.tar.gz                                                                                                                              
+[0m[2m => => # ERROR: unable to select packages:                                                                                                                                                                                
+[0m[2m => => #   pip3 (no such package):                                                                                                                                                                                        
+[0m[2m => => #     required by: world[pip3]                                                                                                                                                                                     
+[0m[34m => CACHED [final 2/8] RUN addgroup --system --gid 1001 nodejs                                                                                                                                                        0.0s
+[0m[34m => CACHED [final 3/8] RUN adduser --system --uid 1001 nextjs                                                                                                                                                         0.0s
+[0m[34m => CACHED [final 4/8] COPY packages/ui/public ./public/                                                                                                                                                              0.0s
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.3s (11/25)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.39kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.4s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [prebuild 1/1] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e                                                                                      0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 32.55kB                                                                                                                                                                                  0.0s
+[0m[34m => CACHED [builder  1/13] WORKDIR /app                                                                                                                                                                               0.0s
+[0m[34m => CACHED [builder  2/13] RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python                                                                                                                  0.0s
+[0m[31m => ERROR [builder  3/13] RUN apk add pip3                                                                                                                                                                            0.8s
+[0m[34m => CACHED [final 2/8] RUN addgroup --system --gid 1001 nodejs                                                                                                                                                        0.0s
+[0m[34m => CACHED [final 3/8] RUN adduser --system --uid 1001 nextjs                                                                                                                                                         0.0s
+[0m[34m => CACHED [final 4/8] COPY packages/ui/public ./public/                                                                                                                                                              0.0s
+[0m                                                                                                                                                                                                                           
+                                                                                                                                                                                                                           
+                                                                                                                                                                                                                           
+                                                                                                                                                                                                                           
+                                                                                                                                                                                                                           
+[5A[0G[?25h------
+ > [builder  3/13] RUN apk add pip3:
+0.106 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/APKINDEX.tar.gz
+0.394 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/aarch64/APKINDEX.tar.gz
+0.807 ERROR: unable to select packages:
+0.807   pip3 (no such package):
+0.807     required by: world[pip3]
+------
+
+ [33m7 warnings found (use docker --debug to expand):
+[0m - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 10)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 11)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 12)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 21)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 25)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 27)
+Dockerfile:7
+--------------------
+   5 |     ENV PYTHONUNBUFFERED=1
+   6 |     RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+   7 | >>> RUN apk add pip3
+   8 |     RUN pip3 install --no-cache --upgrade pip setuptools
+   9 |     RUN npm install -g lerna@^6.0.0
+--------------------
+ERROR: failed to solve: process "/bin/sh -c apk add pip3" did not complete successfully: exit code: 1
+
+View build details: ]8;;docker-desktop://dashboard/build/desktop-linux/desktop-linux/skckjz2o7b3p7t4zpb0c45usm\docker-desktop://dashboard/build/desktop-linux/desktop-linux/skckjz2o7b3p7t4zpb0c45usm]8;;\
+[1G[0K⠙[1G[0K

@@ -1,0 +1,129 @@
+
+> api@1.0.0 start
+> nest start
+
+[32m[Nest] 25241  - [39m04/09/2025, 10:20:31 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[31m[Nest] 25241  - [39m04/09/2025, 10:20:31 AM [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (1)...[39m
+DriverPackageNotInstalledError: Postgres package has not been found installed. Try to install it: npm install pg --save
+    at PostgresDriver.loadDependencies (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:1441:19)
+    at new PostgresDriver (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:317:14)
+    at DriverFactory.create (/Users/rdobson/Development/naesb-saas/src/driver/DriverFactory.ts:36:24)
+    at new DataSource (/Users/rdobson/Development/naesb-saas/src/data-source/DataSource.ts:149:43)
+    at createTypeormDataSource (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:172:23)
+    at Function.<anonymous> (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:190:42)
+    at Generator.next (<anonymous>)
+    at /Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:20:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:16:12)
+[32m[Nest] 25241  - [39m04/09/2025, 10:20:31 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppDbModule dependencies initialized[39m[38;5;3m +3ms[39m
+[32m[Nest] 25241  - [39m04/09/2025, 10:20:31 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 25241  - [39m04/09/2025, 10:20:31 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTerminusModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 25241  - [39m04/09/2025, 10:20:31 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +1ms[39m
+[31m[Nest] 25241  - [39m04/09/2025, 10:20:34 AM [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (2)...[39m
+DriverPackageNotInstalledError: Postgres package has not been found installed. Try to install it: npm install pg --save
+    at PostgresDriver.loadDependencies (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:1441:19)
+    at new PostgresDriver (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:317:14)
+    at DriverFactory.create (/Users/rdobson/Development/naesb-saas/src/driver/DriverFactory.ts:36:24)
+    at new DataSource (/Users/rdobson/Development/naesb-saas/src/data-source/DataSource.ts:149:43)
+    at createTypeormDataSource (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:172:23)
+    at Function.<anonymous> (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:190:42)
+    at Generator.next (<anonymous>)
+    at /Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:20:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:16:12)
+[31m[Nest] 25241  - [39m04/09/2025, 10:20:37 AM [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (3)...[39m
+DriverPackageNotInstalledError: Postgres package has not been found installed. Try to install it: npm install pg --save
+    at PostgresDriver.loadDependencies (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:1441:19)
+    at new PostgresDriver (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:317:14)
+    at DriverFactory.create (/Users/rdobson/Development/naesb-saas/src/driver/DriverFactory.ts:36:24)
+    at new DataSource (/Users/rdobson/Development/naesb-saas/src/data-source/DataSource.ts:149:43)
+    at createTypeormDataSource (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:172:23)
+    at Function.<anonymous> (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:190:42)
+    at Generator.next (<anonymous>)
+    at /Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:20:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:16:12)
+[31m[Nest] 25241  - [39m04/09/2025, 10:20:40 AM [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (4)...[39m
+DriverPackageNotInstalledError: Postgres package has not been found installed. Try to install it: npm install pg --save
+    at PostgresDriver.loadDependencies (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:1441:19)
+    at new PostgresDriver (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:317:14)
+    at DriverFactory.create (/Users/rdobson/Development/naesb-saas/src/driver/DriverFactory.ts:36:24)
+    at new DataSource (/Users/rdobson/Development/naesb-saas/src/data-source/DataSource.ts:149:43)
+    at createTypeormDataSource (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:172:23)
+    at Function.<anonymous> (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:190:42)
+    at Generator.next (<anonymous>)
+    at /Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:20:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:16:12)
+[31m[Nest] 25241  - [39m04/09/2025, 10:20:43 AM [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (5)...[39m
+DriverPackageNotInstalledError: Postgres package has not been found installed. Try to install it: npm install pg --save
+    at PostgresDriver.loadDependencies (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:1441:19)
+    at new PostgresDriver (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:317:14)
+    at DriverFactory.create (/Users/rdobson/Development/naesb-saas/src/driver/DriverFactory.ts:36:24)
+    at new DataSource (/Users/rdobson/Development/naesb-saas/src/data-source/DataSource.ts:149:43)
+    at createTypeormDataSource (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:172:23)
+    at Function.<anonymous> (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:190:42)
+    at Generator.next (<anonymous>)
+    at /Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:20:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:16:12)
+[31m[Nest] 25241  - [39m04/09/2025, 10:20:46 AM [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (6)...[39m
+DriverPackageNotInstalledError: Postgres package has not been found installed. Try to install it: npm install pg --save
+    at PostgresDriver.loadDependencies (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:1441:19)
+    at new PostgresDriver (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:317:14)
+    at DriverFactory.create (/Users/rdobson/Development/naesb-saas/src/driver/DriverFactory.ts:36:24)
+    at new DataSource (/Users/rdobson/Development/naesb-saas/src/data-source/DataSource.ts:149:43)
+    at createTypeormDataSource (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:172:23)
+    at Function.<anonymous> (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:190:42)
+    at Generator.next (<anonymous>)
+    at /Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:20:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:16:12)
+[31m[Nest] 25241  - [39m04/09/2025, 10:20:49 AM [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (7)...[39m
+DriverPackageNotInstalledError: Postgres package has not been found installed. Try to install it: npm install pg --save
+    at PostgresDriver.loadDependencies (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:1441:19)
+    at new PostgresDriver (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:317:14)
+    at DriverFactory.create (/Users/rdobson/Development/naesb-saas/src/driver/DriverFactory.ts:36:24)
+    at new DataSource (/Users/rdobson/Development/naesb-saas/src/data-source/DataSource.ts:149:43)
+    at createTypeormDataSource (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:172:23)
+    at Function.<anonymous> (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:190:42)
+    at Generator.next (<anonymous>)
+    at /Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:20:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:16:12)
+[31m[Nest] 25241  - [39m04/09/2025, 10:20:52 AM [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (8)...[39m
+DriverPackageNotInstalledError: Postgres package has not been found installed. Try to install it: npm install pg --save
+    at PostgresDriver.loadDependencies (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:1441:19)
+    at new PostgresDriver (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:317:14)
+    at DriverFactory.create (/Users/rdobson/Development/naesb-saas/src/driver/DriverFactory.ts:36:24)
+    at new DataSource (/Users/rdobson/Development/naesb-saas/src/data-source/DataSource.ts:149:43)
+    at createTypeormDataSource (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:172:23)
+    at Function.<anonymous> (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:190:42)
+    at Generator.next (<anonymous>)
+    at /Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:20:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:16:12)
+[31m[Nest] 25241  - [39m04/09/2025, 10:20:55 AM [31m  ERROR[39m [38;5;3m[TypeOrmModule] [39m[31mUnable to connect to the database. Retrying (9)...[39m
+DriverPackageNotInstalledError: Postgres package has not been found installed. Try to install it: npm install pg --save
+    at PostgresDriver.loadDependencies (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:1441:19)
+    at new PostgresDriver (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:317:14)
+    at DriverFactory.create (/Users/rdobson/Development/naesb-saas/src/driver/DriverFactory.ts:36:24)
+    at new DataSource (/Users/rdobson/Development/naesb-saas/src/data-source/DataSource.ts:149:43)
+    at createTypeormDataSource (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:172:23)
+    at Function.<anonymous> (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:190:42)
+    at Generator.next (<anonymous>)
+    at /Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:20:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:16:12)
+[31m[Nest] 25241  - [39m04/09/2025, 10:20:55 AM [31m  ERROR[39m [38;5;3m[ExceptionHandler] [39m[31mPostgres package has not been found installed. Try to install it: npm install pg --save[39m
+DriverPackageNotInstalledError: Postgres package has not been found installed. Try to install it: npm install pg --save
+    at PostgresDriver.loadDependencies (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:1441:19)
+    at new PostgresDriver (/Users/rdobson/Development/naesb-saas/src/driver/postgres/PostgresDriver.ts:317:14)
+    at DriverFactory.create (/Users/rdobson/Development/naesb-saas/src/driver/DriverFactory.ts:36:24)
+    at new DataSource (/Users/rdobson/Development/naesb-saas/src/data-source/DataSource.ts:149:43)
+    at createTypeormDataSource (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:172:23)
+    at Function.<anonymous> (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:190:42)
+    at Generator.next (<anonymous>)
+    at /Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:20:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/rdobson/Development/naesb-saas/node_modules/@nestjs/typeorm/dist/typeorm-core.module.js:16:12)

@@ -1,0 +1,67 @@
+
+> ui@0.1.0 docker
+> docker build -t naesb-saas-ui -f ./Dockerfile ../../
+
+[1G[0K[1A[1B[0G[?25l[+] Building 0.0s (0/0)  docker:desktop-linux
+[?25h[1A[0G[?25l[+] Building 0.0s (0/1)                                                                                                                                                                               docker:desktop-linux
+[?25h[1A[0G[?25l[+] Building 0.2s (1/2)                                                                                                                                                                               docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.38kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+ => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.2s
+[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.3s (1/2)                                                                                                                                                                               docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.38kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+ => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.3s
+[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.5s (1/2)                                                                                                                                                                               docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.38kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+ => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.5s
+[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.5s (2/2)                                                                                                                                                                               docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.38kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.5s
+[0m[?25h[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.6s (11/24)                                                                                                                                                                             docker:desktop-linux
+[34m => [internal] load build definition from Dockerfile                                                                                                                                                                  0.0s
+[0m[34m => => transferring dockerfile: 1.38kB                                                                                                                                                                                0.0s
+[0m => WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)                                                                                                                                        0.0s
+[34m => [internal] load metadata for docker.io/library/node:18-alpine                                                                                                                                                     0.5s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 205B                                                                                                                                                                                     0.0s
+[0m[34m => [internal] load build context                                                                                                                                                                                     0.0s
+[0m[34m => => transferring context: 32.53kB                                                                                                                                                                                  0.0s
+[0m[34m => [prebuild 1/1] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e                                                                                      0.0s
+[0m[34m => CACHED [builder  1/12] WORKDIR /app                                                                                                                                                                               0.0s
+[0m[34m => CACHED [builder  2/12] RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python                                                                                                                  0.0s
+[0m[31m => ERROR [builder  3/12] RUN pip3 install --no-cache --upgrade pip setuptools                                                                                                                                        0.1s
+[0m[34m => CACHED [final 2/8] RUN addgroup --system --gid 1001 nodejs                                                                                                                                                        0.0s
+[0m[34m => CACHED [final 3/8] RUN adduser --system --uid 1001 nextjs                                                                                                                                                         0.0s
+[0m[34m => CACHED [final 4/8] COPY packages/ui/public ./public/                                                                                                                                                              0.0s
+[0m[?25h------
+ > [builder  3/12] RUN pip3 install --no-cache --upgrade pip setuptools:
+0.074 /bin/sh: pip3: not found
+------
+
+ [33m7 warnings found (use docker --debug to expand):
+[0m - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 24)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 26)
+ - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 9)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 10)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 11)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 20)
+Dockerfile:7
+--------------------
+   5 |     ENV PYTHONUNBUFFERED=1
+   6 |     RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+   7 | >>> RUN pip3 install --no-cache --upgrade pip setuptools
+   8 |     RUN npm install -g lerna@^6.0.0
+   9 |     ENV NODE_ENV development
+--------------------
+ERROR: failed to solve: process "/bin/sh -c pip3 install --no-cache --upgrade pip setuptools" did not complete successfully: exit code: 127
+
+View build details: ]8;;docker-desktop://dashboard/build/desktop-linux/desktop-linux/586xjhi3cb8ids21rmwdpl5wx\docker-desktop://dashboard/build/desktop-linux/desktop-linux/586xjhi3cb8ids21rmwdpl5wx]8;;\
+[1G[0K⠙[1G[0K

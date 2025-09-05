@@ -1,0 +1,46 @@
+
+> ui@0.1.0 start
+> next start
+
+[1G[0K[33mThe module 'react' was not found. Next.js requires that you include it in 'dependencies' of your 'package.json'. To add it, run 'npm install react'[39m
+[33mThe module 'react-dom' was not found. Next.js requires that you include it in 'dependencies' of your 'package.json'. To add it, run 'npm install react-dom'[39m
+[32mready[39m - started server on 0.0.0.0:3000, url: http://localhost:3000
+[36minfo[39m  - Loaded env from /Users/rdobson/Development/naesb-saas/packages/ui/.env.local
+[33m[33mwarn[39m  - Invalid next.config.js options detected: [39m
+[31m  - The value at .experimental has an unexpected property, output, which is not in the list of allowed properties (adjustFontFallbacks, adjustFontFallbacksWithSizeAdjust, amp, cpus, craCompat, disableOptimizedLoading, disablePostcssPresetEnv, esmExternals, appDir, externalDir, fallbackNodePolyfills, fetchCache, forceSwcTransforms, fullySpecified, gzipSize, incrementalCacheHandlerPath, isrFlushToDisk, isrMemoryCacheSize, largePageDataBytes, legacyBrowsers, manualClientBasePath, middlewarePrefetch, newNextLinkBehavior, nextScriptWorkers, optimizeCss, optimisticClientCache, outputFileTracingRoot, outputFileTracingIgnores, pageEnv, profiling, proxyTimeout, runtime, serverComponentsExternalPackages, scrollRestoration, sharedPool, sri, swcFileReading, swcMinify, swcMinifyDebugOptions, swcPlugins, swcTraceProfiling, urlImports, enableUndici, workerThreads, fontLoaders, webVitalsAttribution, mdxRs, turbotrace).[39m
+[31m
+See more info here: https://nextjs.org/docs/messages/invalid-next-config[39m
+[33m[33mwarn[39m  - [1mYou have enabled experimental features (output, outputFileTracingRoot) in next.config.js.[22m[39m
+[33m[33mwarn[39m  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.[39m
+[33m[39m
+Error: Cannot find module 'react'
+Require stack:
+- /Users/rdobson/Development/naesb-saas/node_modules/next/dist/server/render.js
+- /Users/rdobson/Development/naesb-saas/node_modules/next/dist/server/next-server.js
+- /Users/rdobson/Development/naesb-saas/node_modules/next/dist/server/next.js
+- /Users/rdobson/Development/naesb-saas/node_modules/next/dist/server/lib/start-server.js
+- /Users/rdobson/Development/naesb-saas/node_modules/next/dist/cli/next-start.js
+- /Users/rdobson/Development/naesb-saas/node_modules/next/dist/lib/commands.js
+- /Users/rdobson/Development/naesb-saas/node_modules/next/dist/bin/next
+[90m    at Module._resolveFilename (node:internal/modules/cjs/loader:1145:15)[39m
+    at mod._resolveFilename (/Users/rdobson/Development/naesb-saas/node_modules/[4mnext[24m/dist/build/webpack/require-hook.js:23:32)
+[90m    at Module._load (node:internal/modules/cjs/loader:986:27)[39m
+[90m    at Module.require (node:internal/modules/cjs/loader:1233:19)[39m
+[90m    at require (node:internal/modules/helpers:179:18)[39m
+    at Object.<anonymous> (/Users/rdobson/Development/naesb-saas/node_modules/[4mnext[24m/dist/server/render.js:6:37)
+[90m    at Module._compile (node:internal/modules/cjs/loader:1358:14)[39m
+[90m    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)[39m
+[90m    at Module.load (node:internal/modules/cjs/loader:1208:32)[39m
+[90m    at Module._load (node:internal/modules/cjs/loader:1024:12)[39m {
+  code: [32m'MODULE_NOT_FOUND'[39m,
+  requireStack: [
+    [32m'/Users/rdobson/Development/naesb-saas/node_modules/next/dist/server/render.js'[39m,
+    [32m'/Users/rdobson/Development/naesb-saas/node_modules/next/dist/server/next-server.js'[39m,
+    [32m'/Users/rdobson/Development/naesb-saas/node_modules/next/dist/server/next.js'[39m,
+    [32m'/Users/rdobson/Development/naesb-saas/node_modules/next/dist/server/lib/start-server.js'[39m,
+    [32m'/Users/rdobson/Development/naesb-saas/node_modules/next/dist/cli/next-start.js'[39m,
+    [32m'/Users/rdobson/Development/naesb-saas/node_modules/next/dist/lib/commands.js'[39m,
+    [32m'/Users/rdobson/Development/naesb-saas/node_modules/next/dist/bin/next'[39m
+  ]
+}
+[1G[0K⠙[1G[0K

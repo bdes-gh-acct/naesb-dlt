@@ -1,0 +1,87 @@
+
+> ui@0.1.0 build
+> next build
+
+[1G[0K[36minfo[39m  - Loaded env from /Users/rdobson/Development/naesb-saas/packages/ui/.env.local
+[33m[33mwarn[39m  - Invalid next.config.js options detected: [39m
+[31m  - The value at .experimental has an unexpected property, outputStandalone, which is not in the list of allowed properties (adjustFontFallbacks, adjustFontFallbacksWithSizeAdjust, amp, cpus, craCompat, disableOptimizedLoading, disablePostcssPresetEnv, esmExternals, appDir, externalDir, fallbackNodePolyfills, fetchCache, forceSwcTransforms, fullySpecified, gzipSize, incrementalCacheHandlerPath, isrFlushToDisk, isrMemoryCacheSize, largePageDataBytes, legacyBrowsers, manualClientBasePath, middlewarePrefetch, newNextLinkBehavior, nextScriptWorkers, optimizeCss, optimisticClientCache, outputFileTracingRoot, outputFileTracingIgnores, pageEnv, profiling, proxyTimeout, runtime, serverComponentsExternalPackages, scrollRestoration, sharedPool, sri, swcFileReading, swcMinify, swcMinifyDebugOptions, swcPlugins, swcTraceProfiling, urlImports, enableUndici, workerThreads, fontLoaders, webVitalsAttribution, mdxRs, turbotrace).[39m
+[31m
+See more info here: https://nextjs.org/docs/messages/invalid-next-config[39m
+[33m[33mwarn[39m  - [1mYou have enabled experimental features (outputStandalone, outputFileTracingRoot) in next.config.js.[22m[39m
+[33m[33mwarn[39m  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.[39m
+[33m[39m
+[33m[33mwarn[39m  - experimental.outputStandalone has been renamed to "output: 'standalone'", please move the config.[39m
+[?25l[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[?25h
+[36m./pages/api/organizations/[businessId]/did/index.ts[39m
+[33m25[39m:[33m5[39m  [33m[1mWarning[22m[39m: Unexpected console statement.  [90m[1mno-console[22m[39m
+
+[36m./pages/api/organizations/[businessId]/index.ts[39m
+[33m25[39m:[33m5[39m  [33m[1mWarning[22m[39m: Unexpected console statement.  [90m[1mno-console[22m[39m
+
+[36m./pages/api/organizations/index.ts[39m
+[33m21[39m:[33m5[39m  [33m[1mWarning[22m[39m: Unexpected console statement.  [90m[1mno-console[22m[39m
+
+[36m./pages/api/userOrganizations/user.tsx[39m
+[33m21[39m:[33m5[39m  [33m[1mWarning[22m[39m: Unexpected console statement.  [90m[1mno-console[22m[39m
+
+[36m./components/shared/form/form.tsx[39m
+[33m33[39m:[33m18[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m33[39m:[33m26[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m38[39m:[33m47[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m40[39m:[33m31[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+
+[36m./components/shared/form/input/select/index.tsx[39m
+[33m13[39m:[33m31[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m13[39m:[33m36[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m57[39m:[33m29[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+
+[36m./components/shared/grid/useGetRowsService.ts[39m
+[33m24[39m:[33m21[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m24[39m:[33m49[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m38[39m:[33m38[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m38[39m:[33m50[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+
+[36m./components/shared/util.ts[39m
+[33m36[39m:[33m5[39m  [33m[1mWarning[22m[39m: Unexpected console statement.  [90m[1mno-console[22m[39m
+
+[36minfo[39m  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+[?25l[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[?25h[36minfo[39m  - Linting and checking validity of types  
+[?25l[36minfo[39m  - Creating an optimized production build [36m.[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m..[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m...[39m[2K[1G[?25h[33mBrowserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating[39m
+[?25l[36minfo[39m  - Creating an optimized production build [36m.[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m..[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m...[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m.[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m..[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m...[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m.[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m..[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m...[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m.[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m..[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m...[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m.[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m..[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m...[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m.[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m..[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m...[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m.[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m..[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m...[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m.[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m..[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m...[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m.[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m..[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m...[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m.[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m..[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m...[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m.[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m..[39m[2K[1G[36minfo[39m  - Creating an optimized production build [36m...[39m[2K[1G[?25h[36minfo[39m  - Creating an optimized production build  
+[36minfo[39m  - Compiled successfully
+[?25l[36minfo[39m  - Collecting page data [36m.[39m[2K[1G[36minfo[39m  - Collecting page data [36m..[39m[2K[1G[36minfo[39m  - Collecting page data [36m...[39m[2K[1G[36minfo[39m  - Collecting page data [36m.[39m[2K[1G[36minfo[39m  - Collecting page data [36m..[39m[2K[1G[36minfo[39m  - Collecting page data [36m...[39m[2K[1G[36minfo[39m  - Collecting page data [36m.[39m[2K[1G[36minfo[39m  - Collecting page data [36m..[39m[2K[1G[36minfo[39m  - Collecting page data [36m...[39m[2K[1G[36minfo[39m  - Collecting page data [36m.[39m[2K[1G[36minfo[39m  - Collecting page data [36m..[39m[2K[1G[36minfo[39m  - Collecting page data [36m...[39m[2K[1G[36minfo[39m  - Collecting page data [36m.[39m[2K[1G[36minfo[39m  - Collecting page data [36m..[39m[2K[1G[36minfo[39m  - Collecting page data [36m...[39m[2K[1G[36minfo[39m  - Collecting page data [36m.[39m[2K[1G[36minfo[39m  - Collecting page data [36m..[39m[2K[1G[36minfo[39m  - Collecting page data [36m...[39m[2K[1G[36minfo[39m  - Collecting page data [36m.[39m[2K[1G[36minfo[39m  - Collecting page data [36m..[39m[2K[1G[36minfo[39m  - Collecting page data [36m...[39m[2K[1G[36minfo[39m  - Collecting page data [36m.[39m[2K[1G[36minfo[39m  - Collecting page data [36m..[39m[2K[1G[36minfo[39m  - Collecting page data [36m...[39m[2K[1G[36minfo[39m  - Collecting page data [36m.[39m[2K[1G[36minfo[39m  - Collecting page data [36m..[39m[2K[1G[36minfo[39m  - Collecting page data [36m...[39m[2K[1G[36minfo[39m  - Collecting page data [36m.[39m[2K[1G[36minfo[39m  - Collecting page data [36m..[39m[2K[1G[36minfo[39m  - Collecting page data [36m...[39m[2K[1G[36minfo[39m  - Collecting page data [36m.[39m[2K[1G[36minfo[39m  - Collecting page data [36m..[39m[2K[1G[36minfo[39m  - Collecting page data [36m...[39m[2K[1G[36minfo[39m  - Collecting page data [36m.[39m[2K[1G[36minfo[39m  - Collecting page data [36m..[39m[2K[1G[36minfo[39m  - Collecting page data [36m...[39m[2K[1G[36minfo[39m  - Collecting page data [36m.[39m[2K[1G[36minfo[39m  - Collecting page data [36m..[39m[2K[1G[36minfo[39m  - Collecting page data [36m...[39m[2K[1G[36minfo[39m  - Collecting page data [36m.[39m[2K[1G[36minfo[39m  - Collecting page data [36m..[39m[2K[1G[36minfo[39m  - Collecting page data [36m...[39m[2K[1G[36minfo[39m  - Collecting page data [36m.[39m[2K[1G[36minfo[39m  - Collecting page data [36m..[39m[2K[1G[36minfo[39m  - Collecting page data [36m...[39m[2K[1G[36minfo[39m  - Collecting page data [36m.[39m[2K[1G[36minfo[39m  - Collecting page data [36m..[39m[2K[1G[?25h[36minfo[39m  - Collecting page data  
+[?25l[36m[    ][39m [36minfo[39m  - Generating static pages (0/9)[2K[1G[36m[=   ][39m [36minfo[39m  - Generating static pages (6/9)[2K[1G[?25h[36minfo[39m  - Generating static pages (9/9)
+[?25l[36minfo[39m  - Finalizing page optimization [36m.[39m[2K[1G[?25h[36minfo[39m  - Finalizing page optimization  
+
+[4mRoute (pages)[24m                              [4mSize[24m     [4mFirst Load JS[24m
+┌ ○ / ([32m396 ms[39m)                             4.13 kB         [33m162 kB[39m
+├   /_app                                  0 B             [33m158 kB[39m
+├ ○ /404                                   180 B           [33m158 kB[39m
+├ ○ /account ([32m578 ms[39m)                      23.2 kB         [31m[1m282 kB[22m[39m
+├ λ /api/auth/[...auth0]                   0 B             [33m158 kB[39m
+├ λ /api/locations/search                  0 B             [33m158 kB[39m
+├ λ /api/organizations                     0 B             [33m158 kB[39m
+├ λ /api/organizations/[businessId]        0 B             [33m158 kB[39m
+├ λ /api/organizations/[businessId]/did    0 B             [33m158 kB[39m
+├ λ /api/organizations/search              0 B             [33m158 kB[39m
+├ λ /api/userOrganizations/user            0 B             [33m158 kB[39m
+├ ○ /locations ([32m372 ms[39m)                    1.28 kB         [31m[1m451 kB[22m[39m
+├ ○ /organizations ([32m542 ms[39m)                931 B           [31m[1m427 kB[22m[39m
+├ ○ /organizations/layout ([32m399 ms[39m)         996 B           [31m[1m427 kB[22m[39m
+├ ○ /organizations/loading ([32m347 ms[39m)        255 B           [33m158 kB[39m
+└ ○ /registration ([32m577 ms[39m)                 2.34 kB         [31m[1m261 kB[22m[39m
++ First Load JS shared by all              [31m[1m187 kB[22m[39m
+  ├ chunks/framework-a252ecd2add76760.js   67.1 kB
+  ├ chunks/main-58ae05b8d0c7453f.js        27.2 kB
+  ├ chunks/pages/_app-cfd2251dd47a336d.js  62.8 kB
+  ├ chunks/webpack-36d12a75f0098f30.js     1.05 kB
+  └ css/f31cc4cf3f72e977.css               28.6 kB
+
+ƒ Middleware                               [32m119 kB[39m
+
+λ  (Server)  server-side renders at runtime (uses [36mgetInitialProps[39m or [36mgetServerSideProps[39m)
+○  (Static)  automatically rendered as static HTML (uses no initial props)
+
+[?25h[1G[0K⠙[1G[0K

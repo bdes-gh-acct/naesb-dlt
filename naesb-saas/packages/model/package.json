@@ -1,0 +1,10 @@
+{
+  "name": "@shared/model",
+  "version": "1.0.0",
+  "description": "type package",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  }
+}

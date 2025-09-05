@@ -1,0 +1,62 @@
+
+> ui@0.1.0 build
+> next build
+
+[1G[0K[33m[33mwarn[39m  - Invalid next.config.js options detected: [39m
+[31m  - The value at .experimental has an unexpected property, outputStandalone, which is not in the list of allowed properties (adjustFontFallbacks, adjustFontFallbacksWithSizeAdjust, amp, cpus, craCompat, disableOptimizedLoading, disablePostcssPresetEnv, esmExternals, appDir, externalDir, fallbackNodePolyfills, fetchCache, forceSwcTransforms, fullySpecified, gzipSize, incrementalCacheHandlerPath, isrFlushToDisk, isrMemoryCacheSize, largePageDataBytes, legacyBrowsers, manualClientBasePath, middlewarePrefetch, newNextLinkBehavior, nextScriptWorkers, optimizeCss, optimisticClientCache, outputFileTracingRoot, outputFileTracingIgnores, pageEnv, profiling, proxyTimeout, runtime, serverComponentsExternalPackages, scrollRestoration, sharedPool, sri, swcFileReading, swcMinify, swcMinifyDebugOptions, swcPlugins, swcTraceProfiling, urlImports, enableUndici, workerThreads, fontLoaders, webVitalsAttribution, mdxRs, turbotrace).[39m
+[31m
+See more info here: https://nextjs.org/docs/messages/invalid-next-config[39m
+[33m[33mwarn[39m  - [1mYou have enabled experimental features (outputStandalone, outputFileTracingRoot) in next.config.js.[22m[39m
+[33m[33mwarn[39m  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.[39m
+[33m[39m
+[33m[33mwarn[39m  - experimental.outputStandalone has been renamed to "output: 'standalone'", please move the config.[39m
+[?25l[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[?25h
+[36m./pages/api/organizations/[businessId]/did/index.ts[39m
+[33m25[39m:[33m5[39m  [33m[1mWarning[22m[39m: Unexpected console statement.  [90m[1mno-console[22m[39m
+
+[36m./pages/api/organizations/[businessId]/index.ts[39m
+[33m25[39m:[33m5[39m  [33m[1mWarning[22m[39m: Unexpected console statement.  [90m[1mno-console[22m[39m
+
+[36m./pages/api/organizations/index.ts[39m
+[33m21[39m:[33m5[39m  [33m[1mWarning[22m[39m: Unexpected console statement.  [90m[1mno-console[22m[39m
+
+[36m./pages/api/userOrganizations/user.tsx[39m
+[33m21[39m:[33m5[39m  [33m[1mWarning[22m[39m: Unexpected console statement.  [90m[1mno-console[22m[39m
+
+[36m./components/shared/form/form.tsx[39m
+[33m33[39m:[33m18[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m33[39m:[33m26[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m38[39m:[33m47[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m40[39m:[33m31[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+
+[36m./components/shared/form/input/select/index.tsx[39m
+[33m13[39m:[33m31[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m57[39m:[33m29[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+
+[36m./components/shared/grid/useGetRowsService.ts[39m
+[33m24[39m:[33m21[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m24[39m:[33m49[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m38[39m:[33m38[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m38[39m:[33m50[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+
+[36m./components/shared/util.ts[39m
+[33m36[39m:[33m5[39m  [33m[1mWarning[22m[39m: Unexpected console statement.  [90m[1mno-console[22m[39m
+
+[36minfo[39m  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+[?25l[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[31mFailed to compile.[39m
+[31m[39m
+[36m./components/main.tsx[39m:[33m83[39m:[33m15[39m
+[31m[1mType error[22m[39m: No overload matches this call.
+  Overload 1 of 2, '(props: { component: ElementType<any, keyof IntrinsicElements>; } & TypographySlotsAndSlotProps & Omit<SystemProps, "color"> & { ...; } & Omit<...>): Element | null', gave the following error.
+    Type '"h6"' is not assignable to type '"inherit" | keyof TypographySystem | undefined'.
+  Overload 2 of 2, '(props: DefaultComponentProps<TypographyTypeMap<{}, "span">>): Element | null', gave the following error.
+    Type '"h6"' is not assignable to type '"inherit" | keyof TypographySystem | undefined'.
+
+[0m [90m 81 | [39m            [33m<[39m[33mTypography[39m[0m
+[0m [90m 82 | [39m              textAlign[33m=[39m[32m"center"[39m[0m
+[0m[31m[1m>[22m[39m[90m 83 | [39m              level[33m=[39m[32m"h6"[39m[0m
+[0m [90m    | [39m              [31m[1m^[22m[39m[0m
+[0m [90m 84 | [39m              sx[33m=[39m{{[0m
+[0m [90m 85 | [39m                color[33m:[39m [32m'#FFFFFFB3'[39m[33m,[39m[0m
+[0m [90m 86 | [39m              }}[0m
+[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[?25h[1G[0K⠙[1G[0K

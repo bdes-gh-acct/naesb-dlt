@@ -1,0 +1,826 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.8.2",
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": ".dockerignore",
+        "hash": "17319886972582222916"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "14690530566694426314"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "3186979718524545427"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "13651968477724535712"
+      },
+      {
+        "file": "docker-compose.yaml",
+        "hash": "7181339939475794186"
+      },
+      {
+        "file": "jest.config.base.js",
+        "hash": "10144858005207933503"
+      },
+      {
+        "file": "lerna-debug.log",
+        "hash": "17735978636515427487"
+      },
+      {
+        "file": "lerna.json",
+        "hash": "16312937280995564458"
+      },
+      {
+        "file": "nx.json",
+        "hash": "5264565123563620175"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "12977080086974990948"
+      },
+      {
+        "file": "package.json",
+        "hash": "17322445248157240246"
+      },
+      {
+        "file": "proxy/nginx.conf",
+        "hash": "150334483822947234"
+      },
+      {
+        "file": "terraform/.terraform.lock.hcl",
+        "hash": "5123608315893966748"
+      },
+      {
+        "file": "terraform/.terraform/environment",
+        "hash": "2235159573925835768"
+      },
+      {
+        "file": "terraform/.terraform/modules/modules.json",
+        "hash": "14318037757557470348"
+      },
+      {
+        "file": "terraform/.terraform/providers/registry.terraform.io/hashicorp/aws/3.74.3/darwin_amd64/terraform-provider-aws_v3.74.3_x5",
+        "hash": "15545681114612180228"
+      },
+      {
+        "file": "terraform/.terraform/providers/registry.terraform.io/hashicorp/aws/3.74.3/darwin_arm64/terraform-provider-aws_v3.74.3_x5",
+        "hash": "6165018223361063898"
+      },
+      {
+        "file": "terraform/.terraform/providers/registry.terraform.io/hashicorp/aws/3.74.3/windows_amd64/terraform-provider-aws_v3.74.3_x5.exe",
+        "hash": "3893649944187539875"
+      },
+      {
+        "file": "terraform/.terraform/providers/registry.terraform.io/hashicorp/template/2.2.0/darwin_amd64/terraform-provider-template_v2.2.0_x4",
+        "hash": "16479144619145713566"
+      },
+      {
+        "file": "terraform/.terraform/providers/registry.terraform.io/hashicorp/template/2.2.0/windows_amd64/terraform-provider-template_v2.2.0_x4.exe",
+        "hash": "6572364702459883792"
+      },
+      {
+        "file": "terraform/.terraform/terraform.tfstate",
+        "hash": "7513528099377433833"
+      },
+      {
+        "file": "terraform/main.tf",
+        "hash": "2728855617496280382"
+      },
+      {
+        "file": "terraform/modules/registry/docker-compose.yaml",
+        "hash": "9875592721063218481"
+      },
+      {
+        "file": "terraform/modules/registry/main.tf",
+        "hash": "10248056248614050899"
+      },
+      {
+        "file": "terraform/modules/registry/nginx.conf",
+        "hash": "16013027904384308208"
+      },
+      {
+        "file": "terraform/modules/registry/user-data.sh",
+        "hash": "2456013798090325983"
+      },
+      {
+        "file": "terraform/modules/registry/variables.tf",
+        "hash": "789810721277180807"
+      },
+      {
+        "file": "terraform/outputs.tf",
+        "hash": "5764254443205692718"
+      },
+      {
+        "file": "terraform/provider.tf",
+        "hash": "3639245147661039564"
+      },
+      {
+        "file": "terraform/shared/acm_domain/main.tf",
+        "hash": "7323093468298953509"
+      },
+      {
+        "file": "terraform/shared/acm_domain/output.tf",
+        "hash": "2809539516691992413"
+      },
+      {
+        "file": "terraform/shared/acm_domain/variables.tf",
+        "hash": "8775693372025030050"
+      },
+      {
+        "file": "terraform/terraform.tfvars",
+        "hash": "3854302620569694956"
+      },
+      {
+        "file": "terraform/variables.tf",
+        "hash": "11987829724665903250"
+      },
+      {
+        "file": "test.sh",
+        "hash": "10355178410726101780"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "14892179156618003883"
+      }
+    ],
+    "projectFileMap": {
+      "@shared/orm-model": [
+        {
+          "file": "packages/orm-model/package.json",
+          "hash": "10200198271878602858",
+          "deps": [
+            "npm:lodash",
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "packages/orm-model/src/index.ts",
+          "hash": "15550657163286459817"
+        },
+        {
+          "file": "packages/orm-model/tsconfig.json",
+          "hash": "12236476620617906586"
+        }
+      ],
+      "@shared/orm": [
+        {
+          "file": "packages/orm/coverage/clover.xml",
+          "hash": "10732006898006983981"
+        },
+        {
+          "file": "packages/orm/coverage/coverage-final.json",
+          "hash": "16259787109689443027"
+        },
+        {
+          "file": "packages/orm/coverage/coverage-summary.json",
+          "hash": "10545941526272530458"
+        },
+        {
+          "file": "packages/orm/coverage/lcov-report/base.css",
+          "hash": "6204767174569381253"
+        },
+        {
+          "file": "packages/orm/coverage/lcov-report/block-navigation.js",
+          "hash": "1801078621803424330"
+        },
+        {
+          "file": "packages/orm/coverage/lcov-report/favicon.png",
+          "hash": "13402560043085226048"
+        },
+        {
+          "file": "packages/orm/coverage/lcov-report/index.html",
+          "hash": "17962676666919917892"
+        },
+        {
+          "file": "packages/orm/coverage/lcov-report/prettify.css",
+          "hash": "8163588510556258587"
+        },
+        {
+          "file": "packages/orm/coverage/lcov-report/prettify.js",
+          "hash": "15884788582061322779"
+        },
+        {
+          "file": "packages/orm/coverage/lcov-report/queryFactory.ts.html",
+          "hash": "16401683941815356314"
+        },
+        {
+          "file": "packages/orm/coverage/lcov-report/schema.ts.html",
+          "hash": "7618116190412848459"
+        },
+        {
+          "file": "packages/orm/coverage/lcov-report/sort-arrow-sprite.png",
+          "hash": "254831142482329146"
+        },
+        {
+          "file": "packages/orm/coverage/lcov-report/sorter.js",
+          "hash": "17053119163225536857"
+        },
+        {
+          "file": "packages/orm/coverage/lcov-report/util.ts.html",
+          "hash": "11190912960373176034"
+        },
+        {
+          "file": "packages/orm/coverage/lcov.info",
+          "hash": "10430308887628976726"
+        },
+        {
+          "file": "packages/orm/package.json",
+          "hash": "14022114298796600246",
+          "deps": [
+            "npm:lodash",
+            "npm:typeorm",
+            "@shared/orm-model",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/orm/src/__tests__/queryFactory.test.ts",
+          "hash": "2073376726468096070"
+        },
+        {
+          "file": "packages/orm/src/__tests__/schema.test.ts",
+          "hash": "13604052477829832120"
+        },
+        {
+          "file": "packages/orm/src/__tests__/util.ts",
+          "hash": "11038441399290166581"
+        },
+        {
+          "file": "packages/orm/src/index.ts",
+          "hash": "972636875474466225"
+        },
+        {
+          "file": "packages/orm/src/queryFactory.ts",
+          "hash": "9538338844733857552"
+        },
+        {
+          "file": "packages/orm/src/schema.ts",
+          "hash": "17340173805231682697"
+        },
+        {
+          "file": "packages/orm/src/util.ts",
+          "hash": "4636909645291313609"
+        },
+        {
+          "file": "packages/orm/tsconfig.json",
+          "hash": "17832517215933621198"
+        }
+      ],
+      "api": [
+        {
+          "file": "packages/api/.env",
+          "hash": "10582107667359477267"
+        },
+        {
+          "file": "packages/api/Dockerfile",
+          "hash": "12641894578486667580"
+        },
+        {
+          "file": "packages/api/nest-cli.json",
+          "hash": "3995561187235034900"
+        },
+        {
+          "file": "packages/api/package-lock.json",
+          "hash": "14951931256555581368"
+        },
+        {
+          "file": "packages/api/package.json",
+          "hash": "11241127249756485577",
+          "deps": [
+            "npm:@nestjs/cli",
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:@nestjs/passport",
+            "npm:@nestjs/platform-express@9.4.3",
+            "npm:@nestjs/swagger",
+            "npm:@nestjs/terminus",
+            "npm:@nestjs/typeorm",
+            "@shared/model",
+            "@shared/orm",
+            "@shared/orm-model",
+            "npm:class-transformer",
+            "npm:class-validator",
+            "npm:cookie-parser",
+            "npm:express@4.21.2",
+            "npm:jwks-rsa",
+            "npm:lodash",
+            "npm:passport",
+            "npm:passport-jwt",
+            "npm:pg",
+            "npm:reflect-metadata",
+            "npm:rxjs",
+            "npm:swagger-ui-express",
+            "npm:typeorm",
+            "npm:uuid",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/api/src/app.module.ts",
+          "hash": "440085248701005341"
+        },
+        {
+          "file": "packages/api/src/auth.ts",
+          "hash": "12147943175340858612"
+        },
+        {
+          "file": "packages/api/src/data/index.ts",
+          "hash": "3623182454796907619"
+        },
+        {
+          "file": "packages/api/src/data/priceIndex.ts",
+          "hash": "7622466878114772717"
+        },
+        {
+          "file": "packages/api/src/data/priceIndexProvider.ts",
+          "hash": "9863373449095671023"
+        },
+        {
+          "file": "packages/api/src/db/BusinessRole.entity.ts",
+          "hash": "229319113533410436"
+        },
+        {
+          "file": "packages/api/src/db/BusinessRoleJunction.entity.ts",
+          "hash": "14540745533223110974"
+        },
+        {
+          "file": "packages/api/src/db/db.module.ts",
+          "hash": "17435191530997778837"
+        },
+        {
+          "file": "packages/api/src/db/directionOfFlow.entity.ts",
+          "hash": "5218044833153028972"
+        },
+        {
+          "file": "packages/api/src/db/field.entity.ts",
+          "hash": "6531614049390431168"
+        },
+        {
+          "file": "packages/api/src/db/index.ts",
+          "hash": "2811032215390916343"
+        },
+        {
+          "file": "packages/api/src/db/locationTypeIndicator.entity.ts",
+          "hash": "17789258283127209183"
+        },
+        {
+          "file": "packages/api/src/db/organization.entity.ts",
+          "hash": "4631904033517113872"
+        },
+        {
+          "file": "packages/api/src/db/priceIndex.entity.ts",
+          "hash": "3388546863896493994"
+        },
+        {
+          "file": "packages/api/src/db/priceIndexDate.entity.ts",
+          "hash": "3830268015569246212"
+        },
+        {
+          "file": "packages/api/src/db/priceIndexProvider.entity.ts",
+          "hash": "7559441517709178164"
+        },
+        {
+          "file": "packages/api/src/db/transformer.ts",
+          "hash": "15259189288523138924"
+        },
+        {
+          "file": "packages/api/src/db/tspLocation.entity.ts",
+          "hash": "3933895276618058167"
+        },
+        {
+          "file": "packages/api/src/db/userOrganization.entity.ts",
+          "hash": "14149375384522184919"
+        },
+        {
+          "file": "packages/api/src/db/well.entity.ts",
+          "hash": "9704254520882708271"
+        },
+        {
+          "file": "packages/api/src/field/field.controller.ts",
+          "hash": "17759576272995334580"
+        },
+        {
+          "file": "packages/api/src/field/field.module.ts",
+          "hash": "17412299577000926720"
+        },
+        {
+          "file": "packages/api/src/field/field.service.ts",
+          "hash": "11890703114011952578"
+        },
+        {
+          "file": "packages/api/src/field/index.ts",
+          "hash": "3020438874841585797"
+        },
+        {
+          "file": "packages/api/src/health/health.controller.ts",
+          "hash": "5672451901844513278"
+        },
+        {
+          "file": "packages/api/src/main.ts",
+          "hash": "6097392739912723846"
+        },
+        {
+          "file": "packages/api/src/organization/organization.controller.ts",
+          "hash": "16092021494179086868"
+        },
+        {
+          "file": "packages/api/src/organization/organization.module.ts",
+          "hash": "13227756621147164497"
+        },
+        {
+          "file": "packages/api/src/organization/organization.service.ts",
+          "hash": "10565515417069828147"
+        },
+        {
+          "file": "packages/api/src/priceIndex/priceIndex.controller.ts",
+          "hash": "10528833240969462148"
+        },
+        {
+          "file": "packages/api/src/priceIndex/priceIndex.module.ts",
+          "hash": "7955683538678652852"
+        },
+        {
+          "file": "packages/api/src/priceIndex/priceIndex.service.ts",
+          "hash": "3263288005860054613"
+        },
+        {
+          "file": "packages/api/src/priceIndexProvider/priceIndexProvider.controller.ts",
+          "hash": "10117358455879060981"
+        },
+        {
+          "file": "packages/api/src/priceIndexProvider/priceIndexProvider.module.ts",
+          "hash": "9936024343169726374"
+        },
+        {
+          "file": "packages/api/src/priceIndexProvider/priceIndexProvider.service.ts",
+          "hash": "1903292548277235037"
+        },
+        {
+          "file": "packages/api/src/tsp/constant.ts",
+          "hash": "6044745981643377218"
+        },
+        {
+          "file": "packages/api/src/tsp/locations.json",
+          "hash": "12742767707355674400"
+        },
+        {
+          "file": "packages/api/src/tsp/pine_prairie.json",
+          "hash": "7558797449455356063"
+        },
+        {
+          "file": "packages/api/src/tsp/tgp_locations.json",
+          "hash": "4171386070482673978"
+        },
+        {
+          "file": "packages/api/src/tsp/tspLocation.controller.ts",
+          "hash": "6550615617624005045"
+        },
+        {
+          "file": "packages/api/src/tsp/tspLocation.module.ts",
+          "hash": "8409755391641467292"
+        },
+        {
+          "file": "packages/api/src/tsp/tspLocation.service.ts",
+          "hash": "16715258230125497405"
+        },
+        {
+          "file": "packages/api/src/userOrganization/userOrganization.controller.ts",
+          "hash": "1726329163010746007"
+        },
+        {
+          "file": "packages/api/src/userOrganization/userOrganization.module.ts",
+          "hash": "7515288464505423578"
+        },
+        {
+          "file": "packages/api/src/userOrganization/userOrganization.service.ts",
+          "hash": "11232704507153880536"
+        },
+        {
+          "file": "packages/api/src/util/middleware.ts",
+          "hash": "4011919206086237129"
+        },
+        {
+          "file": "packages/api/src/util/validate.ts",
+          "hash": "14201856682934416363"
+        },
+        {
+          "file": "packages/api/src/well/index.ts",
+          "hash": "14036117427201232880"
+        },
+        {
+          "file": "packages/api/src/well/well.controller.ts",
+          "hash": "2810025379660278308"
+        },
+        {
+          "file": "packages/api/src/well/well.module.ts",
+          "hash": "17394442484496113985"
+        },
+        {
+          "file": "packages/api/src/well/well.service.ts",
+          "hash": "14564779350222808860"
+        },
+        {
+          "file": "packages/api/tsconfig.json",
+          "hash": "5242542528818234063"
+        }
+      ],
+      "@shared/model": [
+        {
+          "file": "packages/model/package.json",
+          "hash": "12775825216243950127"
+        },
+        {
+          "file": "packages/model/src/index.ts",
+          "hash": "9629263310180503878"
+        },
+        {
+          "file": "packages/model/tsconfig.json",
+          "hash": "12236476620617906586"
+        }
+      ],
+      "ui": [
+        {
+          "file": "packages/ui/.eslintignore",
+          "hash": "11060919157420738280"
+        },
+        {
+          "file": "packages/ui/.eslintrc.json",
+          "hash": "14690530566694426314"
+        },
+        {
+          "file": "packages/ui/.gitignore",
+          "hash": "16971388065268795019"
+        },
+        {
+          "file": "packages/ui/.prettierrc",
+          "hash": "5763604178882924935"
+        },
+        {
+          "file": "packages/ui/Dockerfile",
+          "hash": "184061842986721991"
+        },
+        {
+          "file": "packages/ui/README.md",
+          "hash": "6002906089042502528"
+        },
+        {
+          "file": "packages/ui/components/accountModal/accountModal.tsx",
+          "hash": "15235433333764439649"
+        },
+        {
+          "file": "packages/ui/components/accountModal/didModal.tsx",
+          "hash": "9759519465471194588"
+        },
+        {
+          "file": "packages/ui/components/header/NavButton.tsx",
+          "hash": "7098015097077339920"
+        },
+        {
+          "file": "packages/ui/components/header/header.tsx",
+          "hash": "8513021313757928605"
+        },
+        {
+          "file": "packages/ui/components/header/loginbutton.tsx",
+          "hash": "4786405517831756090"
+        },
+        {
+          "file": "packages/ui/components/header/logoutButton.tsx",
+          "hash": "9465064004971123673"
+        },
+        {
+          "file": "packages/ui/components/header/registerbutton.tsx",
+          "hash": "17224393075412190046"
+        },
+        {
+          "file": "packages/ui/components/layout.tsx",
+          "hash": "17522663207901177743"
+        },
+        {
+          "file": "packages/ui/components/layouts.tsx",
+          "hash": "4564748815659580048"
+        },
+        {
+          "file": "packages/ui/components/locations/index.tsx",
+          "hash": "17133962505828849023"
+        },
+        {
+          "file": "packages/ui/components/main.tsx",
+          "hash": "12370126664113218497"
+        },
+        {
+          "file": "packages/ui/components/registration/Form.tsx",
+          "hash": "8118946215154248569"
+        },
+        {
+          "file": "packages/ui/components/shared/dialog/index.tsx",
+          "hash": "18202333106540197830"
+        },
+        {
+          "file": "packages/ui/components/shared/display/valueDisplay.tsx",
+          "hash": "6978681958707313261"
+        },
+        {
+          "file": "packages/ui/components/shared/form/Submit.tsx",
+          "hash": "2610179072753603755"
+        },
+        {
+          "file": "packages/ui/components/shared/form/form.tsx",
+          "hash": "11257026918305263379"
+        },
+        {
+          "file": "packages/ui/components/shared/form/index.ts",
+          "hash": "13186252102031489071"
+        },
+        {
+          "file": "packages/ui/components/shared/form/input/select/index.tsx",
+          "hash": "3523637702703064199"
+        },
+        {
+          "file": "packages/ui/components/shared/form/input/textField/index.tsx",
+          "hash": "13300462003469250396"
+        },
+        {
+          "file": "packages/ui/components/shared/grid/Grid.tsx",
+          "hash": "456463158490679644"
+        },
+        {
+          "file": "packages/ui/components/shared/grid/index.ts",
+          "hash": "7790943511265757026"
+        },
+        {
+          "file": "packages/ui/components/shared/grid/types.ts",
+          "hash": "15185788826337297117"
+        },
+        {
+          "file": "packages/ui/components/shared/grid/useGetRowsService.ts",
+          "hash": "14952625702788091362"
+        },
+        {
+          "file": "packages/ui/components/shared/util.ts",
+          "hash": "7593111127666480490"
+        },
+        {
+          "file": "packages/ui/components/theme.ts",
+          "hash": "1603503887834461149"
+        },
+        {
+          "file": "packages/ui/middleware.ts",
+          "hash": "14654400436776349543"
+        },
+        {
+          "file": "packages/ui/next.config.js",
+          "hash": "5537933016042798925"
+        },
+        {
+          "file": "packages/ui/package.json",
+          "hash": "8442158124850903679",
+          "deps": [
+            "npm:@auth0/nextjs-auth0",
+            "npm:@emotion/react",
+            "npm:@emotion/styled",
+            "npm:@hookform/resolvers",
+            "npm:@mui/icons-material",
+            "npm:@mui/joy",
+            "npm:@mui/material",
+            "npm:@next/font",
+            "@shared/model",
+            "@shared/orm-model",
+            "npm:@tanstack/react-query",
+            "npm:@types/node",
+            "npm:@types/react@18.0.26",
+            "npm:@types/react-dom",
+            "npm:ag-grid-community",
+            "npm:ag-grid-react",
+            "npm:axios",
+            "npm:date-fns",
+            "npm:eslint",
+            "npm:eslint-config-next@13.1.1",
+            "npm:lodash",
+            "npm:next",
+            "npm:react",
+            "npm:react-dom",
+            "npm:react-hook-form",
+            "npm:sass",
+            "npm:typescript",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/ui/pages/_app.tsx",
+          "hash": "10544342167838587996"
+        },
+        {
+          "file": "packages/ui/pages/_document.tsx",
+          "hash": "3534857874877012931"
+        },
+        {
+          "file": "packages/ui/pages/account/index.tsx",
+          "hash": "4223442648219933567"
+        },
+        {
+          "file": "packages/ui/pages/api/auth/[...auth0].js",
+          "hash": "15776182222182760656"
+        },
+        {
+          "file": "packages/ui/pages/api/locations/search.tsx",
+          "hash": "16151454144267677323"
+        },
+        {
+          "file": "packages/ui/pages/api/organizations/[businessId]/did/index.ts",
+          "hash": "15587701783395610740"
+        },
+        {
+          "file": "packages/ui/pages/api/organizations/[businessId]/index.ts",
+          "hash": "679611355633713291"
+        },
+        {
+          "file": "packages/ui/pages/api/organizations/index.ts",
+          "hash": "13035494530651973284"
+        },
+        {
+          "file": "packages/ui/pages/api/organizations/search.tsx",
+          "hash": "8263932071071199849"
+        },
+        {
+          "file": "packages/ui/pages/api/userOrganizations/user.tsx",
+          "hash": "11814080292136160827"
+        },
+        {
+          "file": "packages/ui/pages/index.tsx",
+          "hash": "2413046785620168549"
+        },
+        {
+          "file": "packages/ui/pages/locations/index.tsx",
+          "hash": "16104797301554250874"
+        },
+        {
+          "file": "packages/ui/pages/organizations/index.tsx",
+          "hash": "16128958833576127179"
+        },
+        {
+          "file": "packages/ui/pages/organizations/layout.tsx",
+          "hash": "17934536752716914579"
+        },
+        {
+          "file": "packages/ui/pages/organizations/loading.tsx",
+          "hash": "16629159722594911223"
+        },
+        {
+          "file": "packages/ui/pages/registration.tsx",
+          "hash": "6790656993799653512"
+        },
+        {
+          "file": "packages/ui/pages/styles.scss",
+          "hash": "3176628498988123915"
+        },
+        {
+          "file": "packages/ui/pages/styles/Home.module.css",
+          "hash": "8949625990467812779"
+        },
+        {
+          "file": "packages/ui/pages/styles/globals.css",
+          "hash": "6894163188347107821"
+        },
+        {
+          "file": "packages/ui/public/drop_logo.png",
+          "hash": "17322265242317219741"
+        },
+        {
+          "file": "packages/ui/public/favicon.ico",
+          "hash": "17807956970400168983"
+        },
+        {
+          "file": "packages/ui/public/gradient-background.jpg",
+          "hash": "7619539756487433847"
+        },
+        {
+          "file": "packages/ui/public/next.svg",
+          "hash": "8300767200008744458"
+        },
+        {
+          "file": "packages/ui/public/thirteen.svg",
+          "hash": "11871389082220331928"
+        },
+        {
+          "file": "packages/ui/public/vercel.svg",
+          "hash": "2376673330454856631"
+        },
+        {
+          "file": "packages/ui/service/organization.ts",
+          "hash": "15419439624315093245"
+        },
+        {
+          "file": "packages/ui/tsconfig.json",
+          "hash": "7698641527341171987"
+        }
+      ]
+    }
+  }
+}

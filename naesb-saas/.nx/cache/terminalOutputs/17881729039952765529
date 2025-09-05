@@ -1,0 +1,75 @@
+
+> ui@0.1.0 build
+> next build
+
+[1G[0K[33m[33mwarn[39m  - Invalid next.config.js options detected: [39m
+[31m  - The value at .experimental has an unexpected property, outputStandalone, which is not in the list of allowed properties (adjustFontFallbacks, adjustFontFallbacksWithSizeAdjust, amp, cpus, craCompat, disableOptimizedLoading, disablePostcssPresetEnv, esmExternals, appDir, externalDir, fallbackNodePolyfills, fetchCache, forceSwcTransforms, fullySpecified, gzipSize, incrementalCacheHandlerPath, isrFlushToDisk, isrMemoryCacheSize, largePageDataBytes, legacyBrowsers, manualClientBasePath, middlewarePrefetch, newNextLinkBehavior, nextScriptWorkers, optimizeCss, optimisticClientCache, outputFileTracingRoot, outputFileTracingIgnores, pageEnv, profiling, proxyTimeout, runtime, serverComponentsExternalPackages, scrollRestoration, sharedPool, sri, swcFileReading, swcMinify, swcMinifyDebugOptions, swcPlugins, swcTraceProfiling, urlImports, enableUndici, workerThreads, fontLoaders, webVitalsAttribution, mdxRs, turbotrace).[39m
+[31m
+See more info here: https://nextjs.org/docs/messages/invalid-next-config[39m
+[33m[33mwarn[39m  - [1mYou have enabled experimental features (outputStandalone, outputFileTracingRoot) in next.config.js.[22m[39m
+[33m[33mwarn[39m  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.[39m
+[33m[39m
+[33m[33mwarn[39m  - experimental.outputStandalone has been renamed to "output: 'standalone'", please move the config.[39m
+[?25l[36minfo[39m  - Linting and checking validity of types [36m.[39m[1m[33mIt looks like you're trying to use TypeScript but do not have the required package(s) installed.[39m[22m
+Installing dependencies
+
+[1mIf you are not trying to use TypeScript, please remove the [36mtsconfig.json[39m file from your package root (and any TypeScript files in your pages directory).[22m
+
+[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m
+Installing devDependencies (npm):
+- [36m@types/react[39m
+
+[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39mnpm warn idealTree Removing dependencies.@types/react in favor of devDependencies.@types/react
+[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[?25h
+[36m./pages/api/organizations/[businessId]/did/index.ts[39m
+[33m25[39m:[33m5[39m  [33m[1mWarning[22m[39m: Unexpected console statement.  [90m[1mno-console[22m[39m
+
+[36m./pages/api/organizations/[businessId]/index.ts[39m
+[33m25[39m:[33m5[39m  [33m[1mWarning[22m[39m: Unexpected console statement.  [90m[1mno-console[22m[39m
+
+[36m./pages/api/organizations/index.ts[39m
+[33m21[39m:[33m5[39m  [33m[1mWarning[22m[39m: Unexpected console statement.  [90m[1mno-console[22m[39m
+
+[36m./pages/api/userOrganizations/user.tsx[39m
+[33m21[39m:[33m5[39m  [33m[1mWarning[22m[39m: Unexpected console statement.  [90m[1mno-console[22m[39m
+
+[36m./components/shared/form/form.tsx[39m
+[33m33[39m:[33m18[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m33[39m:[33m26[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m38[39m:[33m47[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m40[39m:[33m31[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+
+[36m./components/shared/form/input/select/index.tsx[39m
+[33m13[39m:[33m31[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m57[39m:[33m29[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+
+[36m./components/shared/grid/useGetRowsService.ts[39m
+[33m24[39m:[33m21[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m24[39m:[33m49[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m38[39m:[33m38[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+[33m38[39m:[33m50[39m  [33m[1mWarning[22m[39m: Unexpected any. Specify a different type.  [90m[1m@typescript-eslint/no-explicit-any[22m[39m
+
+[36m./components/shared/util.ts[39m
+[33m36[39m:[33m5[39m  [33m[1mWarning[22m[39m: Unexpected console statement.  [90m[1mno-console[22m[39m
+
+[36minfo[39m  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+[?25l[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m...[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[36minfo[39m  - Linting and checking validity of types [36m..[39mnpm error code E404
+npm error 404 Not Found - GET https://registry.npmjs.org/@shared%2fmodel - Not found
+npm error 404
+npm error 404  '@shared/model@*' is not in this registry.
+npm error 404
+npm error 404 Note that you can also install from a
+npm error 404 tarball, folder, http url, or git url.
+
+npm error A complete log of this run can be found in: /Users/rdobson/.npm/_logs/2025-04-09T12_52_52_598Z-debug-0.log
+Failed to install required TypeScript dependencies, please install them manually to continue:
+npm install --save-exact --save-dev @types/react
+
+[2K[1G[?25h[31m[39m
+[?25l[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[?25h[31m> Build error occurred[39m
+[?25l[36minfo[39m  - Linting and checking validity of types [36m.[39m[2K[1G[?25h{
+  type: [32m'Object'[39m,
+  stack: [1mnull[22m,
+  command: [32m'npm install --save-exact --save-dev @types/react'[39m
+}
+[?25l[36minfo[39m  - Linting and checking validity of types [36m.[39m[?25h[1G[0K⠙[1G[0K

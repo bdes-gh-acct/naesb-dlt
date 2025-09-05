@@ -1,0 +1,22 @@
+
+> ui@0.1.0 start
+> next start
+
+[32mready[39m - started server on 0.0.0.0:3000, url: http://localhost:3000
+[36minfo[39m  - Loaded env from /Users/rdobson/Development/naesb-saas/packages/ui/.env.local
+[33mwarn[39m  - Invalid next.config.js options detected: 
+  - The value at .experimental has an unexpected property, outputStandalone, which is not in the list of allowed properties (adjustFontFallbacks, adjustFontFallbacksWithSizeAdjust, amp, cpus, craCompat, disableOptimizedLoading, disablePostcssPresetEnv, esmExternals, appDir, externalDir, fallbackNodePolyfills, fetchCache, forceSwcTransforms, fullySpecified, gzipSize, incrementalCacheHandlerPath, isrFlushToDisk, isrMemoryCacheSize, largePageDataBytes, legacyBrowsers, manualClientBasePath, middlewarePrefetch, newNextLinkBehavior, nextScriptWorkers, optimizeCss, optimisticClientCache, outputFileTracingRoot, outputFileTracingIgnores, pageEnv, profiling, proxyTimeout, runtime, serverComponentsExternalPackages, scrollRestoration, sharedPool, sri, swcFileReading, swcMinify, swcMinifyDebugOptions, swcPlugins, swcTraceProfiling, urlImports, enableUndici, workerThreads, fontLoaders, webVitalsAttribution, mdxRs, turbotrace).
+
+See more info here: https://nextjs.org/docs/messages/invalid-next-config
+[33mwarn[39m  - [1mYou have enabled experimental features (outputStandalone, outputFileTracingRoot) in next.config.js.[22m
+[33mwarn[39m  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.
+
+[33mwarn[39m  - experimental.outputStandalone has been renamed to "output: 'standalone'", please move the config.
+Error: Could not find a production build in the '/Users/rdobson/Development/naesb-saas/packages/ui/.next' directory. Try building your app with 'next build' before starting the production server. https://nextjs.org/docs/messages/production-start-no-build-id
+    at NextNodeServer.getBuildId (/Users/rdobson/Development/naesb-saas/node_modules/[4mnext[24m/dist/server/next-server.js:171:23)
+    at new Server (/Users/rdobson/Development/naesb-saas/node_modules/[4mnext[24m/dist/server/base-server.js:58:29)
+    at new NextNodeServer (/Users/rdobson/Development/naesb-saas/node_modules/[4mnext[24m/dist/server/next-server.js:68:9)
+    at NextServer.createServer (/Users/rdobson/Development/naesb-saas/node_modules/[4mnext[24m/dist/server/next.js:143:16)
+    at async /Users/rdobson/Development/naesb-saas/node_modules/[4mnext[24m/dist/server/next.js:155:31
+    at async NextServer.prepare (/Users/rdobson/Development/naesb-saas/node_modules/[4mnext[24m/dist/server/next.js:130:24)
+    at async /Users/rdobson/Development/naesb-saas/node_modules/[4mnext[24m/dist/cli/next-start.js:116:9

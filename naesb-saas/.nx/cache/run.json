@@ -1,0 +1,32 @@
+{
+  "run": {
+    "command": "lerna run start",
+    "startTime": "2025-06-30T12:37:22.035Z",
+    "endTime": "2025-06-30T12:37:23.812Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "ui:start",
+      "target": "start",
+      "projectName": "ui",
+      "hash": "10978211943326622219",
+      "startTime": "2025-06-30T12:37:22.069Z",
+      "endTime": "2025-06-30T12:37:22.704Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 1
+    },
+    {
+      "taskId": "api:start",
+      "target": "start",
+      "projectName": "api",
+      "hash": "17987510051848612949",
+      "startTime": "2025-06-30T12:37:22.069Z",
+      "endTime": "2025-06-30T12:37:23.767Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    }
+  ]
+}

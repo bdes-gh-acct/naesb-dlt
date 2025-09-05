@@ -1,0 +1,11 @@
+
+> @shared/orm@1.0.0 build
+> tsc
+
+src/__tests__/queryFactory.test.ts(2,31): error TS2307: Cannot find module '@shared/orm-model' or its corresponding type declarations.
+src/__tests__/queryFactory.test.ts(13,8): error TS2307: Cannot find module 'typeorm' or its corresponding type declarations.
+src/__tests__/schema.test.ts(1,31): error TS2307: Cannot find module '@shared/orm-model' or its corresponding type declarations.
+src/index.ts(1,15): error TS2307: Cannot find module '@shared/orm-model' or its corresponding type declarations.
+src/queryFactory.ts(8,8): error TS2307: Cannot find module '@shared/orm-model' or its corresponding type declarations.
+src/queryFactory.ts(23,8): error TS2307: Cannot find module 'typeorm' or its corresponding type declarations.
+src/schema.ts(1,31): error TS2307: Cannot find module '@shared/orm-model' or its corresponding type declarations.

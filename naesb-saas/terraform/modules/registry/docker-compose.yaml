@@ -1,0 +1,71 @@
+version: '3.5'
+services:
+  proxy:
+    depends_on: ['api', 'ui']
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-proxy
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/external/nginx
+    volumes:
+      - /tmp/nginx:/etc/nginx/
+    ports:
+      - 443:443
+  ui:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-registry/ui
+    user: root
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-ui
+    environment:
+      AUTH0_SECRET: 'f297f41366022933c2163584be32f512deb6fa72fa7d998db5a4a1549801886d'
+      AUTH0_BASE_URL: ${AUTH0_BASE_URL:-https://registry.dev.naesbdlt.org}
+      AUTH0_ISSUER_BASE_URL: 'https://naesb.us.auth0.com'
+      AUTH0_CLIENT_ID: ${CLIENT_ID}
+      AUTH0_CLIENT_SECRET: ${CLIENT_SECRET}
+      PORT: 3000
+      API_URL: 'http://api:8080/api/saas/v1'
+      AUTH0_AUDIENCE: 'https://naesb.us.auth0.com/api/v2/'
+      AUTH0_SCOPE: 'openid profile email'
+    ports:
+      - 3000:3000
+  api:
+    image: 094458522773.dkr.ecr.us-east-1.amazonaws.com/naesb-registry/api
+    logging:
+      driver: 'awslogs'
+      options:
+        awslogs-region: 'us-east-1'
+        awslogs-group: $LOG_GROUP
+        awslogs-stream: ${INSTANCE_ID}-api
+    environment:
+      DOMAIN: naesbdlt.org
+      IDENTITY_DOMAIN: naesb.us.auth0.com
+      TOKEN_ISSUER_URL: https://naesb.us.auth0.com/
+      TOKEN_AUDIENCE: https://naesb.us.auth0.com/api/v2/
+      APP_DB_PORT: ${APP_DB_PORT:-5432}
+      APP_DB_HOST: ${APP_DB_HOST}
+      APP_DB_USERNAME: ${APP_DB_USERNAME}
+      APP_DB_PASSWORD: ${APP_DB_PASSWORD}
+      APP_DB_DATABASE: ${APP_DB_DATABASE}
+      APP_DB_SSL_PATH: /tmp/certs/cert.pem
+      SYNCHRONIZE_SCHEMA: true
+      HOST_PORT: 8080
+      ENABLE_CORS: true
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'curl --silent --fail  localhost:8080/api/saas/v1/health || exit 1',
+        ]
+      interval: 10s
+      timeout: 30s
+      retries: 12
+    volumes:
+      - /tmp/certs:/tmp/certs
+    ports:
+      - 8080:8080
